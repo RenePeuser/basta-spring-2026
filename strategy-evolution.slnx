@@ -1,0 +1,18 @@
+<Solution>
+  <Folder Name="/Api/">
+    <Project Path="StrategyPattern.Evolution.Test/StrategyPattern.Evolution.Test.csproj" Id="9a18b7a4-46bc-4e33-b1bc-9e4ed6ff1eab" />
+    <Project Path="StrategyPattern.Evolution/StrategyPattern.Evolution.csproj" Id="96006d8e-008f-4197-b7ca-4c8dc7101241" />
+  </Folder>
+  <Folder Name="/Docu/">
+    <File Path="Readme.md" />
+  </Folder>
+  <Folder Name="/Nuget/">
+    <File Path="Directory.Packages.props" />
+    <File Path="NuGet.Config" />
+  </Folder>
+  <Folder Name="/SolutionItems/">
+    <File Path=".editorconfig" />
+    <File Path="Directory.Build.props" />
+  </Folder>
+
+</Solution>

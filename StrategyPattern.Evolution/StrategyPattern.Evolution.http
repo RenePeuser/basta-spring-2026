@@ -1,0 +1,28 @@
+@StrategyPattern.Evolution_HostAddress = https://localhost:7038
+
+POST {{StrategyPattern.Evolution_HostAddress}}/users
+Content-Type: application/json
+
+{
+  "name": "Alice",
+  "email": "alice@example.com"
+}
+
+###
+
+@UserId = 00000000-0000-0000-0000-000000000000
+
+GET {{StrategyPattern.Evolution_HostAddress}}/users/{{UserId}}
+Accept: application/json
+
+###
+
+DELETE {{StrategyPattern.Evolution_HostAddress}}/users?name=Alice
+Accept: application/json
+
+###
+
+DELETE {{StrategyPattern.Evolution_HostAddress}}/users?name=Alice&name=Bob
+Accept: application/json
+
+###

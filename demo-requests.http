@@ -1,0 +1,252 @@
+### Error Handling Strategy Evolution - Demo Requests
+### Use this file with VS Code REST Client extension or similar tools
+
+@baseUrl = http://localhost:5000/api/v1
+
+### ======================================
+### SUCCESS SCENARIOS
+### ======================================
+
+### Create User - Success
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "firstName": "Jane",
+  "lastName": "Smith",
+  "email": "jane.smith@example.com",
+  "userType": 0
+}
+
+### Create Another User - Success
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "firstName": "Bob",
+  "lastName": "Johnson",
+  "email": "bob.johnson@example.com",
+  "userType": 1
+}
+
+### ======================================
+### ERROR SCENARIOS - VALIDATION
+### ======================================
+
+### Validation Error - Empty FirstName
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "firstName": "",
+  "lastName": "Doe",
+  "email": "john.doe@example.com",
+  "userType": 0
+}
+
+### Validation Error - Multiple Fields Invalid
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "firstName": "J",
+  "lastName": "",
+  "email": "not-an-email",
+  "userType": 0
+}
+
+### Validation Error - All Fields Empty
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "firstName": "",
+  "lastName": "",
+  "email": "",
+  "userType": 0
+}
+
+### ======================================
+### ERROR SCENARIOS - CONFLICT (409)
+### ======================================
+
+### Create User - Will be used for duplicate test
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "firstName": "Duplicate",
+  "lastName": "User",
+  "email": "duplicate@example.com",
+  "userType": 0
+}
+
+### Try to create same user again (should get 409 Conflict)
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "firstName": "Another",
+  "lastName": "Person",
+  "email": "duplicate@example.com",
+  "userType": 1
+}
+
+### ======================================
+### ERROR SCENARIOS - JSON PARSING
+### ======================================
+
+### JSON Parse Error - Missing comma between fields
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "firstName": "John"
+  "lastName": "Doe",
+  "email": "john@example.com",
+  "userType": 0
+}
+
+### JSON Parse Error - Trailing comma
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "john@example.com",
+  "userType": 0,
+}
+
+### JSON Parse Error - Missing closing brace
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "john@example.com",
+  "userType": 0
+
+### JSON Parse Error - Invalid property name (no quotes)
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  firstName: "John",
+  lastName: "Doe",
+  email: "john@example.com",
+  userType: 0
+}
+
+### ======================================
+### ERROR SCENARIOS - TYPE MISMATCH
+### ======================================
+
+### Type Mismatch - String instead of number for UserType
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "john@example.com",
+  "userType": "admin"
+}
+
+### Type Mismatch - Number instead of string
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "firstName": 123,
+  "lastName": "Doe",
+  "email": "john@example.com",
+  "userType": 0
+}
+
+### ======================================
+### EDGE CASES
+### ======================================
+
+### Very Long Email
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "this.is.a.very.long.email.address.that.might.cause.issues@some-really-long-domain-name-that-goes-on-and-on.example.com",
+  "userType": 0
+}
+
+### Special Characters in Name
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "firstName": "John-Paul",
+  "lastName": "O'Brien",
+  "email": "jp.obrien@example.com",
+  "userType": 0
+}
+
+### Unicode Characters
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "firstName": "José",
+  "lastName": "Müller",
+  "email": "jose.muller@example.com",
+  "userType": 0
+}
+
+### ======================================
+### DEMO SEQUENCE (For Presentation)
+### ======================================
+
+### DEMO 1: Success Case (Establish Baseline)
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "firstName": "Alice",
+  "lastName": "Demo",
+  "email": "alice.demo@example.com",
+  "userType": 0
+}
+
+### DEMO 2: Validation Errors (Multiple Fields)
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "firstName": "A",
+  "lastName": "",
+  "email": "bad-email",
+  "userType": 0
+}
+
+### DEMO 3: Duplicate Email (Conflict)
+# Run this twice to show conflict handling
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "firstName": "Charlie",
+  "lastName": "Conflict",
+  "email": "charlie.conflict@example.com",
+  "userType": 0
+}
+
+### DEMO 4: JSON Parse Error (Missing Comma)
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "firstName": "David"
+  "lastName": "ParseError",
+  "email": "david@example.com",
+  "userType": 0
+}

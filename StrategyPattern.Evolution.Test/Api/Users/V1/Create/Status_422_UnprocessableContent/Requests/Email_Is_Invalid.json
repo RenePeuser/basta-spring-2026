@@ -1,0 +1,6 @@
+{
+  "firstName": "Jane",
+  "lastName": "Doe",
+  "email": "not-a-valid-email",
+  "userType": "Regular"
+}

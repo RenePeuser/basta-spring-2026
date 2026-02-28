@@ -1,0 +1,46 @@
+{
+  "content": {
+    "headers": [
+      {
+        "key": "Content-Type",
+        "value": [
+          "application/problem+json"
+        ]
+      }
+    ],
+    "value": {
+      "type": "ValidationProblemDetailsExtended",
+      "title": "Your request contains invalid data",
+      "status": 422,
+      "detail": "Your CreateUserRequest contains invalid data please check the error details for more infos.",
+      "errorDetails": {
+        "email": {
+          "currentValue": "  jane.doe@example.com",
+          "errors": [
+            "Email must not have leading whitespaces."
+          ],
+          "samples": [
+            "jane.doe@example.com"
+          ],
+          "location": null
+        }
+      },
+      "errors": {
+        "email": [
+          "Email must not have leading whitespaces."
+        ]
+      },
+      "RequestType": "CreateUserRequest",
+      "RequestContent": {
+        "firstName": "Jane",
+        "lastName": "Doe",
+        "email": "  jane.doe@example.com",
+        "userType": "Regular"
+      }
+    }
+  },
+  "statusCode": "UnprocessableEntity",
+  "headers": [],
+  "trailingHeaders": [],
+  "isSuccessStatusCode": false
+}

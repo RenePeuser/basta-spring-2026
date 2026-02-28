@@ -1,0 +1,108 @@
+<Project>
+    <PropertyGroup>
+
+        <!-- AccelerateBuildsInVisualStudio
+         Enables Visual Studio build acceleration features such as design-time builds
+         and incremental compilation optimizations.
+         Improves local developer experience without affecting CI or Release outputs. -->
+        <AccelerateBuildsInVisualStudio>true</AccelerateBuildsInVisualStudio>
+
+        <!-- AnalysisLevel
+         Uses the analyzer rule set version shipped with the targeted .NET SDK.
+         Ensures new analyzer rules and improvements are applied automatically
+         without manual configuration changes. -->
+        <AnalysisLevel>9.0</AnalysisLevel>
+
+        <!-- AnalysisMode
+         Enables all analyzer rules by default for maximum code quality enforcement,
+         including performance, reliability, security, and design rules. -->
+        <AnalysisMode>AllEnabledByDefault</AnalysisMode>
+
+        <!-- Deterministic
+         Ensures deterministic builds, producing identical binaries
+         for identical inputs across machines and environments. -->
+        <Deterministic>true</Deterministic>
+
+        <!-- EnableNETAnalyzers
+         Enables the built-in .NET Roslyn analyzers for code quality, correctness,
+         performance, security, and API usage. -->
+        <EnableNETAnalyzers>true</EnableNETAnalyzers>
+
+        <!-- EnforceCodeStyleInBuild
+         Applies .editorconfig code style rules during the build, not only in the IDE.
+         Guarantees consistent formatting and style across developers, CI, and platforms. -->
+        <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+
+        <!-- GenerateDocumentationFile
+         Generates XML documentation files for all projects.
+         Required for SDKs, public APIs, analyzers, code generators, and tooling
+         where IntelliSense and external documentation are critical. -->
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+        <!-- ImplicitUsings
+         Enables SDK-provided implicit global using directives.
+         Reduces boilerplate while maintaining consistent behavior across projects. -->
+        <ImplicitUsings>enable</ImplicitUsings>
+
+        <!-- InvariantGlobalization
+         Enables invariant globalization mode.
+         Should be enabled selectively for trimmed, containerized,
+         or invariant-only workloads where culture-specific behavior is not required. -->
+        <InvariantGlobalization>true</InvariantGlobalization>
+
+        <!-- IsTestProject
+         Explicit default for non-test projects.
+         Test projects override this locally when required by the test SDK. -->
+        <IsTestProject>false</IsTestProject>
+
+        <!-- LangVersion
+         Uses the latest supported *major* C# language version for the selected SDK.
+         Avoids preview instability while enabling modern language features consistently. -->
+        <LangVersion>13.0</LangVersion>
+
+        <!-- ManagePackageVersionsCentrally
+         Enables centralized NuGet package version management via
+         Directory.Packages.props for consistent dependency versions across the solution. -->
+        <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+
+        <!-- Nullable
+         Enables nullable reference type annotations and flow analysis.
+         Significantly reduces null-related runtime errors and improves API contracts. -->
+        <Nullable>enable</Nullable>
+
+        <!-- NuGetAudit
+         Enables automatic vulnerability scanning during restore and build
+         for both direct and transitive package dependencies. -->
+        <NuGetAudit>true</NuGetAudit>
+
+        <!-- NuGetAuditLevel
+         Sets the minimum vulnerability severity that is reported.
+         'low' is intentionally strict to ensure full visibility and early remediation,
+         even during local Debug builds. -->
+        <NuGetAuditLevel>low</NuGetAuditLevel>
+
+        <!-- NuGetAuditMode
+         'all' ensures that all dependencies, including transitive ones,
+         are checked for known security vulnerabilities. -->
+        <NuGetAuditMode>all</NuGetAuditMode>
+
+        <!-- TargetFramework
+         Defines the single .NET runtime and API surface for the entire solution.
+         'net9.0' ensures consistent behavior, tooling, analyzers,
+         and SDK features across Debug, CI, and Release builds. -->
+        <TargetFramework>net9.0</TargetFramework>
+
+        <!-- TreatWarningsAsErrors
+         Treats all compiler and analyzer warnings as build errors.
+         Intentionally enabled even in Debug builds to ensure consistent behavior
+         across Debug, CI, and Release and to surface issues early. -->
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+
+        <!-- WarningsAsErrors (Nullable)
+         Escalates nullable warnings to errors.
+         Nullable violations are treated as correctness issues
+         and must be fixed explicitly. -->
+        <WarningsAsErrors>Nullable</WarningsAsErrors>
+
+    </PropertyGroup>
+</Project>

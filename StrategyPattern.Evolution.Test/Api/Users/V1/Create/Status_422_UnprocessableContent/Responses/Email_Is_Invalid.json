@@ -1,0 +1,48 @@
+{
+  "content": {
+    "headers": [
+      {
+        "key": "Content-Type",
+        "value": [
+          "application/problem+json"
+        ]
+      }
+    ],
+    "value": {
+      "type": "ValidationProblemDetailsExtended",
+      "title": "Your request contains invalid data",
+      "status": 422,
+      "detail": "Your CreateUserRequest contains invalid data please check the error details for more infos.",
+      "errorDetails": {
+        "email": {
+          "currentValue": "not-a-valid-email",
+          "errors": [
+            "Email is not a valid email address."
+          ],
+          "samples": [
+            [
+              "example@domain.com"
+            ]
+          ],
+          "location": null
+        }
+      },
+      "errors": {
+        "email": [
+          "Email is not a valid email address."
+        ]
+      },
+      "RequestType": "CreateUserRequest",
+      "RequestContent": {
+        "firstName": "Jane",
+        "lastName": "Doe",
+        "email": "not-a-valid-email",
+        "userType": "Regular"
+      }
+    }
+  },
+  "statusCode": "UnprocessableEntity",
+  "headers": [],
+  "trailingHeaders": [],
+  "isSuccessStatusCode": false
+}
