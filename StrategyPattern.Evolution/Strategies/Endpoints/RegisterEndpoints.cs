@@ -13,6 +13,8 @@ namespace StrategyPattern.Evolution
         void Map(IEndpointRouteBuilder versionBasePath);
     }
 
+
+    // Also the way how the "Behavior" for your endpoint registrations is a "Strategy"
     internal sealed class RegisterEndpoints(IEnumerable<IEndpointRegistration> endpoints)
     {
         public void MapEndpoints(IEndpointRouteBuilder routeBuilder)

@@ -12,7 +12,7 @@
         <PackageVersion Include="MSTest" Version="4.1.0" />
         <PackageVersion Include="MSTest.TestAdapter" Version="4.1.0" />
         <PackageVersion Include="MSTest.TestFramework" Version="4.1.0" />
-        <PackageVersion Include="Siemens.AspNet.ErrorHandling" Version="0.2.0-alpha.516" />
-        <PackageVersion Include="Siemens.AspNet.MinimalApi.Sdk" Version="0.2.0-alpha.516" />
+        <PackageVersion Include="Siemens.AspNet.ErrorHandling" Version="0.2.0-alpha.517" />
+        <PackageVersion Include="Siemens.AspNet.MinimalApi.Sdk" Version="0.2.0-alpha.517" />
     </ItemGroup>
 </Project>

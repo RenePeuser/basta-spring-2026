@@ -1,23 +1,26 @@
+using Siemens.AspNet.ErrorHandling;
 using Siemens.AspNet.MinimalApi.Sdk;
 using StrategyPattern.Evolution.Api;
 
 namespace StrategyPattern.Evolution
 {
     /// <summary>
-    /// V1 - Basic Startup Strategy
-    /// Complete configuration with basic error handling.
-    /// Shows the minimal viable error handling approach.
+    /// Full-Blown Startup Strategy
+    /// Complete production-ready configuration with Siemens error handling system.
+    /// Includes all features: specialized handlers, validation, buffering, security-aware responses, etc.
+    /// This is what you would use in a real production environment.
     /// </summary>
-    public class NoStrategy : IStartupStrategy
+    public class V6_NextLevel : IStartupStrategy
     {
-        public string Description => "V1 - Basic Error Handling (Simple 500 responses)";
+        public string Description => "Enterprise ready";
 
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
             // Domain registrations
             services.AddApi(configuration);
 
-            // Common services
+            // Common services, to avoid too much code changes later !
+            services.AddErrorHandling(configuration);
             services.AddRegisterEndpoints();
             services.AddValidation();
             services.AddJsonSerializeOptions();
@@ -29,6 +32,11 @@ namespace StrategyPattern.Evolution
             app.UseHttpsRedirection();
 
             var apiBasePath = app.MapGroup("api/v1");
+
+            // Siemens error handling middleware (production-ready)
+            app.UseErrorHandling();
+
+            app.UseAllowedQueryParameter();
 
             // Register endpoints
             var registerEndpoints = app.Services.GetRequiredService<RegisterEndpoints>();

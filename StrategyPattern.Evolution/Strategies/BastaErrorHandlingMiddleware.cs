@@ -1,20 +1,28 @@
 
+using Extensions.Pack;
+
 namespace StrategyPattern.Evolution
 {
     public enum StrategyType
     {
-        None, // Default MS
+        None,
         Basic,
-        Intermediate,
-        Advanced,
-        Basta,
-        FullBlown
+        Switch,
+        SpecificExceptionHandlers,
+        SpecificHandlersAndFullContext,
+        NextLevel,
+        Basta
     }
 
 
     internal static class AddBastaErrorHandlingMiddlewareExtension
     {
-        internal static void AddBastaErrorHandlingMiddleware(this WebApplication webApplication)
+        internal static void AddBastaErrorHandlingMiddleware(this IServiceCollection services)
+        {
+            services.AddSingletonIfNotExists<BastaErrorHandlingMiddleware>();
+        }
+
+        internal static void UseBastaErrorHandlingMiddleware(this WebApplication webApplication)
         {
             webApplication.UseMiddleware<BastaErrorHandlingMiddleware>();
         }

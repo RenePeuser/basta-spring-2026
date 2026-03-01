@@ -1,3 +1,4 @@
+using Siemens.AspNet.ErrorHandling;
 using Siemens.AspNet.MinimalApi.Sdk;
 using StrategyPattern.Evolution.Api;
 
@@ -8,19 +9,22 @@ namespace StrategyPattern.Evolution
     /// Complete configuration with basic error handling.
     /// Shows the minimal viable error handling approach.
     /// </summary>
-    public class BasicStartupStrategy : IStartupStrategy
+    public class V5_SpecificExceptionHandlersAndFullContext : IStartupStrategy
     {
-        public string Description => "V1 - Basic Error Handling (Simple 500 responses)";
+        public string Description => "Extended error handling with full collected call infos context";
 
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
             // Domain registrations
             services.AddApi(configuration);
 
-            // Error handling - Basic strategy
-            services.AddBasicErrorHandling();
+            // Error handling - Basic strategy - Scope is here
+            services.AddAdvancedErrorHandling();
 
-            // Common services
+            services.AddBastaErrorHandlingMiddleware();
+
+            // Common services, to avoid too much code changes later !
+            services.AddErrorHandling(configuration);
             services.AddRegisterEndpoints();
             services.AddValidation();
             services.AddJsonSerializeOptions();
@@ -33,8 +37,8 @@ namespace StrategyPattern.Evolution
 
             var apiBasePath = app.MapGroup("api/v1");
 
-            // Basic error handling middleware
-            app.AddBastaErrorHandlingMiddleware();
+            // Siemens error handling middleware (production-ready)
+            app.UseBastaErrorHandlingMiddleware();
 
             app.UseAllowedQueryParameter();
 

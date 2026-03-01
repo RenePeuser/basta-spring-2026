@@ -12,11 +12,13 @@ namespace StrategyPattern.Evolution
         {
             return strategyType switch
             {
-                StrategyType.Basic => new BasicStartupStrategy(),
-                StrategyType.Intermediate => new IntermediateStartupStrategy(),
-                StrategyType.Basta => new BastaStartupStrategy(),
-                StrategyType.FullBlown => new FullBlownStartupStrategy(),
-                StrategyType.Advanced => new FullBlownStartupStrategy(), // Advanced maps to FullBlown
+                StrategyType.None =>new V1_None(),
+                StrategyType.Basic => new V2_Basic(),
+                StrategyType.Switch => new V3_SwitchStrategy(),
+                StrategyType.SpecificExceptionHandlers => new V4_SpecificExceptionHandlers(),
+                StrategyType.SpecificHandlersAndFullContext => new V5_SpecificExceptionHandlersAndFullContext(),
+                StrategyType.NextLevel => new V6_NextLevel(),
+                StrategyType.Basta => new V7_Basta(),
                 _ => throw new ArgumentOutOfRangeException(nameof(strategyType), strategyType,
                                                            $"Unknown strategy type: {strategyType}")
             };
@@ -35,13 +37,6 @@ namespace StrategyPattern.Evolution
                                                                  StrategyType strategyType)
         {
             var strategy = StartupStrategyFactory.GetStartupStrategy(strategyType);
-
-            // Log the selected strategy
-            Console.WriteLine($"╔══════════════════════════════════════════════════════════════════╗");
-            Console.WriteLine($"║  Strategy: {strategyType,-50}                                    ║");
-            Console.WriteLine($"║  {strategy.Description,-60}                                      ║");
-            Console.WriteLine($"╚══════════════════════════════════════════════════════════════════╝");
-            Console.WriteLine();
 
             // Configure services for this strategy
             strategy.ConfigureServices(builder.Services, builder.Configuration);

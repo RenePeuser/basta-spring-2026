@@ -1,3 +1,4 @@
+using Siemens.AspNet.ErrorHandling;
 using Siemens.AspNet.MinimalApi.Sdk;
 using StrategyPattern.Evolution.Api;
 
@@ -8,9 +9,9 @@ namespace StrategyPattern.Evolution
     /// Complete configuration with ProblemDetails and proper HTTP status code mapping.
     /// Shows proper REST API error handling with RFC 7807 compliance.
     /// </summary>
-    public class IntermediateStartupStrategy : IStartupStrategy
+    public class V3_SwitchStrategy : IStartupStrategy
     {
-        public string Description => "V2 - Intermediate Error Handling (ProblemDetails with status codes)";
+        public string Description => "The switch solution";
 
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
@@ -18,9 +19,11 @@ namespace StrategyPattern.Evolution
             services.AddApi(configuration);
 
             // Error handling - Intermediate strategy
-            services.AddIntermediateErrorHandling();
+            services.AddSwitchErrorHandlingStrategy();
+            services.AddBastaErrorHandlingMiddleware();
 
-            // Common services
+            // Common services, to avoid too much code changes later !
+            services.AddErrorHandling(configuration);
             services.AddRegisterEndpoints();
             services.AddValidation();
             services.AddJsonSerializeOptions();
@@ -33,8 +36,7 @@ namespace StrategyPattern.Evolution
 
             var apiBasePath = app.MapGroup("api/v1");
 
-            // Intermediate error handling middleware
-            app.AddBastaErrorHandlingMiddleware();
+            app.UseBastaErrorHandlingMiddleware();
 
             app.UseAllowedQueryParameter();
 

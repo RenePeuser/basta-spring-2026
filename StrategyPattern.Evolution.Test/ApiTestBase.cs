@@ -33,7 +33,7 @@ namespace StrategyPattern.Evolution.Test
 
             Client = _apiTestBase.CreateClient();
 
-            AssertObjectExtensions.WriteResponse = false;
+            AssertObjectExtensions.WriteResponse = true;
             AssertObjectExtensions.DifferenceFunc = DifferenceFunc;
         }
 

@@ -3,29 +3,26 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace StrategyPattern.Evolution
 {
-    public static class IntermediateErrorHandlingExtensions
+    public static class SwitchErrorHandlingStrategyExtensions
     {
-        /// <summary>
-        /// Registers the Intermediate error handling strategy (V2).
-        /// Maps different exception types to appropriate HTTP status codes and ProblemDetails.
-        /// </summary>
-        public static void AddIntermediateErrorHandling(this IServiceCollection services)
+        public static void AddSwitchErrorHandlingStrategy(this IServiceCollection services)
         {
-            services.AddSingleton<IBastaErrorHandler, IntermediateErrorHandlingStrategy>();
+            services.AddSingleton<IBastaErrorHandler, SwitchErrorHandlingStrategy>();
         }
     }
 
-    /// <summary>
-    /// V2 - Intermediate Error Handling Strategy
-    /// Maps different exception types to appropriate HTTP status codes and ProblemDetails
-    /// </summary>
-    public class IntermediateErrorHandlingStrategy : IBastaErrorHandler
+    public class SwitchErrorHandlingStrategy : IBastaErrorHandler
     {
         public async Task HandleAsync(HttpContext httpContext,
                                       Exception exception)
         {
             var problemDetails = exception switch
             {
+                BadHttpRequestException badHttpRequestException => CreateProblemDetails(StatusCodes.Status400BadRequest,
+                                                                                        nameof(BadHttpRequestException),
+                                                                                        badHttpRequestException.Message,
+                                                                                        httpContext),
+
                 ArgumentNullException argEx => CreateProblemDetails(StatusCodes.Status400BadRequest,
                                                                     "Bad Request",
                                                                     argEx.Message,
@@ -71,7 +68,7 @@ namespace StrategyPattern.Evolution
                 Title = title,
                 Detail = detail,
                 Instance = context.Request.Path,
-                Type = $"https://httpstatuses.com/{statusCode}"
+                Type = $"https://http.cat/status/{statusCode}"
             };
         }
     }

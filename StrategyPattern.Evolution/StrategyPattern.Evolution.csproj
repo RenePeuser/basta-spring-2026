@@ -10,4 +10,8 @@
       <PackageReference Include="Siemens.AspNet.ErrorHandling" />
       <PackageReference Include="Siemens.AspNet.MinimalApi.Sdk" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Strategies\V6_NextLevel\" />
+    </ItemGroup>
 </Project>

@@ -1,26 +1,30 @@
+using Siemens.AspNet.ErrorHandling;
 using Siemens.AspNet.MinimalApi.Sdk;
 using StrategyPattern.Evolution.Api;
 
 namespace StrategyPattern.Evolution
 {
     /// <summary>
-    /// V5 - BASTA! Startup Strategy
-    /// Special demo configuration with ASCII art error response.
-    /// Shows the flexibility of the Strategy Pattern with a fun demo implementation.
+    /// V1 - Basic Startup Strategy
+    /// Complete configuration with basic error handling.
+    /// Shows the minimal viable error handling approach.
     /// </summary>
-    public class BastaStartupStrategy : IStartupStrategy
+    public class V1_None : IStartupStrategy
     {
-        public string Description => "V5 - BASTA! Special (ASCII Art Demo Response)";
+        public string Description => "Ooops an error occured we keep our eyes closed";
 
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
             // Domain registrations
             services.AddApi(configuration);
 
-            // Error handling - BASTA! special strategy
-            services.AddBastaAdvancedErrorHandlingStrategy();
+            // Error handling - Basic strategy - Scope is here
+            services.AddNoneErrorHandling();
 
-            // Common services
+            services.AddBastaErrorHandlingMiddleware();
+
+            // Common services, to avoid too much code changes later !
+            services.AddErrorHandling(configuration);
             services.AddRegisterEndpoints();
             services.AddValidation();
             services.AddJsonSerializeOptions();
@@ -33,8 +37,10 @@ namespace StrategyPattern.Evolution
 
             var apiBasePath = app.MapGroup("api/v1");
 
-            // BASTA! error handling middleware (with ASCII art)
-            app.AddBastaErrorHandlingMiddleware();
+            // Siemens error handling middleware (production-ready)
+            app.UseBastaErrorHandlingMiddleware();
+
+            app.UseAllowedQueryParameter();
 
             // Register endpoints
             var registerEndpoints = app.Services.GetRequiredService<RegisterEndpoints>();

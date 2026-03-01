@@ -1,0 +1,17 @@
+{
+  "content": {
+    "headers": [
+      {
+        "key": "Content-Type",
+        "value": [
+          "application/json; charset=utf-8"
+        ]
+      }
+    ],
+    "value": {}
+  },
+  "statusCode": "BadRequest",
+  "headers": [],
+  "trailingHeaders": [],
+  "isSuccessStatusCode": false
+}

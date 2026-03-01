@@ -31,7 +31,7 @@ namespace StrategyPattern.Evolution
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            var strategyTypeToUse = StrategyType ?? Evolution.StrategyType.FullBlown;
+            var strategyTypeToUse = StrategyType ?? Evolution.StrategyType.NextLevel;
 
             var strategy = StartupStrategyFactory.GetStartupStrategy(strategyTypeToUse);
 
