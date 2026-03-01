@@ -1,38 +1,38 @@
 # Startup Strategy Pattern
 
-Diese Implementierung demonstriert das **Strategy Pattern auf Startup-Ebene**.
-Jeder `StrategyType` hat seine eigene Startup-Konfiguration, die nur die notwendigen Services und Middleware registriert.
+This implementation demonstrates the **Strategy Pattern at the Startup level**.
+Each `StrategyType` has its own startup configuration that registers only the necessary services and middleware.
 
-## 🎯 Konzept
+## 🎯 Concept
 
-Anstatt eine komplexe `Program.cs` mit vielen Bedingungen zu haben, nutzen wir eine **Facade + Strategy Pattern Kombination**:
+Instead of having a complex `Program.cs` with many conditionals, we use a **Facade + Strategy Pattern combination**:
 
 ```csharp
-// Das ist ALLES was in Program.cs steht (nur 3 Zeilen!):
+// This is ALL that's in Program.cs (only 3 lines!):
 var webApi = new BastaStrategyWebApi(args);
 
 webApi.Run();
 ```
 
-**Die GESAMTE Startup-Logik ist hinter einer Facade versteckt, die intern das Strategy Pattern nutzt!**
+**The ENTIRE startup logic is hidden behind a Facade that internally uses the Strategy Pattern!**
 
-Die `BastaStrategyWebApi` Facade:
-- Bestimmt automatisch die Strategy (default: FullBlown, oder via Environment/Manual Override)
-- Ruft intern das Strategy Pattern auf
-- Konfiguriert Services und Pipeline
-- Inspiriert vom Siemens `ServerlessMinimalWebApi` Pattern
+The `BastaStrategyWebApi` Facade:
+- Automatically determines the strategy (default: FullBlown, or via environment/manual override)
+- Internally calls the Strategy Pattern
+- Configures services and pipeline
+- Inspired by real-world SDK patterns
 
-Jede Strategy ist verantwortlich für:
-- ✅ **Alle Service-Registrierungen** (Domain, Error Handling, Validation, etc.)
-- ✅ **Komplette Middleware-Pipeline** (HTTPS, Error Handling, Routing, etc.)
-- ✅ **API-Konfiguration** (Route Groups, Endpoint Mapping)
+Each strategy is responsible for:
+- ✅ **All service registrations** (Domain, Error Handling, Validation, etc.)
+- ✅ **Complete middleware pipeline** (HTTPS, Error Handling, Routing, etc.)
+- ✅ **API configuration** (Route Groups, Endpoint Mapping)
 
-## 🎤 Demo Story: "Warum Startup Strategies?"
+## 💡 Why Startup Strategies?
 
-### Problem ohne Strategy Pattern:
+### Problem without Strategy Pattern:
 
 ```csharp
-// Program.cs wird schnell komplex und unübersichtlich
+// Program.cs quickly becomes complex and cluttered
 if (environment == "Basic") {
     services.AddBasicErrorHandling();
 } else if (environment == "Intermediate") {
@@ -43,9 +43,9 @@ if (environment == "Basic") {
 
 services.AddApi(configuration);
 services.AddValidation();
-// ... 20+ weitere Registrierungen
+// ... 20+ more registrations
 
-// Und dann wieder für die Pipeline...
+// And then again for the pipeline...
 if (environment == "Basic") {
     app.AddBastaErrorHandlingMiddleware();
 } else if (environment == "Intermediate") {
@@ -55,72 +55,90 @@ if (environment == "Basic") {
 }
 
 app.UseHttpsRedirection();
-// ... 10+ weitere Middleware
+// ... 10+ more middleware
 ```
 
-**Das wird schnell unübersichtlich!** 😱
+**This quickly becomes messy!** 😱
 
-### Lösung mit Facade + Strategy Pattern:
+### Solution with Facade + Strategy Pattern:
 
 ```csharp
-// Program.cs ist minimal - nur 3 Zeilen!
+// Program.cs is minimal - only 3 lines!
 var webApi = new BastaStrategyWebApi(args);
 
 webApi.Run();
 ```
 
-**Ultra clean, testbar, erweiterbar!** ✨
+**Ultra clean, testable, extensible!** ✨
 
-Die Facade versteckt die Komplexität und nutzt intern das Strategy Pattern.
+The Facade hides complexity and internally uses the Strategy Pattern.
 
-### Warum ist das wichtig?
+### Why is this important?
 
-1. **Testing**: Verschiedene Environments mit unterschiedlichen Konfigurationen
-2. **Demo/Development**: Schnell zwischen Konfigurationen wechseln
-3. **Production**: Unterschiedliche Setups für verschiedene Deployment-Szenarien
-4. **Maintenance**: Neue Konfiguration? Einfach neue Strategy-Klasse hinzufügen!
+1. **Testing**: Different environments with different configurations
+2. **Development**: Quickly switch between configurations
+3. **Production**: Different setups for different deployment scenarios
+4. **Maintenance**: New configuration? Simply add a new Strategy class!
 
-## 📦 Verfügbare Startup Strategies
+## 📦 Available Startup Strategies
 
-### 1. BasicStartupStrategy (V1)
+### V1_None
+- **StrategyType**: `None`
+- **Services**: `AddNoneErrorHandling()`
+- **Pipeline**: `AddBastaErrorHandlingMiddleware()`
+- **Use Case**: Educational - worst case scenario
+
+### V2_Basic
 - **StrategyType**: `Basic`
-- **Services**: Nur `AddBasicErrorHandling()`
-- **Pipeline**: Nur `AddBastaErrorHandlingMiddleware()`
-- **Use Case**: Einfachste Demo - 500er Fehler für alles
+- **Services**: `AddBasicErrorHandling()`
+- **Pipeline**: `AddBastaErrorHandlingMiddleware()`
+- **Use Case**: Simplest implementation - 500 errors for everything
 
-### 2. IntermediateStartupStrategy (V2)
-- **StrategyType**: `Intermediate`
-- **Services**: Nur `AddIntermediateErrorHandling()`
-- **Pipeline**: Nur `AddBastaErrorHandlingMiddleware()`
-- **Use Case**: ProblemDetails mit HTTP Status Codes
+### V3_SwitchStrategy
+- **StrategyType**: `Switch`
+- **Services**: `AddSwitchErrorHandlingStrategy()`
+- **Pipeline**: `AddBastaErrorHandlingMiddleware()`
+- **Use Case**: ProblemDetails with proper HTTP status codes
 
-### 3. BastaStartupStrategy (V5)
+### V4_SpecificExceptionHandlers
+- **StrategyType**: `SpecificExceptionHandlers`
+- **Services**: `AddSpecificExceptionHandlers()`
+- **Pipeline**: `AddBastaErrorHandlingMiddleware()`
+- **Use Case**: Extensible handler pattern with inner exception support
+
+### V5_SpecificExceptionHandlersAndFullContext
+- **StrategyType**: `SpecificHandlersAndFullContext`
+- **Services**: `AddAdvancedErrorHandling()`
+- **Pipeline**: `AddBastaErrorHandlingMiddleware()`
+- **Use Case**: Full context + centralized response writing
+
+### V6_NextLevel
+- **StrategyType**: `NextLevel`
+- **Services**: Enterprise error handling (NuGet package)
+- **Pipeline**: `UseErrorHandling()` (Enterprise middleware)
+- **Use Case**: Production-ready with all features (Default)
+
+### V7_Basta
 - **StrategyType**: `Basta`
-- **Services**: Nur `AddBastaAdvancedErrorHandlingStrategy()`
-- **Pipeline**: Nur `AddBastaErrorHandlingMiddleware()`
-- **Use Case**: Special BASTA! Demo mit ASCII Art Response
-
-### 4. FullBlownStartupStrategy
-- **StrategyType**: `FullBlown` oder `Advanced`
-- **Services**: Vollständiges Siemens Error Handling System
-- **Pipeline**: `UseErrorHandling()` (Siemens Middleware)
-- **Use Case**: Production-ready mit allen Features
+- **Services**: `AddBastaAdvancedErrorHandlingStrategy()`
+- **Pipeline**: `AddBastaErrorHandlingMiddleware()`
+- **Use Case**: Special demo with ASCII Art response 🎉
 
 ## 🚀 Usage
 
-### Option 1: Default (FullBlown)
+### Option 1: Default (NextLevel)
 
 ```csharp
 var webApi = new BastaStrategyWebApi(args);
 webApi.Run();
-// → Nutzt FullBlown Strategy
+// → Uses NextLevel Strategy (V6 - Enterprise NuGet)
 ```
 
 ### Option 2: Manual Override
 
 ```csharp
 var webApi = new BastaStrategyWebApi(args);
-webApi.StrategyType = StrategyType.Basic; // oder Intermediate, Basta, FullBlown
+webApi.StrategyType = StrategyType.Switch; // Change to any V1-V7
 webApi.Run();
 ```
 
@@ -142,18 +160,18 @@ webApi.SetupApplication = app =>
 webApi.Run();
 ```
 
-## 🎨 Demo-Flow
+## 🎨 Architecture Flow
 
 ```
 ┌──────────────────┐
-│  Program.cs      │  ← Nur 3 Zeilen!
+│  Program.cs      │  ← Only 3 lines!
 │  (Facade Call)   │
 └────────┬─────────┘
          │
          v
 ┌───────────────────────┐
 │ BastaStrategyWebApi   │  ← Facade Pattern
-│ (versteckt Details)   │
+│ (hides complexity)    │
 └────────┬──────────────┘
          │
          v
@@ -175,22 +193,22 @@ webApi.Run();
          └─────► FullBlownStartupStrategy
 ```
 
-**Drei Design Patterns in Kombination:**
-1. **Facade Pattern** - BastaStrategyWebApi versteckt Komplexität
-2. **Factory Pattern** - StartupStrategyFactory erstellt Strategy
-3. **Strategy Pattern** - Austauschbare Startup-Konfigurationen
+**Three Design Patterns Combined:**
+1. **Facade Pattern** - BastaStrategyWebApi hides complexity
+2. **Factory Pattern** - StartupStrategyFactory creates strategies
+3. **Strategy Pattern** - Interchangeable startup configurations
 
-## 🎓 Warum ist das cool für die Demo?
+## 🎓 Key Benefits
 
-1. **Single Responsibility**: Jede Startup-Strategy kümmert sich nur um ihre eigene Konfiguration
-2. **Open/Closed Principle**: Neue Strategies hinzufügen ohne bestehende zu ändern
-3. **Clean Program.cs**: Die Haupt-Entry-Point bleibt minimal und übersichtlich
-4. **Testbar**: Jede Strategy kann isoliert getestet werden
-5. **Environment-basiert**: Perfekt für Integration-Tests mit verschiedenen Umgebungen
+1. **Single Responsibility**: Each startup strategy handles only its own configuration
+2. **Open/Closed Principle**: Add new strategies without changing existing ones
+3. **Clean Program.cs**: Entry point remains minimal and clear
+4. **Testable**: Each strategy can be tested in isolation
+5. **Environment-based**: Perfect for integration tests with different environments
 
-## 📊 Vergleich: Vorher vs. Nachher
+## 📊 Comparison: Before vs. After
 
-### Vorher (komplexe Program.cs)
+### Before (complex Program.cs)
 ```csharp
 if (strategyType == StrategyType.Basic) {
     builder.Services.AddBasicErrorHandling();
@@ -199,31 +217,23 @@ if (strategyType == StrategyType.Basic) {
 } else if (strategyType == StrategyType.FullBlown) {
     builder.Services.AddErrorHandling(configuration);
 }
-// ... und dann nochmal für die Pipeline
+// ... and then again for the pipeline
 ```
 
-### Nachher (Clean mit Facade + Strategy Pattern)
+### After (Clean with Facade + Strategy Pattern)
 ```csharp
 var webApi = new BastaStrategyWebApi(args);
 webApi.Run();
 // Done! 🎉
 ```
 
-**Von vielen Zeilen zu nur 3 Zeilen!**
+**From many lines to just 3 lines!**
 
-## 🔧 Erweiterung
+## 🔧 Extension
 
-Neue Strategy hinzufügen? Einfach:
+Adding a new strategy is simple:
 
-1. Neuen `StrategyType` zum Enum hinzufügen
-2. Neue `XyzStartupStrategy : IStartupStrategy` erstellen
-3. In der Factory registrieren
-4. Fertig! 🚀
-
-## 🎤 BASTA! Talking Points
-
-- "Die Program.cs hat nur 3 Zeilen - inspiriert vom Siemens SDK!"
-- "Wir kombinieren Facade Pattern (für Einfachheit) mit Strategy Pattern (für Flexibilität)"
-- "Alle Komplexität ist versteckt, aber die Power ist noch da"
-- "Jede Strategy konfiguriert ALLES - Services, Pipeline, Endpoints"
-- "Neue Konfigurationen? Einfach neue Strategy-Klasse hinzufügen!"
+1. Add new `StrategyType` to the enum
+2. Create new `XyzStartupStrategy : IStartupStrategy`
+3. Register in the factory
+4. Done! 🚀

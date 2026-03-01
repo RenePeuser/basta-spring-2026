@@ -1,7 +1,7 @@
 # Strategy Pattern Evolution - Error Handling Demo
 
 ## 📖 Overview
-This project demonstrates the evolution of error handling strategies in ASP.NET Core, from basic to enterprise-grade implementations, combined with a **Facade Pattern** for ultra-clean startup code. Perfect for conference talks and workshops about **combining Design Patterns** for clean architecture.
+This project demonstrates the evolution of error handling strategies in ASP.NET Core, from basic to enterprise-grade implementations, combined with a **Facade Pattern** for ultra-clean startup code.
 
 ## 🎯 What You'll Learn
 - **Design Pattern Combinations**: Facade + Strategy + Factory Pattern
@@ -9,7 +9,7 @@ This project demonstrates the evolution of error handling strategies in ASP.NET 
 - **Error Handling Evolution**: Basic → ProblemDetails → Enterprise-grade
 - **RFC 7807 ProblemDetails** standard
 - **Field-level validation** error responses
-- **Production-ready patterns** inspired by our Siemens SDK
+- **Production-ready patterns** inspired by real-world SDKs
 - **Security considerations** in error responses
 
 ## ✨ The Ultra-Clean Program.cs
@@ -41,12 +41,20 @@ StrategyPattern.Evolution/
 │               └── ValidationException.cs         # Custom validation
 │
 ├── Strategies/
-│   ├── V1_Basic/
-│   │   └── BasicErrorHandlingStrategy.cs          # Basic try-catch
-│   ├── V2_Intermediate/
-│   │   └── IntermediateErrorHandlingStrategy.cs   # ProblemDetails + Status Codes
-│   └── V3_Advanced/
-│       └── AdvancedErrorHandlingStrategy.cs       # Full-featured enterprise
+│   ├── V1_None/
+│   │   └── NoneErrorHandlingStrategy.cs           # Worst case (educational)
+│   ├── V2_Basic/
+│   │   └── BasicErrorHandlingStrategy.cs          # Basic try-catch (always 500)
+│   ├── V3_Switch/
+│   │   └── SwitchErrorHandlingStrategy.cs         # Switch + ProblemDetails
+│   ├── V4_SpecificExceptionHandlers/
+│   │   └── SpecificExceptionHandlersStrategy.cs   # Extensible handlers
+│   ├── V5_SpecificHandlersAndFullContext/
+│   │   └── NextLevelErrorHandlingStrategy.cs      # Full context + centralized
+│   ├── V6_NextLevel/
+│   │   └── (Enterprise NuGet Package)             # Production-ready
+│   └── V7_Basta/
+│       └── BastaErrorHandlingStrategy.cs          # ASCII Art demo
 │
 ├── ErrorResponseHandling/                         # Full error handling system
 │   ├── Handlers/                                  # Specialized exception handlers
@@ -85,26 +93,20 @@ dotnet run
 
 ## 📊 Strategy Comparison
 
-| Feature | V1 Basic | V2 Intermediate | V5 Basta | FullBlown |
-|---------|----------|-----------------|----------|-----------|
-| HTTP Status Codes | ❌ Always 500 | ✅ Proper | 🎨 Art | ✅ Proper |
-| RFC 7807 Format | ❌ | ✅ | ❌ Demo | ✅ |
-| Field-level Validation | ❌ | ❌ | ❌ | ✅ |
-| JSON Parse Diagnostics | ❌ | ❌ | ❌ | ✅ |
-| Trace IDs | ❌ | ❌ | ❌ | ✅ |
-| Security (Hide 5xx) | ❌ | ❌ | ❌ | ✅ |
-| Extensible Handlers | ❌ | ❌ | ❌ | ✅ |
-| ASCII Art Response | ❌ | ❌ | ✅ 🎉 | ❌ |
-| **Lines in Program.cs** | **3** | **3** | **3** | **3** |
+| Feature | V1 None | V2 Basic | V3 Switch | V4 Handlers | V5 Context | V6 NextLevel | V7 Basta |
+|---------|---------|----------|-----------|-------------|------------|--------------|----------|
+| HTTP Status Codes | ❌ Wrong | ❌ Always 500 | ✅ Proper | ✅ Proper | ✅ Proper | ✅ Proper | 🎨 Art |
+| RFC 7807 Format | ❌ | ❌ | ✅ | ✅ | ✅ | ✅ | ❌ Demo |
+| Inner Exceptions | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ | ❌ |
+| Extensible Handlers | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ | ❌ |
+| Centralized Writing | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ❌ |
+| Field-level Validation | ❌ | ❌ | ❌ | ❌ | ⚠️ | ✅ | ❌ |
+| Security (Hide 5xx) | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ |
+| Production-Ready | ❌ | ❌ | ⚠️ | ⚠️ | ⚠️ | ✅ | ❌ |
+| ASCII Art Response | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ 🎉 |
+| **Lines in Program.cs** | **3** | **3** | **3** | **3** | **3** | **3** | **3** |
 
-**Key Insight**: Same clean Program.cs - different behavior! That's the power of the Strategy Pattern.
-
-## 🎓 Using This for Your Conference Talk
-
-1. **Read the Demo Guide**: See `DEMO_GUIDE.md` for a complete presentation script
-2. **Follow the Evolution**: Start with V1, show problems, evolve to V2, then V3
-3. **Use Provided Requests**: The `demo-requests.http` file has all scenarios ready
-4. **Emphasize the Pattern**: Show how business logic never changed - only the strategy
+**Key Insight**: Same clean Program.cs - completely different behavior! That's the power of the Strategy Pattern.
 
 ## 🧪 Test Scenarios
 
@@ -135,15 +137,18 @@ In `Program.cs`, just change one line:
 
 ```csharp
 var webApi = new BastaStrategyWebApi(args);
-webApi.StrategyType = StrategyType.Basic; // ← Change this!
+webApi.StrategyType = StrategyType.Switch; // ← Change this!
 webApi.Run();
 ```
 
 **Available Strategies:**
-- `StrategyType.Basic` - V1: Simple 500 errors
-- `StrategyType.Intermediate` - V2: ProblemDetails with status codes
-- `StrategyType.Basta` - V5: ASCII Art Demo (fun!)
-- `StrategyType.FullBlown` - Production-ready (Default)
+- `StrategyType.None` - V1: Worst case (empty JSON, always 400)
+- `StrategyType.Basic` - V2: Simple 500 errors
+- `StrategyType.Switch` - V3: ProblemDetails with status codes
+- `StrategyType.SpecificExceptionHandlers` - V4: Extensible handler pattern
+- `StrategyType.SpecificHandlersAndFullContext` - V5: Full context + centralized writing
+- `StrategyType.NextLevel` - V6: Enterprise NuGet package (Default)
+- `StrategyType.Basta` - V7: ASCII Art Demo (fun!) 🎉
 
 ## 📝 Configuration
 
@@ -197,18 +202,14 @@ webApi.Run();
 
 ## 🤝 Contributing
 
-This is a conference demo project. Feel free to:
-- Fork and adapt for your own talks
+Feel free to:
+- Fork and adapt this project
 - Submit issues or improvements
-- Share your conference experiences
+- Use it for educational purposes
 
 ## 📜 License
 
-This project is intended for educational purposes. Use it freely for your conference talks and workshops.
-
-## 🎤 Presented At
-
-- BASTA! Spring 2026 (.NET Developer Conference)
+This project is intended for educational purposes.
 
 ## 👨‍💻 Authors
 

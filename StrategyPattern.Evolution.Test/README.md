@@ -1,16 +1,16 @@
 # Test Project - User API Tests 📸
 
-## 🎯 Snapshot Testing mit AspNetCore.Simple.MsTest.Sdk
+## 🎯 Snapshot Testing with AspNetCore.Simple.MsTest.Sdk
 
-Dieses Test-Projekt nutzt **Snapshot Testing** für saubere, wartbare API-Tests.
+This test project uses **Snapshot Testing** for clean, maintainable API tests.
 
-**Vorteile für die Conference Demo**:
-- ✅ **Visuell**: Request/Response JSONs sind perfekt für Präsentationen
-- ✅ **Simpel**: `[DynamicRequestLocator]` = Ein Test → Viele Test-Cases
-- ✅ **Reviewbar**: JSON Snapshots sind versionierbar und verständlich
-- ✅ **Schnell**: Neue Tests = Neue JSON Files, kein C# Code nötig
+**Benefits**:
+- ✅ **Visual**: Request/Response JSONs are easy to understand
+- ✅ **Simple**: `[DynamicRequestLocator]` = One Test → Many Test Cases
+- ✅ **Reviewable**: JSON Snapshots are version-controlled and readable
+- ✅ **Fast**: New tests = New JSON files, no C# code needed
 
-## 📁 Struktur
+## 📁 Structure
 
 ```
 Api/Users/V1/Create/
@@ -31,12 +31,12 @@ Api/Users/V1/Create/
 │   │   ├── EmptyFirstName.json
 │   │   ├── FirstNameTooShort.json
 │   │   ├── InvalidEmail.json
-│   │   └── MultipleValidationErrors.json     ← Perfekt für Demo!
+│   │   └── MultipleValidationErrors.json     ← Multiple field errors
 │   └── Responses/
 │       ├── EmptyFirstName.json
 │       ├── FirstNameTooShort.json
 │       ├── InvalidEmail.json
-│       └── MultipleValidationErrors.json     ← Field-level errors!
+│       └── MultipleValidationErrors.json     ← Field-level errors
 │
 ├── Status_409_Conflict/
 │   ├── Create_Status_409_Conflict_Test.cs
@@ -45,37 +45,44 @@ Api/Users/V1/Create/
 │   └── Responses/
 │       └── DuplicateEmail.json
 │
-└── Status_400_BadRequest/
-    ├── Create_Status_400_BadRequest_Test.cs
+├── Status_400_BadRequest/
+│   ├── Create_Status_400_BadRequest_Test.cs
+│   ├── Requests/
+│   │   ├── MissingComma.json                  ← Malformed JSON
+│   │   └── MissingClosingBrace.json
+│   └── Responses/
+│       ├── MissingComma.json
+│       └── MissingClosingBrace.json
+│
+└── BastaShowcase/
+    ├── Basta_Show_Case_Test.cs                ← Special demo test
     ├── Requests/
-    │   ├── MissingComma.json                  ← Malformed JSON
-    │   └── MissingClosingBrace.json
+    │   └── Basta.json                         ← Invalid enum value test
     └── Responses/
-        ├── MissingComma.json
-        └── MissingClosingBrace.json
+        └── Basta.json                         ← Expected BadRequest
 ```
 
-## 🔥 Test Pattern (Super Simple!)
+## 🔥 Test Pattern (Simple!)
 
 ```csharp
 [TestMethod]
-[DynamicRequestLocator]  // ← Magic! Findet alle Request/Response Paare
-public Task Should_Create_User_With(string useCase)
+[DynamicRequestLocator]  // ← Automatically discovers all Request/Response pairs
+public Task What_Is_The_Problem(string useCase)
 {
-    return Client.AssertPostAsync<CreateUserResponse>(
+    return Client.AssertPostAsErrorAsync<ProblemDetails>(
         "api/v1/users",
-        useCase,    // Request aus /Requests/{useCase}.json
-        useCase     // Response aus /Responses/{useCase}.json
+        useCase,    // Request from /Requests/{useCase}.json
+        useCase     // Response from /Responses/{useCase}.json
     );
 }
 ```
 
-**Das war's!** 🎉 Ein Test-Method generiert automatisch Tests für:
+**That's it!** 🎉 One test method automatically generates tests for:
 - ✅ CreateRegularUser
 - ✅ CreateAdminUser
 - ✅ CreateAiAgentUser
 
-## 📸 Snapshot Beispiel für Conference
+## 📸 Snapshot Example
 
 ### Request: `MultipleValidationErrors.json`
 ```json
@@ -107,19 +114,18 @@ public Task Should_Create_User_With(string useCase)
 }
 ```
 
-**Talk Track**:
-> "Seht ihr die Field-level Errors? Das ist V3 Advanced Strategy in Action! Request und Response sind klar, versioniert, reviewbar."
+This demonstrates field-level validation errors with clear, version-controlled snapshots.
 
-## 🚀 Tests Ausführen
+## 🚀 Running Tests
 
 ```bash
-# Alle User Tests
+# All User Tests
 dotnet test --filter "TestCategory=Users"
 
-# Nur Success Tests
+# Success Tests Only
 dotnet test --filter "TestCategory~Status 200 OK"
 
-# Nur Validation Tests
+# Validation Tests Only
 dotnet test --filter "TestCategory~422"
 ```
 
@@ -134,7 +140,7 @@ dotnet test --filter "TestCategory~422"
 - EmptyFirstName ✅
 - FirstNameTooShort ✅
 - InvalidEmail ✅
-- MultipleValidationErrors ✅ ← **Beste für Demo!**
+- MultipleValidationErrors ✅
 
 ### ✅ Status 409 Conflict
 - DuplicateEmail ✅
@@ -143,50 +149,34 @@ dotnet test --filter "TestCategory~422"
 - MissingComma ✅
 - MissingClosingBrace ✅
 
-## 🎬 Für Die Conference Demo
+### 🎉 BastaShowcase (Special Tests)
+- Basta ✅ (Invalid enum value: "Conference")
 
-### Option 1: Live Tests (Empfohlen)
+## 🔧 Adding New Tests
 
-1. **Zeige Ordnerstruktur** (5 Sekunden)
-2. **Zeige Request JSON** (10 Sekunden)
-3. **Zeige Expected Response JSON** (15 Sekunden)
-4. **Zeige Test Code** (10 Sekunden)
-5. **Run Tests** → Grün! ✅
+1. **Create Request**: `Requests/MyTest.json`
+2. **Create Response**: `Responses/MyTest.json`
+3. **Done!** `[DynamicRequestLocator]` will automatically discover it
 
-```bash
-dotnet test --filter "FullyQualifiedName~Should_Return_422"
-```
+Or use `writeResponse: true` to automatically generate the snapshot.
 
-### Option 2: HTTP Demo (Auch gut)
+## 📚 Detailed Documentation
 
-Verwende `demo-requests.http` für Live-HTTP-Calls statt Tests.
-
-## 🔧 Neuen Test Hinzufügen
-
-1. **Request erstellen**: `Requests/MeinTest.json`
-2. **Response erstellen**: `Responses/MeinTest.json`
-3. **Fertig!** `[DynamicRequestLocator]` findet es automatisch
-
-Oder mit `writeResponse: true` Snapshot automatisch generieren lassen.
-
-## 📚 Detaillierte Doku
-
-Siehe **[SNAPSHOT_TESTING.md](./SNAPSHOT_TESTING.md)** für:
-- Platzhalter (`{{guid}}`, `{{datetime}}`)
-- Snapshot-Generierung
-- Best Practices
+See **[SNAPSHOT_TESTING.md](./SNAPSHOT_TESTING.md)** for:
+- Placeholders (`{{guid}}`, `{{datetime}}`)
+- Snapshot generation
+- Best practices
 - Troubleshooting
 
-## 💡 Warum Snapshot Testing für Conference?
+## 💡 Why Snapshot Testing?
 
-### ❌ Traditionelle Tests
+### ❌ Traditional Tests
 ```csharp
 Assert.AreEqual("First name is required", errors["FirstName"][0]);
 Assert.AreEqual("Last name is required", errors["LastName"][0]);
 Assert.AreEqual("Email must be valid", errors["Email"][0]);
-// ... 50 Zeilen Assertions
+// ... 50 lines of assertions
 ```
-→ Langweilig für Publikum! 😴
 
 ### ✅ Snapshot Tests
 ```json
@@ -199,41 +189,9 @@ Assert.AreEqual("Email must be valid", errors["Email"][0]);
   }
 }
 ```
-→ **Sofort verständlich!** 🎯
 
-**Plus**: Request UND Response sind sichtbar!
-
-## 🎤 Demo Talk Track
-
-> "Ich zeige euch jetzt unsere Tests. Aber nicht traditionelle Unit Tests mit 100 Zeilen Assertions..."
->
-> [Zeige Ordnerstruktur]
->
-> "Wir nutzen Snapshot Testing. Hier ist unser Request..."
->
-> [Zeige MultipleValidationErrors Request JSON]
->
-> "Und hier ist die erwartete Response mit field-level errors..."
->
-> [Zeige MultipleValidationErrors Response JSON]
->
-> "Der Test-Code? Eine Zeile!"
->
-> [Zeige DynamicRequestLocator Test]
->
-> "Das ist alles. Jetzt run ich die Tests..."
->
-> [dotnet test → Grün]
->
-> "Grün! Und das Beste: Ich kann beliebig viele Test-Cases hinzufügen, ohne den Code zu ändern. Einfach neue JSON Files!"
-
-## ⚠️ Current Status
-
-Das Test-Projekt hat aktuell noch Build-Errors wegen fehlender Typen aus dem Hauptprojekt. **Das ist OK für die Demo!**
-
-**Zwei Optionen**:
-
-1. **HTTP Demo** (Empfohlen): Nutze `demo-requests.http` - funktioniert perfekt
-2. **Test Demo**: Fix die Build-Errors, dann sind die Snapshot-Tests ready
-
-Die Test-Struktur und Snapshots sind bereits komplett vorbereitet! 🎉
+**Benefits**:
+- Immediately understandable
+- Both request AND response are visible
+- Version-controlled and reviewable
+- Easy to add new test cases without code changes
