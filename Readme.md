@@ -7,10 +7,34 @@ This project demonstrates the evolution of error handling strategies in ASP.NET 
 - **Design Pattern Combinations**: Facade + Strategy + Factory Pattern
 - **Evolution**: From 40+ lines of Program.cs to just **3 lines**
 - **Error Handling Evolution**: Basic → ProblemDetails → Enterprise-grade
-- **RFC 7807 ProblemDetails** standard
+- **RFC 9457 ProblemDetails** standard (successor to RFC 7807)
 - **Field-level validation** error responses
 - **Production-ready patterns** inspired by real-world SDKs
 - **Security considerations** in error responses
+
+## 📜 Standards: RFC 7807 → RFC 9457
+
+This project follows **RFC 9457** (Problem Details for HTTP APIs), which supersedes RFC 7807.
+
+**What changed from RFC 7807 to RFC 9457?**
+- Updated reference from RFC 7231 to RFC 9110 (HTTP Semantics)
+- Clarified that the `instance` field is **optional** (not required)
+- Better guidance on extension members
+- Improved security considerations
+- Same core format and principles
+
+**Both versions define the same standard structure:**
+```json
+{
+  "type": "https://example.com/problems/validation-error",
+  "title": "Validation Error",
+  "status": 400,
+  "detail": "The request contains invalid data",
+  "instance": "/api/v1/users"  // ← Optional in RFC 9457
+}
+```
+
+This project uses RFC 9457 as the current standard while acknowledging that many APIs still reference RFC 7807. Both are compatible.
 
 ## ✨ The Ultra-Clean Program.cs
 
@@ -96,7 +120,7 @@ dotnet run
 | Feature | V1 None | V2 Basic | V3 Switch | V4 Handlers | V5 Context | V6 NextLevel | V7 Basta |
 |---------|---------|----------|-----------|-------------|------------|--------------|----------|
 | HTTP Status Codes | ❌ Wrong | ❌ Always 500 | ✅ Proper | ✅ Proper | ✅ Proper | ✅ Proper | 🎨 Art |
-| RFC 7807 Format | ❌ | ❌ | ✅ | ✅ | ✅ | ✅ | ❌ Demo |
+| RFC 9457 Format | ❌ | ❌ | ✅ | ✅ | ✅ | ✅ | ❌ Demo |
 | Inner Exceptions | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ | ❌ |
 | Extensible Handlers | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ | ❌ |
 | Centralized Writing | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ❌ |
@@ -195,7 +219,7 @@ webApi.Run();
 
 ## 📚 Resources
 
-- [RFC 7807 - Problem Details for HTTP APIs](https://tools.ietf.org/html/rfc7807)
+- [RFC 9457 - Problem Details for HTTP APIs](https://www.rfc-editor.org/rfc/rfc9457.html) (successor to RFC 7807)
 - [Strategy Pattern - Gang of Four](https://refactoring.guru/design-patterns/strategy)
 - [ASP.NET Core Error Handling](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/error-handling)
 - [Microsoft.AspNetCore.Mvc.ProblemDetails](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.problemdetails)

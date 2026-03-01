@@ -3,8 +3,8 @@ namespace StrategyPattern.Evolution
     public static class NoneErrorHandlingStrategyExtensions
     {
         /// <summary>
-        /// Registers the Basic error handling strategy (V1).
-        /// Simple exception catching with basic error response.
+        /// Registers the None error handling strategy (V1).
+        /// Worst case scenario - returns empty JSON with wrong status code.
         /// </summary>
         public static void AddNoneErrorHandling(this IServiceCollection services)
         {
@@ -13,8 +13,23 @@ namespace StrategyPattern.Evolution
     }
 
     /// <summary>
-    /// V1 - Basic Error Handling Strategy
-    /// Simple exception catching with basic error response
+    /// V1 - None Error Handling Strategy (Worst Case)
+    ///
+    /// Educational demonstration of what NOT to do.
+    ///
+    /// ✅ Capabilities:
+    /// - Prevents application crash
+    /// - Returns valid JSON (technically)
+    /// - Shows what default behavior might look like without proper error handling
+    ///
+    /// ❌ Problems:
+    /// - No useful error information whatsoever
+    /// - Always wrong HTTP status code (400 for everything, even server errors)
+    /// - Terrible developer experience
+    /// - Impossible to debug
+    /// - Clients have no idea what went wrong
+    /// - Violates HTTP semantics completely
+    /// - No distinction between client errors (4xx) and server errors (5xx)
     /// </summary>
     public class NoneErrorHandlingStrategy : IBastaErrorHandler
     {

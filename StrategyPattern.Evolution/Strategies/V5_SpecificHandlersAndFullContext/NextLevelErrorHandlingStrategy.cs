@@ -7,6 +7,10 @@ namespace StrategyPattern.Evolution
 {
     public static class NextLevelErrorHandlingExtensions
     {
+        /// <summary>
+        /// Registers the Next Level error handling strategy (V5).
+        /// Introduces centralized response writing and rich context (HttpCallInfos).
+        /// </summary>
         public static void AddAdvancedErrorHandling(this IServiceCollection services)
         {
             services.AddDefaultExceptionHandler();
@@ -15,6 +19,28 @@ namespace StrategyPattern.Evolution
         }
     }
 
+    /// <summary>
+    /// V5 - Specific Handlers with Full Context
+    ///
+    /// Separation of concerns: handlers provide ProblemDetails, writer writes the response.
+    ///
+    /// ✅ Capabilities:
+    /// - No code duplication: centralized response writing via IErrorResponseWriter
+    /// - Rich context via HttpCallInfos (method, path, body, headers, traceId)
+    /// - Fallback safety: DefaultExceptionHandler catches unhandled exceptions
+    /// - Clean separation of concerns: handlers create, writer writes
+    /// - Generic base class SpecificErrorHandler<TException> for easy handler creation
+    /// - Single point of control for response format
+    /// - Easy to add logging, metrics, or custom headers in ONE place
+    /// - Consistent response format guaranteed across all handlers
+    ///
+    /// ❌ Problems:
+    /// - Still custom implementation that needs maintenance
+    /// - No built-in field-level validation error support
+    /// - No JSON parsing error diagnostics
+    /// - Missing advanced features: error code ranges, security filtering
+    /// - No configuration-based behavior changes
+    /// </summary>
     internal class NextLevelErrorHandlingStrategy(ExceptionHelper exceptionHelper,
                                                   IErrorResponseWriter errorResponseWriter,
                                                   DefaultExceptionHandler defaultExceptionHandler,

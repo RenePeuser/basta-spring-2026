@@ -2,6 +2,8 @@
 
 This folder demonstrates the evolution of error handling strategies from basic to enterprise-grade implementations.
 
+> 💡 **Tip**: Each strategy implementation contains detailed inline documentation with **✅ Capabilities** and **❌ Problems** in the C# code comments. Check the source files for full details!
+
 ## Strategy Versions (V1 → V7)
 
 ### V1 - None (Worst Case)
@@ -14,12 +16,6 @@ This folder demonstrates the evolution of error handling strategies from basic t
 - No exception details whatsoever
 
 **Use Case**: Educational - demonstrates what NOT to do
-
-**Characteristics**:
-- ❌ No useful error information
-- ❌ Wrong HTTP status code
-- ❌ Terrible developer experience
-- ✅ Shows the worst possible approach
 
 ---
 
@@ -34,13 +30,6 @@ This folder demonstrates the evolution of error handling strategies from basic t
 
 **Use Case**: Quick prototypes where error handling is not critical
 
-**Characteristics**:
-- ✅ Easy to understand and implement
-- ❌ Always returns 500 (incorrect for client errors)
-- ❌ No distinction between error types
-- ❌ Security risk (exposes exception details)
-- ❌ Not RFC 7807 compliant
-
 ---
 
 ### V3 - Switch Pattern (ProblemDetails)
@@ -50,19 +39,11 @@ This folder demonstrates the evolution of error handling strategies from basic t
 **What it does**:
 - Uses C# switch expression for exception type mapping
 - Proper HTTP status codes (400, 403, 404, 409, 500)
-- RFC 7807 ProblemDetails format
+- RFC 9457 ProblemDetails format (successor to RFC 7807)
 - Request path included in response
 - Fun type link to http.cat
 
 **Use Case**: Production APIs with standard error handling needs
-
-**Characteristics**:
-- ✅ Industry standard format (RFC 7807)
-- ✅ Correct HTTP semantics
-- ✅ Better client experience
-- ⚠️  Still manual exception mapping in switch
-- ❌ No extensibility for custom handlers
-- ❌ Inner exceptions not handled
 
 ---
 
@@ -72,19 +53,11 @@ This folder demonstrates the evolution of error handling strategies from basic t
 
 **What it does**:
 - Introduces `ISpecificExceptionHandler` pattern
-- Handles inner exceptions properly
-- Each exception type gets its own handler
+- Handles inner exceptions properly with `FindAllInnerExceptions`
+- Each exception type gets its own handler class
 - Example: `BadHttpRequestExceptionHandler` with safety checks
 
 **Use Case**: APIs that need extensible error handling
-
-**Characteristics**:
-- ✅ Extensible handler pattern
-- ✅ Inner exception handling
-- ✅ Safety checks in handlers
-- ✅ Single responsibility per handler
-- ⚠️  Still writes responses in handlers (code duplication)
-- ❌ No centralized response writing
 
 ---
 
@@ -101,18 +74,10 @@ This folder demonstrates the evolution of error handling strategies from basic t
 
 **Use Case**: Complex APIs with rich error context needs
 
-**Characteristics**:
-- ✅ No code duplication (centralized writing)
-- ✅ Rich context (HttpCallInfos)
-- ✅ Fallback safety with DefaultExceptionHandler
-- ✅ Clean separation of concerns
-- ✅ Generic base class `SpecificErrorHandler<TException>`
-- ⚠️  Still custom implementation
-
 ---
 
 ### V6 - NextLevel (NuGet Package)
-**Location**: `V6_NextLevel/` (no code files)
+**Location**: `V6_NextLevel/` (no code files, see V6_NextLevel.md for details)
 **StrategyType**: `StrategyType.NextLevel`
 **Package**: [Siemens.AspNet.ErrorHandling](https://www.nuget.org/packages/Siemens.AspNet.ErrorHandling)
 
@@ -121,17 +86,11 @@ This folder demonstrates the evolution of error handling strategies from basic t
 - No custom implementation needed
 - Production-ready error handling system
 - Complete with security, validation, tracing
+- **Extensible**: Add custom handlers for third-party exceptions (Stripe, AWS, EF Core, etc.)
 
 **Use Case**: Production-grade enterprise APIs
 
-**Characteristics**:
-- ✅ Battle-tested in production
-- ✅ All features from V5 plus more
-- ✅ Maintained and updated
-- ✅ No custom code to maintain
-- ✅ Security-aware (hides 5xx details in production)
-- ✅ Field-level validation errors
-- ✅ JSON parsing diagnostics
+> 💡 **Extensibility**: V6 is fully extensible! See `V6_NextLevel.md` for examples of handling third-party exceptions (Stripe, Entity Framework, Refit, etc.) by creating custom `SpecificErrorHandler<TException>` implementations.
 
 ---
 
@@ -146,12 +105,6 @@ This folder demonstrates the evolution of error handling strategies from basic t
 - Just for fun and demo purposes! 🎉
 
 **Use Case**: Conference demonstrations and fun
-
-**Characteristics**:
-- ✅ Eye-catching ASCII art
-- ✅ Shows flexibility of strategy pattern
-- ✅ Great for live demos
-- ❌ Not for production use! 😄
 
 ---
 

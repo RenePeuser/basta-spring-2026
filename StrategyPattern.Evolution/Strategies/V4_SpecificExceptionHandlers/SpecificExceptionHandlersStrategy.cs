@@ -7,6 +7,10 @@ namespace StrategyPattern.Evolution
 {
     public static class SpecificExceptionHandlersExtensions
     {
+        /// <summary>
+        /// Registers the Specific Exception Handlers strategy (V4).
+        /// Introduces extensible handler pattern with inner exception support.
+        /// </summary>
         public static void AddSpecificExceptionHandlers(this IServiceCollection services)
         {
             services.AddBadHttpRequestExceptionHandler();
@@ -15,6 +19,28 @@ namespace StrategyPattern.Evolution
         }
     }
 
+    /// <summary>
+    /// V4 - Specific Exception Handlers
+    ///
+    /// Introduces the Handler Pattern: each exception type gets its own handler class.
+    ///
+    /// ✅ Capabilities:
+    /// - Extensible handler pattern (follows Open/Closed Principle)
+    /// - Inner exception handling: finds root cause with FindAllInnerExceptions
+    /// - Safety checks in handlers (CanHandle validation prevents misuse)
+    /// - Single responsibility per handler
+    /// - Easy to add new exception types without modifying existing code
+    /// - Each handler is isolated and independently testable
+    /// - Clear separation: one handler = one exception type
+    ///
+    /// ❌ Problems:
+    /// - Response writing logic duplicated in each handler
+    /// - No centralized response formatting
+    /// - Each handler must know about HTTP response details (status code, content-type)
+    /// - Code duplication for serialization logic across handlers
+    /// - Harder to maintain consistent response format
+    /// - Changes to response format require updating all handlers
+    /// </summary>
     internal class SpecificExceptionHandlersStrategy(ExceptionHelper exceptionHelper,
                                                      IEnumerable<ISpecificExceptionHandler> specificExceptionHandlers) : IBastaErrorHandler
     {

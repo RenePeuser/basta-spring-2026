@@ -2,6 +2,10 @@ namespace StrategyPattern.Evolution
 {
     internal static class AddBastaAdvancedErrorHandlingStrategyExtension
     {
+        /// <summary>
+        /// Registers the BASTA! ASCII Art error handling strategy (V7).
+        /// For conference demonstrations and fun!
+        /// </summary>
         internal static void AddBastaAdvancedErrorHandlingStrategy(this IServiceCollection services)
         {
             services.AddSingleton<IBastaErrorHandler, BastaAdvancedErrorHandlingStrategy>();
@@ -9,10 +13,30 @@ namespace StrategyPattern.Evolution
     }
 
     /// <summary>
-    /// V5 - Basta Advanced Error Handling Strategy
-    /// This is a placeholder strategy for the Advanced mode.
-    /// In Advanced mode, the Siemens error handling middleware is used directly,
-    /// so this strategy should never be called.
+    /// V7 - Basta Advanced Error Handling Strategy (ASCII Art Demo)
+    ///
+    /// Demonstrates the ultimate flexibility of the Strategy Pattern.
+    ///
+    /// ✅ Capabilities:
+    /// - Eye-catching ASCII art response
+    /// - Shows the flexibility of the strategy pattern
+    /// - Same interface (IBastaErrorHandler), completely different behavior
+    /// - Great for live demos and audience engagement
+    /// - Demonstrates that strategies can do ANYTHING
+    /// - Proves the power of abstraction and polymorphism
+    /// - Conference branding and marketing
+    ///
+    /// ❌ Problems:
+    /// - NOT for production use! 😄
+    /// - No actual error information
+    /// - Not RFC 9457 compliant (but that's intentional!)
+    /// - Would confuse API clients
+    /// - Just for entertainment and education
+    /// - No debugging help whatsoever
+    ///
+    /// Purpose: Show that with the same 3 lines of Program.cs, you can switch
+    /// from production-ready enterprise error handling to ASCII art with one line change.
+    /// That's the power of the Strategy Pattern!
     /// </summary>
     public class BastaAdvancedErrorHandlingStrategy : IBastaErrorHandler
     {
