@@ -20,7 +20,7 @@
             "The JSON value 'InvalidUserType' could not be converted to UserType."
           ],
           "samples": [
-            "Regular",
+            "Developer",
             "Admin",
             "AiAgent"
           ],

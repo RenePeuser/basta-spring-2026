@@ -35,7 +35,7 @@
         "firstName": "Jane",
         "lastName": "Doe",
         "email": "jane.doe@example.com  ",
-        "userType": "Regular"
+        "userType": "Developer"
       }
     }
   },

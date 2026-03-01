@@ -2,7 +2,7 @@ namespace StrategyPattern.Evolution.Api.User.V1.Create
 {
     public enum UserType
     {
-        Regular,
+        Developer,
         Admin,
         AiAgent
     }

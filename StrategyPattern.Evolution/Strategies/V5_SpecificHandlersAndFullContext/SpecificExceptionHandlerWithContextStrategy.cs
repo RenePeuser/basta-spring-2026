@@ -1,21 +1,26 @@
+using System;
+using System.Net;
+using System.Text.Json;
 using Extensions.Pack;
 using Microsoft.AspNetCore.Mvc;
+using OpenTelemetry.Trace;
 using Siemens.AspNet.ErrorHandling;
 using Siemens.AspNet.ErrorHandling.Contracts;
 
 namespace StrategyPattern.Evolution
 {
-    public static class NextLevelErrorHandlingExtensions
+    public static class AddSpecificExceptionHandlerWithContextStrategyExtensions
     {
         /// <summary>
         /// Registers the Next Level error handling strategy (V5).
         /// Introduces centralized response writing and rich context (HttpCallInfos).
         /// </summary>
-        public static void AddAdvancedErrorHandling(this IServiceCollection services)
+        public static void AddSpecificExceptionHandlerWithContextStrategy(this IServiceCollection services)
         {
             services.AddDefaultExceptionHandler();
+            services.AddJsonExceptionHandler();
 
-            services.AddSingleton<IBastaErrorHandler, NextLevelErrorHandlingStrategy>();
+            services.AddSingleton<IBastaErrorHandler, SpecificExceptionHandlerWithContextStrategy>();
         }
     }
 
@@ -35,23 +40,22 @@ namespace StrategyPattern.Evolution
     /// - Consistent response format guaranteed across all handlers
     ///
     /// ❌ Problems:
-    /// - Still custom implementation that needs maintenance
     /// - No built-in field-level validation error support
     /// - No JSON parsing error diagnostics
     /// - Missing advanced features: error code ranges, security filtering
     /// - No configuration-based behavior changes
     /// </summary>
-    internal class NextLevelErrorHandlingStrategy(ExceptionHelper exceptionHelper,
-                                                  IErrorResponseWriter errorResponseWriter,
-                                                  DefaultExceptionHandler defaultExceptionHandler,
-                                                  IHttpContextToEndpointInfoConverter httpContextToEndpointInfoConverter,
-                                                  IEnumerable<INextLevelExceptionHandler> specificExceptionHandlers) : IBastaErrorHandler
+    internal class SpecificExceptionHandlerWithContextStrategy(ExceptionHelper exceptionHelper,
+                                                               IErrorResponseWriter errorResponseWriter,
+                                                               DefaultExceptionHandler defaultExceptionHandler,
+                                                               IHttpContextToEndpointInfoConverter httpContextToEndpointInfoConverter,
+                                                               IEnumerable<INextLevelExceptionHandler> specificExceptionHandlers) : IBastaErrorHandler
     {
         public async Task HandleAsync(HttpContext httpContext,
                                       Exception exception)
         {
             // Get most suitable exceptions
-            var exceptionToHandle = exceptionHelper.FindAllInnerExceptions(exception).Last();
+            var exceptionToHandle = exceptionHelper.FindAllInnerExceptions(exception).First();
 
             // We collect all infos already formatted to avoid "n" data preparation and to avoid
             // lots of code in the base classes
@@ -59,7 +63,7 @@ namespace StrategyPattern.Evolution
 
             // First is just for demo purposes - we will see in the next strategy
             // In real world use Where with full blown infos which strategy exist, why, and what !
-            var matchingStrategy = specificExceptionHandlers.First(handler => handler.CanHandle(exception));
+            var matchingStrategy = specificExceptionHandlers.First(handler => handler.CanHandle(exceptionToHandle));
 
             // Getting all the error infos from the specific error handles
             var problemDetails = await matchingStrategy.HandleAsync(httpCallInfos, exceptionToHandle);
@@ -84,6 +88,48 @@ namespace StrategyPattern.Evolution
         Task<ProblemDetails?> HandleAsync(HttpCallInfos httpCallInfos,
                                           Exception exception);
     }
+
+    internal static class AddJsonExceptionHandlerExtension
+    {
+        internal static void AddJsonExceptionHandler(this IServiceCollection services)
+        {
+            services.AddSingletonIfNotExists<INextLevelExceptionHandler, JsonExceptionHandler>();
+        }
+    }
+
+    internal class JsonExceptionHandler : INextLevelExceptionHandler
+    {
+        public bool CanHandle(Exception exception)
+        {
+            var canHandle = exception.GetType() == typeof(JsonException); // System.Text.Json.JsonException
+            return canHandle;
+        }
+
+        public Task<ProblemDetails?> HandleAsync(HttpCallInfos httpCallInfos, Exception exception)
+        {
+            // Safety first !! Do not trust your caller - or your own code ;)
+            if (CanHandle(exception).IsFalse())
+            {
+                // Critical throw an error during error exception handling !
+                throw new InternalServerErrorDetailsException("Your specific exception handler is not able to handle",
+                                                              $"Your specific exceptions handler: {nameof(JsonExceptionHandler)} ca not handle: {exception.GetType()}");
+            }
+
+            var status400BadRequest = StatusCodes.Status400BadRequest;
+
+            var problemDetails = new ProblemDetails
+            {
+                Status = status400BadRequest, // Json exeption > Created by client
+                Title = "Your json is not OK",
+                Detail = exception.Message,
+                Instance = httpCallInfos.Url.AbsolutePath,
+                Type = $"https://http.cat/status/{status400BadRequest}"
+            };
+
+            return Task.FromResult<ProblemDetails?>(problemDetails);
+        }
+    }
+
 
     public abstract class SpecificErrorHandler<TException> : INextLevelExceptionHandler where TException : Exception
     {
@@ -127,6 +173,7 @@ namespace StrategyPattern.Evolution
         protected abstract Task<ProblemDetails> HandleExceptionAsync(HttpCallInfos httpCallInfos,
                                                                      TException exception);
     }
+
 
     internal static class AddDefaultExceptionHandlerExtension
     {

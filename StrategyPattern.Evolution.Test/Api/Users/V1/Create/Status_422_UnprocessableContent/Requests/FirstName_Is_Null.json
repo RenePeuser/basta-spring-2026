@@ -2,5 +2,5 @@
   "firstName": null,
   "lastName": "Doe",
   "email": "jane.doe@example.com",
-  "userType": "Regular"
+  "userType": "Developer"
 }

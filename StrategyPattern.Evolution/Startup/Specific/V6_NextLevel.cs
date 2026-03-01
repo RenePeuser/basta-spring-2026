@@ -21,6 +21,7 @@ namespace StrategyPattern.Evolution
 
             // Common services, to avoid too much code changes later !
             services.AddErrorHandling(configuration);
+            
             services.AddRegisterEndpoints();
             services.AddValidation();
             services.AddJsonSerializeOptions();
@@ -29,12 +30,12 @@ namespace StrategyPattern.Evolution
 
         public void ConfigurePipeline(WebApplication app)
         {
+            app.UseErrorHandling();
+
             app.UseHttpsRedirection();
 
             var apiBasePath = app.MapGroup("api/v1");
 
-            // Siemens error handling middleware (production-ready)
-            app.UseErrorHandling();
 
             app.UseAllowedQueryParameter();
 

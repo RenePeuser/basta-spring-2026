@@ -5,13 +5,13 @@ namespace StrategyPattern.Evolution
 {
     public enum StrategyType
     {
-        None,
-        Basic,
-        Switch,
-        SpecificExceptionHandlers,
-        SpecificHandlersAndFullContext,
-        NextLevel,
-        Basta
+        V1_None,
+        V2_Basic,
+        V3_Switch,
+        V4_SpecificExceptionHandlers,
+        V5_SpecificHandlersAndFullContext,
+        V6_NextLevel,
+        V7_Basta
     }
 
 

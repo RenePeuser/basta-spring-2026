@@ -35,7 +35,7 @@
         "firstName": "Jane",
         "lastName": "Doe",
         "email": null,
-        "userType": "Regular"
+        "userType": "Developer"
       }
     }
   },

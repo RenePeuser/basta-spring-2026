@@ -1,9 +1,9 @@
-
+// Hint all test cases are based on Next Level strategy.
 using StrategyPattern.Evolution;
 
 var webApi = new BastaStrategyWebApi(args);
 
-webApi.StrategyType = StrategyType.NextLevel; // Hint all test cases are based on Next Level strategy.
+webApi.StrategyType = StrategyType.V7_Basta;
 
 webApi.Run();
 

@@ -47,22 +47,19 @@ namespace StrategyPattern.Evolution
         public async Task HandleAsync(HttpContext httpContext,
                                       Exception exception)
         {
-            var exceptionToHandle = exception;
-
-            // !! Very big mistake from the previous strategy - Inner Exceptions !!
-            var exceptions = exceptionHelper.FindAllInnerExceptions(exceptionToHandle).Last();
-
             // First is just for demo purposes - we will see in the next strategy
-            // In real world use Where with full blown infos which strategy exist, why, and what !
-            var matchingStrategy = specificExceptionHandlers.First(handler => handler.CanHandle(exceptions));
+            // In real world use Where with full-blown infos which strategy exist, why, and what !
+            var matchingStrategy = specificExceptionHandlers.First(handler => handler.CanHandle(exception));
 
-            await matchingStrategy.HandleAsync(httpContext, exceptions);
+            // Handle with the specific strategy - which is responsible for writing the response - and do not forget to await it !!
+            await matchingStrategy.HandleAsync(httpContext, exception);
         }
     }
 
     internal interface ISpecificExceptionHandler
     {
         bool CanHandle(Exception exception);
+
         Task HandleAsync(HttpContext httpContext, Exception exception);
     }
 
@@ -87,6 +84,7 @@ namespace StrategyPattern.Evolution
             // Safety first !! Do not trust your caller - or your own code ;)
             if (CanHandle(exception).IsFalse())
             {
+                // Critical throw an error during error exception handling !
                 throw new InternalServerErrorDetailsException("Your specific exception handler is not able to handle",
                                                               $"Your specific exceptions handler: {nameof(BadHttpRequestExceptionHandler)} ca not handle: {exception.GetType()}");
             }
@@ -96,6 +94,7 @@ namespace StrategyPattern.Evolution
                                                       exception.Message,
                                                       httpContext);
 
+            httpContext.Response.StatusCode = problemDetails.Status.ToIntOrDefault(HttpStatusCode.BadRequest.ToInt());
             await httpContext.Response.WriteAsJsonAsync(problemDetails);
         }
 

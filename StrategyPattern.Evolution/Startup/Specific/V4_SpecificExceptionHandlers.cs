@@ -19,7 +19,7 @@ namespace StrategyPattern.Evolution
             services.AddApi(configuration);
 
             // Error handling - Basic strategy - Scope is here
-            services.AddAdvancedErrorHandling();
+            services.AddSpecificExceptionHandlers();
 
             services.AddBastaErrorHandlingMiddleware();
 

@@ -26,10 +26,10 @@ namespace StrategyPattern.Evolution
     /// - No useful error information whatsoever
     /// - Always wrong HTTP status code (400 for everything, even server errors)
     /// - Terrible developer experience
-    /// - Impossible to debug
-    /// - Clients have no idea what went wrong
+    /// - Clients have no idea what went wrong -> passive-aggressive error handling
     /// - Violates HTTP semantics completely
     /// - No distinction between client errors (4xx) and server errors (5xx)
+    /// - Far away from any RFC conventions for error responses
     /// </summary>
     public class NoneErrorHandlingStrategy : IBastaErrorHandler
     {
@@ -37,7 +37,7 @@ namespace StrategyPattern.Evolution
         {
             // Ooops - an exception occurred, we are afraid to handle it.
             // Keep eyes closed send {} and hope the best -> And say The
-            // User is guilty - who else :) 
+            // User is guilty - As well it was Friday and we are tired.
             httpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
             await httpContext.Response.WriteAsJsonAsync(new object());
         }

@@ -12,13 +12,13 @@ namespace StrategyPattern.Evolution
         {
             return strategyType switch
             {
-                StrategyType.None =>new V1_None(),
-                StrategyType.Basic => new V2_Basic(),
-                StrategyType.Switch => new V3_SwitchStrategy(),
-                StrategyType.SpecificExceptionHandlers => new V4_SpecificExceptionHandlers(),
-                StrategyType.SpecificHandlersAndFullContext => new V5_SpecificExceptionHandlersAndFullContext(),
-                StrategyType.NextLevel => new V6_NextLevel(),
-                StrategyType.Basta => new V7_Basta(),
+                StrategyType.V1_None =>new V1_None(),
+                StrategyType.V2_Basic => new V2_Basic(),
+                StrategyType.V3_Switch => new V3_SwitchStrategy(),
+                StrategyType.V4_SpecificExceptionHandlers => new V4_SpecificExceptionHandlers(),
+                StrategyType.V5_SpecificHandlersAndFullContext => new V5_SpecificExceptionHandlersAndFullContext(),
+                StrategyType.V6_NextLevel => new V6_NextLevel(),
+                StrategyType.V7_Basta => new V7_Basta(),
                 _ => throw new ArgumentOutOfRangeException(nameof(strategyType), strategyType,
                                                            $"Unknown strategy type: {strategyType}")
             };

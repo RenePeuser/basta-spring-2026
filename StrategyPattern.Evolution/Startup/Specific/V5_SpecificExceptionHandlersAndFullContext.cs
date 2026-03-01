@@ -19,7 +19,7 @@ namespace StrategyPattern.Evolution
             services.AddApi(configuration);
 
             // Error handling - Basic strategy - Scope is here
-            services.AddAdvancedErrorHandling();
+            services.AddSpecificExceptionHandlerWithContextStrategy();
 
             services.AddBastaErrorHandlingMiddleware();
 
@@ -33,6 +33,8 @@ namespace StrategyPattern.Evolution
 
         public void ConfigurePipeline(WebApplication app)
         {
+            app.UseErrorResponseHandling();
+
             app.UseHttpsRedirection();
 
             var apiBasePath = app.MapGroup("api/v1");

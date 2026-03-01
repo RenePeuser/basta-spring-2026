@@ -1,5 +1,6 @@
 using AspNetCore.Simple.MsTest.Sdk;
 using Microsoft.AspNetCore.Mvc;
+using StrategyPattern.Evolution.Api.User.V1.Create;
 
 namespace StrategyPattern.Evolution.Test.Api.Users.V1.Create.BastaShowcase
 {
@@ -11,9 +12,18 @@ namespace StrategyPattern.Evolution.Test.Api.Users.V1.Create.BastaShowcase
         [DynamicRequestLocator]
         public Task What_Is_The_Problem(string useCase)
         {
+            return Client.AssertPostAsync<CreateUserResponse>("api/v1/users",
+                                                              useCase,
+                                                              useCase);
+        }
+
+        [TestMethod]
+        [DynamicRequestLocator]
+        public Task What_Is_The_Problem_As_Error(string useCase)
+        {
             return Client.AssertPostAsErrorAsync<ProblemDetails>("api/v1/users",
                                                                  useCase,
-                                                                 useCase);
+                                                                 "Basta_User_Error.json");
         }
     }
 }
