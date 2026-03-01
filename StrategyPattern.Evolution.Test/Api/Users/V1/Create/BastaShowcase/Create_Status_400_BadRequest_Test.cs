@@ -9,7 +9,7 @@ namespace StrategyPattern.Evolution.Test.Api.Users.V1.Create.BastaShowcase
     {
         [TestMethod]
         [DynamicRequestLocator]
-        public Task Should_Return_A_Beautiful_Response_That_We_Know_What_Was_Wrong(string useCase)
+        public Task What_Is_The_Problem(string useCase)
         {
             return Client.AssertPostAsErrorAsync<ProblemDetails>("api/v1/users",
                                                                  useCase,
