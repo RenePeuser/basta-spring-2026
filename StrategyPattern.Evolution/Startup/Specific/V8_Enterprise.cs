@@ -1,19 +1,18 @@
-using Extensions.Pack;
 using Siemens.AspNet.ErrorHandling;
 using Siemens.AspNet.MinimalApi.Sdk;
 using StrategyPattern.Evolution.Api.User.V1.Create;
-using StrategyPattern.Evolution.V2_Basic;
 
 namespace StrategyPattern.Evolution.Startup
 {
     /// <summary>
-    /// V1 - Basic Startup Strategy
-    /// Complete configuration with basic error handling.
-    /// Shows the minimal viable error handling approach.
+    /// V8 - Enterprise Startup Strategy
+    /// Complete production-ready configuration with Siemens error handling system.
+    /// Includes all features: specialized handlers, validation, buffering, security-aware responses, etc.
+    /// This is what you would use in a real production environment.
     /// </summary>
-    public class V2_Basic : IStartupStrategy
+    public class V8_Enterprise : IStartupStrategy
     {
-        public string Description => "I do any kind of error handling";
+        public string Description => "Enterprise ready";
 
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
@@ -23,11 +22,10 @@ namespace StrategyPattern.Evolution.Startup
             // Endpoint mapper
             services.AddSingleton<RegisterEndpoints>();
 
-            // Error handling - Basic strategy
-            services.AddSingleton<BasicErrorMiddleware>();
+            // Error handling - Enterprise ready (Nuget package)
+            services.AddErrorHandling(configuration);
 
             // Common services
-            services.AddErrorHandling(configuration);
             services.AddValidation();
             services.AddJsonSerializeOptions();
             services.AddAllowedQueryParameter();
@@ -35,14 +33,11 @@ namespace StrategyPattern.Evolution.Startup
 
         public void ConfigurePipeline(WebApplication app)
         {
+            app.UseErrorHandling();
+
             app.UseHttpsRedirection();
 
             var apiBasePath = app.MapGroup("api/v1");
-
-            // Basic error middleware
-            app.UseMiddleware<BasicErrorMiddleware>();
-
-            
 
             // Register endpoints
             var registerEndpoints = app.Services.GetRequiredService<RegisterEndpoints>();

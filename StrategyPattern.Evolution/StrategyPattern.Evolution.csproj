@@ -12,10 +12,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Strategies\V6_NextLevel\" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\..\..\Siemens\siemens-aspnet-sdk\src\ErrorHandler\Siemens.AspNet.ErrorHandling\Siemens.AspNet.ErrorHandling.csproj" />
+      <Folder Include="Strategies\V8_Enterprise\" />
     </ItemGroup>
 </Project>

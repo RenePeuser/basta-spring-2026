@@ -1,4 +1,3 @@
-// Hint all test cases are based on Next Level strategy.
 using StrategyPattern.Evolution;
 
 var webApi = new BastaStrategyWebApi(args);

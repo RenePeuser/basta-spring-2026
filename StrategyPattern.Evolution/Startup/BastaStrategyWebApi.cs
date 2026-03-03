@@ -1,5 +1,17 @@
 namespace StrategyPattern.Evolution
 {
+    public enum StrategyType
+    {
+        V1_None,
+        V2_Basic,
+        V3_Switch,
+        V4_SwitchContext,
+        V5_SpecificStrategyErrorHandling,
+        V6_Solid_Strategy,
+        V7_Basta,
+        V8_Enterprise
+    }
+
     /// <summary>
     /// Facade for creating a web application with environment-based strategy configuration.
     /// Inspired by Siemens ServerlessMinimalWebApi pattern.
@@ -31,7 +43,7 @@ namespace StrategyPattern.Evolution
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            var strategyTypeToUse = StrategyType ?? Evolution.StrategyType.V6_NextLevel;
+            var strategyTypeToUse = StrategyType ?? Evolution.StrategyType.V8_Enterprise;
 
             var strategy = StartupStrategyFactory.GetStartupStrategy(strategyTypeToUse);
 

@@ -2,7 +2,8 @@ using Extensions.Pack;
 using Siemens.AspNet.ErrorHandling;
 using Siemens.AspNet.MinimalApi.Sdk;
 using StrategyPattern.Evolution.Api.User.V1.Create;
-using StrategyPattern.Evolution.V2_Basic;
+using StrategyPattern.Evolution.V5_SpecificStrategyErrorHandling;
+using StrategyPattern.Evolution.V5_SpecificStrategyErrorHandling.Exceptions;
 
 namespace StrategyPattern.Evolution.Startup
 {
@@ -11,20 +12,22 @@ namespace StrategyPattern.Evolution.Startup
     /// Complete configuration with basic error handling.
     /// Shows the minimal viable error handling approach.
     /// </summary>
-    public class V2_Basic : IStartupStrategy
+    public class V5_SpecificStrategyErrorHandling : IStartupStrategy
     {
-        public string Description => "I do any kind of error handling";
+        public string Description => "Specific error handling with full collected call infos context";
 
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
             // Domain - User endpoint registration
             services.AddSingleton<IEndpointRegistration, CreateUserEndpoint>();
 
+            services.AddSingleton<SpecificStrategyErrorHandling>();
+
             // Endpoint mapper
             services.AddSingleton<RegisterEndpoints>();
 
-            // Error handling - Basic strategy
-            services.AddSingleton<BasicErrorMiddleware>();
+            // Error handling - Specific strategy error handling
+            services.AddSingleton<IExceptionHandler, BadHttpRequestExceptionHandler>();
 
             // Common services
             services.AddErrorHandling(configuration);
@@ -39,10 +42,9 @@ namespace StrategyPattern.Evolution.Startup
 
             var apiBasePath = app.MapGroup("api/v1");
 
-            // Basic error middleware
-            app.UseMiddleware<BasicErrorMiddleware>();
+            // Specific strategy error handling middleware
+            app.UseMiddleware<SpecificStrategyErrorHandling>();
 
-            
 
             // Register endpoints
             var registerEndpoints = app.Services.GetRequiredService<RegisterEndpoints>();

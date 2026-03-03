@@ -1,8 +1,10 @@
+using Extensions.Pack;
 using Siemens.AspNet.ErrorHandling;
 using Siemens.AspNet.MinimalApi.Sdk;
-using StrategyPattern.Evolution.Api;
+using StrategyPattern.Evolution.Api.User.V1.Create;
+using StrategyPattern.Evolution.V1_None;
 
-namespace StrategyPattern.Evolution
+namespace StrategyPattern.Evolution.Startup
 {
     /// <summary>
     /// V1 - Basic Startup Strategy
@@ -15,17 +17,17 @@ namespace StrategyPattern.Evolution
 
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
-            // Domain registrations
-            services.AddApi(configuration);
+            // Domain - User endpoint registration
+            services.AddSingleton<IEndpointRegistration, CreateUserEndpoint>();
 
-            // Error handling - Basic strategy - Scope is here
-            services.AddNoneErrorHandling();
+            // Endpoint mapper
+            services.AddSingleton<RegisterEndpoints>();
 
-            services.AddBastaErrorHandlingMiddleware();
+            // Error handling - No error middleware
+            services.AddSingleton<NoErrorMiddleware>();
 
-            // Common services, to avoid too much code changes later !
+            // Common services
             services.AddErrorHandling(configuration);
-            services.AddRegisterEndpoints();
             services.AddValidation();
             services.AddJsonSerializeOptions();
             services.AddAllowedQueryParameter();
@@ -37,10 +39,10 @@ namespace StrategyPattern.Evolution
 
             var apiBasePath = app.MapGroup("api/v1");
 
-            // Siemens error handling middleware (production-ready)
-            app.UseBastaErrorHandlingMiddleware();
+            // No error middleware
+            app.UseMiddleware<NoErrorMiddleware>();
 
-            app.UseAllowedQueryParameter();
+            
 
             // Register endpoints
             var registerEndpoints = app.Services.GetRequiredService<RegisterEndpoints>();

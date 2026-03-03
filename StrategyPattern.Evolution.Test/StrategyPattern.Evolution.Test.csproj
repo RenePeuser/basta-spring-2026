@@ -25,9 +25,4 @@
         <EmbeddedResource Include="**\*.sql" Exclude="bin\**\*;obj\**\*" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Api\Users\V1\Create\Status_422_UnprocessableContent\Requests\" />
-      <Folder Include="Api\Users\V1\Create\Status_422_UnprocessableContent\Responses\" />
-    </ItemGroup>
-
 </Project>

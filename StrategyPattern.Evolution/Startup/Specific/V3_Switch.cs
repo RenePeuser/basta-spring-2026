@@ -2,18 +2,18 @@ using Extensions.Pack;
 using Siemens.AspNet.ErrorHandling;
 using Siemens.AspNet.MinimalApi.Sdk;
 using StrategyPattern.Evolution.Api.User.V1.Create;
-using StrategyPattern.Evolution.V2_Basic;
+using StrategyPattern.Evolution.V3_Switch;
 
 namespace StrategyPattern.Evolution.Startup
 {
     /// <summary>
-    /// V1 - Basic Startup Strategy
-    /// Complete configuration with basic error handling.
-    /// Shows the minimal viable error handling approach.
+    /// V2 - Intermediate Startup Strategy
+    /// Complete configuration with ProblemDetails and proper HTTP status code mapping.
+    /// Shows proper REST API error handling with RFC 7807 compliance.
     /// </summary>
-    public class V2_Basic : IStartupStrategy
+    public class V3_Switch : IStartupStrategy
     {
-        public string Description => "I do any kind of error handling";
+        public string Description => "The switch solution";
 
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
@@ -23,8 +23,8 @@ namespace StrategyPattern.Evolution.Startup
             // Endpoint mapper
             services.AddSingleton<RegisterEndpoints>();
 
-            // Error handling - Basic strategy
-            services.AddSingleton<BasicErrorMiddleware>();
+            // Error handling - Switch strategy
+            services.AddSingleton<SwitchErrorMiddleware>();
 
             // Common services
             services.AddErrorHandling(configuration);
@@ -39,8 +39,8 @@ namespace StrategyPattern.Evolution.Startup
 
             var apiBasePath = app.MapGroup("api/v1");
 
-            // Basic error middleware
-            app.UseMiddleware<BasicErrorMiddleware>();
+            // Switch error middleware
+            app.UseMiddleware<SwitchErrorMiddleware>();
 
             
 

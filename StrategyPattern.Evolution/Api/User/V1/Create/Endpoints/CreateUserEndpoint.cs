@@ -2,22 +2,18 @@ using System.Net.Mime;
 using Extensions.Pack;
 using Microsoft.AspNetCore.Mvc;
 using Siemens.AspNet.ErrorHandling.Contracts;
-using Siemens.AspNet.MinimalApi.Sdk.Contracts;
 
 namespace StrategyPattern.Evolution.Api.User.V1.Create
 {
     internal static class AddCreateUserEndpointExtension
     {
-        internal static void AddCreateUserEndpoint(this IServiceCollection services,
-                                                   IConfiguration configuration)
+        internal static void AddCreateUserEndpoint(this IServiceCollection services)
         {
-            services.AddCreateUserRequestSampleValueProvider();
-
-            services.AddSingletonIfNotExists<IEndpointRegistration, CreateUserEndpoint>();
+            services.AddSingleton<IEndpointRegistration, CreateUserEndpoint>();
         }
     }
 
-    internal sealed class CreateUserEndpoint(IAsyncRequestValidator asyncRequestValidator) : IEndpointRegistration
+    internal sealed class CreateUserEndpoint : IEndpointRegistration
     {
         public void Map(IEndpointRouteBuilder endpoints)
         {
@@ -35,12 +31,10 @@ namespace StrategyPattern.Evolution.Api.User.V1.Create
                      .WithTags("Users")
                      .WithName("CreateUserV1");
 
-            async Task<CreateUserResponse> HandleAsync(CreateUserRequest createUserRequest,
-                                                       HttpContext httpContext,
-                                                       CancellationToken cancellationToken = default)
+            static CreateUserResponse HandleAsync(CreateUserRequest createUserRequest,
+                                                  HttpContext httpContext,
+                                                  CancellationToken cancellationToken = default)
             {
-                await asyncRequestValidator.ValidateAndThrowAsync(createUserRequest).ConfigureAwait(false);
-
                 var user = new User(Id: Guid.NewGuid(),
                                     FirstName: createUserRequest.FirstName,
                                     LastName: createUserRequest.LastName,

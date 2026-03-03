@@ -7,7 +7,7 @@ namespace StrategyPattern.Evolution.Api.User.V1
         internal static void AddUsersV1(this IServiceCollection serviceCollection,
                                         IConfiguration configuration)
         {
-            serviceCollection.AddCreateUserEndpoint(configuration);
+            serviceCollection.AddCreateUserEndpoint();
         }
     }
 }

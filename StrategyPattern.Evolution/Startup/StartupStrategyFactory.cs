@@ -1,38 +1,28 @@
 namespace StrategyPattern.Evolution
 {
-    /// <summary>
-    /// Factory for creating the appropriate startup strategy based on StrategyType.
-    /// </summary>
+    // This is a pure helper ! so we do not escalate strategies as well here -> but we could :)
     public static class StartupStrategyFactory
     {
-        /// <summary>
-        /// Gets the startup strategy for the specified strategy type.
-        /// </summary>
         public static IStartupStrategy GetStartupStrategy(StrategyType strategyType)
         {
             return strategyType switch
             {
-                StrategyType.V1_None =>new V1_None(),
-                StrategyType.V2_Basic => new V2_Basic(),
-                StrategyType.V3_Switch => new V3_SwitchStrategy(),
-                StrategyType.V4_SpecificExceptionHandlers => new V4_SpecificExceptionHandlers(),
-                StrategyType.V5_SpecificHandlersAndFullContext => new V5_SpecificExceptionHandlersAndFullContext(),
-                StrategyType.V6_NextLevel => new V6_NextLevel(),
-                StrategyType.V7_Basta => new V7_Basta(),
+                StrategyType.V1_None => new Startup.V1_None(),
+                StrategyType.V2_Basic => new Startup.V2_Basic(),
+                StrategyType.V3_Switch => new Startup.V3_Switch(),
+                StrategyType.V4_SwitchContext => new Startup.V4_SwitchContext(),
+                StrategyType.V5_SpecificStrategyErrorHandling => new Startup.V5_SpecificStrategyErrorHandling(),
+                StrategyType.V6_Solid_Strategy => new Startup.V6_Solid_Strategy(),
+                StrategyType.V7_Basta => new Startup.V7_Basta(),
+                StrategyType.V8_Enterprise => new Startup.V8_Enterprise(),
                 _ => throw new ArgumentOutOfRangeException(nameof(strategyType), strategyType,
                                                            $"Unknown strategy type: {strategyType}")
             };
         }
     }
 
-    /// <summary>
-    /// Extension methods for WebApplicationBuilder to configure startup based on strategy.
-    /// </summary>
     public static class StartupStrategyExtensions
     {
-        /// <summary>
-        /// Configures the application using the startup strategy for the specified strategy type.
-        /// </summary>
         public static WebApplicationBuilder ConfigureForStrategy(this WebApplicationBuilder builder,
                                                                  StrategyType strategyType)
         {
@@ -47,9 +37,6 @@ namespace StrategyPattern.Evolution
             return builder;
         }
 
-        /// <summary>
-        /// Configures the middleware pipeline using the registered startup strategy.
-        /// </summary>
         public static WebApplication UseStrategyPipeline(this WebApplication app)
         {
             var strategy = app.Services.GetRequiredService<IStartupStrategy>();

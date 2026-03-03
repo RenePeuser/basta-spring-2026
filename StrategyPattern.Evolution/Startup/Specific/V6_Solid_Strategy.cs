@@ -3,19 +3,17 @@ using StrategyPattern.Evolution.Api.User.V1.Create;
 using StrategyPattern.Evolution.Strategies.V6_Solid_Strategy;
 using StrategyPattern.Evolution.V6_Solid_Strategy;
 using StrategyPattern.Evolution.V6_Solid_Strategy.Exceptions;
-using StrategyPattern.Evolution.V7_Basta;
-using IErrorHandlingStrategy = StrategyPattern.Evolution.V6_Solid_Strategy.IErrorHandlingStrategy;
 
 namespace StrategyPattern.Evolution.Startup
 {
     /// <summary>
-    /// V7 - BASTA! Startup Strategy
-    /// Special demo configuration with ASCII art error response.
-    /// Shows the flexibility of the Strategy Pattern with a fun demo implementation.
+    /// V1 - Basic Startup Strategy
+    /// Complete configuration with basic error handling.
+    /// Shows the minimal viable error handling approach.
     /// </summary>
-    public class V7_Basta : IStartupStrategy
+    public class V6_Solid_Strategy : IStartupStrategy
     {
-        public string Description => "BASTA! Special (ASCII Art Demo Response)";
+        public string Description => "Extended error handling with full collected call infos context";
 
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
@@ -29,7 +27,7 @@ namespace StrategyPattern.Evolution.Startup
             services.AddSingleton<SolidStrategyErrorMiddleware>();
 
 
-            services.AddSingleton<IErrorHandlingStrategy, BastaErrorHandlingStrategy>();
+            services.AddSingleton<IErrorHandlingStrategy, ErrorHandlingStrategy>();
             services.AddSingleton<ISpecificExceptionHandler, BadHttpRequestExceptionHandler>();
             services.AddSingleton<ISpecificExceptionHandler, JsonExceptionHandler>();
             services.AddSingleton<ExceptionHelper>();
@@ -46,8 +44,10 @@ namespace StrategyPattern.Evolution.Startup
 
             var apiBasePath = app.MapGroup("api/v1");
 
-            // BASTA! error handling middleware
+            // Solid strategy error middleware
             app.UseMiddleware<SolidStrategyErrorMiddleware>();
+
+            
 
             // Register endpoints
             var registerEndpoints = app.Services.GetRequiredService<RegisterEndpoints>();

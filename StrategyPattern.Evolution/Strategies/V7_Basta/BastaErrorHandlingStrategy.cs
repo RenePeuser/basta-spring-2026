@@ -1,46 +1,30 @@
-namespace StrategyPattern.Evolution
-{
-    internal static class AddBastaAdvancedErrorHandlingStrategyExtension
-    {
-        /// <summary>
-        /// Registers the BASTA! ASCII Art error handling strategy (V7).
-        /// For conference demonstrations and fun!
-        /// </summary>
-        internal static void AddBastaAdvancedErrorHandlingStrategy(this IServiceCollection services)
-        {
-            services.AddSingleton<IBastaErrorHandler, BastaAdvancedErrorHandlingStrategy>();
-        }
-    }
+using System.Net.Mime;
+using System.Text;
+using StrategyPattern.Evolution.V6_Solid_Strategy;
 
+namespace StrategyPattern.Evolution.V7_Basta
+{
     /// <summary>
     /// V7 - Basta Advanced Error Handling Strategy (ASCII Art Demo)
     ///
-    /// Demonstrates the ultimate flexibility of the Strategy Pattern.
-    ///
-    /// ✅ Capabilities:
-    /// - Eye-catching ASCII art response
-    /// - Shows the flexibility of the strategy pattern
-    /// - Same interface (IBastaErrorHandler), completely different behavior
-    /// - Great for live demos and audience engagement
-    /// - Demonstrates that strategies can do ANYTHING
-    /// - Proves the power of abstraction and polymorphism
-    /// - Conference branding and marketing
-    ///
-    /// ❌ Problems:
-    /// - NOT for production use! 😄
-    /// - No actual error information
-    /// - Not RFC 9457 compliant (but that's intentional!)
-    /// - Would confuse API clients
-    /// - Just for entertainment and education
-    /// - No debugging help whatsoever
-    ///
-    /// Purpose: Show that with the same 3 lines of Program.cs, you can switch
-    /// from production-ready enterprise error handling to ASCII art with one line change.
-    /// That's the power of the Strategy Pattern!
+    /// Shows the Strategy Pattern architecture visually with ASCII art.
+    /// Displays all available strategies dynamically.
+    /// Perfect for conference demos!
     /// </summary>
-    public class BastaAdvancedErrorHandlingStrategy : IBastaErrorHandler
+    internal class BastaErrorHandlingStrategy(IEnumerable<ISpecificExceptionHandler> errorHandlers) : IErrorHandlingStrategy
     {
-        private const string Response = """
+        public async Task HandleAsync(HttpContext httpContext, Exception exception)
+        {
+            // Get all available strategy types dynamically
+            var strategyTypes = Enum.GetNames<StrategyType>();
+            var strategyList = string.Join("\n                                        ║    • ", strategyTypes);
+
+            var exceptionType = exception.GetType().Name;
+            var exceptionMessage = exception.Message.Length > 50
+                ? exception.Message[..47] + "..."
+                : exception.Message;
+
+            var response = $"""
                                         ██████╗  █████╗ ███████╗████████╗ █████╗
                                         ██╔══██╗██╔══██╗██╔════╝╚══██╔══╝██╔══██╗
                                         ██████╔╝███████║███████╗   ██║   ███████║
@@ -48,27 +32,38 @@ namespace StrategyPattern.Evolution
                                         ██████╔╝██║  ██║███████║   ██║   ██║  ██║
                                         ╚═════╝ ╚═╝  ╚═╝╚══════╝   ╚═╝   ╚═╝  ╚═╝
 
-                                        ╔═══════════════════════════════════════╗
-                                        ║  EXCEPTION DETECTED                   ║
-                                        ║                                       ║
-                                        ║  → Strategy Resolver Activated        ║
-                                        ║  → Domain Context Matched             ║
-                                        ║  → Clean JSON Contract Generated      ║
-                                        ║                                       ║
-                                        ║  STATUS     : 400 BadRequest          ║
-                                        ║  ERROR_CODE : VALIDATION_FAILED       ║
-                                        ║  TRACE_ID   : BASTA-2026-STRATEGY     ║
-                                        ║                                       ║
-                                        ║  Clean Errors.                        ║ 
-                                        ║  Clean Architecture.                  ║
-                                        ║                                       ║
-                                        ║  Viel Spaß auf der BASTA!             ║
-                                        ╚═══════════════════════════════════════╝
+                                        ╔════════════════════════════════════════╗
+                                        ║        🔴 EXCEPTION DETECTED           ║
+                                        ║        → {exceptionType,-30} ║
+                                        ╚════════════════════════════════════════╝
+
+                                        ┌────────────────────────────────────────┐
+                                        │    📐 STRATEGY PATTERN Architecture    │
+                                        └────────────────────────────────────────┘
+
+                                                   ┌─────────────────┐
+                                                   │ IErrorHandling  │ 
+                                                   │    Strategy     │ 
+                                                   └────────┬────────┘
+                                                            │
+                                                ┌───────────┴───────────┐
+                                                │                       │
+                                                ▼                       ▼
+                                          ┌───────────┐         ┌───────────┐
+                                          │ BadRequest│   ...   │   Json    │
+                                          │  Handler  │         │  Handler  │
+                                          └───────────┘         └───────────┘
+                                            
+
+                                        ┌────────────────────────────────────────┐
+                                        │ 📋 Verfügbare Strategien:              │
+                                        │    • {strategyList}                    │ 
+                                        └────────────────────────────────────────┘
                                         """;
 
-        public Task HandleAsync(HttpContext httpContext, Exception exception)
-        {
-            return httpContext.Response.WriteAsync(Response);
+            httpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
+            httpContext.Response.ContentType = MediaTypeNames.Text.Plain;
+            await httpContext.Response.WriteAsync(response, Encoding.UTF8);
         }
     }
 }
