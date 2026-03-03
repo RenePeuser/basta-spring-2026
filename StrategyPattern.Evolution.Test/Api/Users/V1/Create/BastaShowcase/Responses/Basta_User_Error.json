@@ -9,14 +9,42 @@
       }
     ],
     "value": {
-      "type": "https://http.cat/status/400",
-      "title": "Your json is not OK",
-      "status": 400,
-      "detail": "The JSON value could not be converted to StrategyPattern.Evolution.Api.User.V1.Create.UserType. Path: $.userType | LineNumber: 4 | BytePositionInLine: 26.",
-      "instance": "http://localhost/api/v1/users"
+      "type": "ValidationProblemDetailsExtended",
+      "title": "The JSON request body contains invalid properties",
+      "status": 422,
+      "detail": "The JSON value 'Conference' could not be converted to UserType.",
+      "errorDetails": {
+        "userType": {
+          "currentValue": "Conference",
+          "errors": [
+            "The JSON value 'Conference' could not be converted to UserType."
+          ],
+          "samples": [
+            "Developer",
+            "Admin",
+            "AiAgent"
+          ],
+          "location": {
+            "row": 5,
+            "column": 26
+          }
+        }
+      },
+      "errors": {
+        "userType": [
+          "The JSON value 'Conference' could not be converted to UserType."
+        ]
+      },
+      "RequestType": "CreateUserRequest",
+      "RequestContent": {
+        "firstName": "Basta",
+        "lastName": "2026",
+        "email": "basta@2026.local",
+        "userType": "Conference"
+      }
     }
   },
-  "statusCode": "BadRequest",
+  "statusCode": "UnprocessableEntity",
   "headers": [],
   "trailingHeaders": [],
   "isSuccessStatusCode": false

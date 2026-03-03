@@ -1,5 +1,4 @@
 using System.Net.Mime;
-using Extensions.Pack;
 using Microsoft.AspNetCore.Mvc;
 using Siemens.AspNet.ErrorHandling.Contracts;
 

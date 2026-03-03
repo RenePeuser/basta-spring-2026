@@ -1,5 +1,3 @@
-using System.Net.Mime;
-using System.Text;
 using StrategyPattern.Evolution.V6_Solid_Strategy;
 
 namespace StrategyPattern.Evolution.V7_Basta
@@ -53,17 +51,10 @@ namespace StrategyPattern.Evolution.V7_Basta
                                           │ BadRequest│   ...   │   Json    │
                                           │  Handler  │         │  Handler  │
                                           └───────────┘         └───────────┘
-                                            
-
-                                        ┌────────────────────────────────────────┐
-                                        │ 📋 Verfügbare Strategien:              │
-                                        │    • {strategyList}                    │ 
-                                        └────────────────────────────────────────┘
+                                          
                                         """;
 
-            httpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
-            httpContext.Response.ContentType = MediaTypeNames.Text.Plain;
-            await httpContext.Response.WriteAsync(response, Encoding.UTF8);
+            await httpContext.Response.WriteAsync(response);
         }
     }
 }
