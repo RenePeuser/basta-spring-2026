@@ -2,7 +2,7 @@ using StrategyPattern.Evolution;
 
 var webApi = new BastaStrategyWebApi(args);
 
-webApi.StrategyType = StrategyType.V8_Enterprise;
+webApi.StrategyType = StrategyType.V1_None;
 
 webApi.Run();
 
