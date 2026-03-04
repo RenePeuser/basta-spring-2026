@@ -19,8 +19,9 @@ namespace StrategyPattern.Evolution.Test
         [AssemblyInitialize]
         public static void AssemblyInitialize(TestContext _)
         {
-            // Super simple just use the provided API test base class, and you are ready to go
-            _apiTestBase = new ApiTestBase<Program>("Development", // The environment name
+            // Super simple just use the provided API test base class,
+            // and you are ready to go
+            _apiTestBase = new ApiTestBase<Program>("Development", 
                                                     (_, _) =>
                                                     {
                                                     }); // Configure environment variables
