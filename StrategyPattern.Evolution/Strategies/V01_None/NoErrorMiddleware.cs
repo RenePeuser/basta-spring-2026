@@ -10,9 +10,7 @@ namespace StrategyPattern.Evolution.V01_None
             }
             catch (Exception)
             {
-                // Ooops - an exception occurred, we are afraid to handle it.
-                // Keep eyes closed send {} and hope the best -> And say The
-                // User is guilty - As well it was Friday, and we await the WE
+                // ToDo: It is Friday 6pm we will fix it on monday morning !
                 context.Response.StatusCode = StatusCodes.Status500InternalServerError;
                 await context.Response.WriteAsJsonAsync(new object());
             }

@@ -13,7 +13,7 @@ namespace StrategyPattern.Evolution.V06_Solid_Strategy.Exceptions
             return canHandle;
         }
 
-        public async Task<ProblemDetails> HandleAsync(HttpContext httpContext, Exception exception)
+        public Task<ProblemDetails> HandleAsync(HttpContext httpContext, Exception exception)
         {
             // Safety first !! Do not trust your caller - or your own code ;)
             if (CanHandle(exception).IsFalse())
@@ -28,7 +28,7 @@ namespace StrategyPattern.Evolution.V06_Solid_Strategy.Exceptions
                                                       exception.Message,
                                                       httpContext);
 
-            return problemDetails;
+            return Task.FromResult(problemDetails);
         }
 
         private static ProblemDetails CreateProblemDetails(HttpStatusCode statusCode, string title, string detail, HttpContext context)

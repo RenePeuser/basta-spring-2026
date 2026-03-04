@@ -16,7 +16,8 @@ namespace StrategyPattern.Evolution.V04_SwitchContext
             {
                 var problemDetails = exception switch
                 {
-                    // NEW: Validation exception handling with 422 status code and RFC 7807 compliant response
+                    // Ok now must be very good -> we handle now ProblemDetails / ValidationProblemDetails
+                    // Now this must be an excellent choice
                     ValidationProblemDetailsException validationEx => CreateValidationProblems(StatusCodes.Status422UnprocessableEntity,
                                                                                                "Validation Failed",
                                                                                                validationEx.Message,

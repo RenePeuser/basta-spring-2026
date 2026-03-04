@@ -39,7 +39,7 @@ namespace StrategyPattern.Evolution.V05_SpecificStrategyErrorHandling.Exceptions
             return new ProblemDetails
             {
                 Status = statusAsInteger,
-                Title = title,
+                Title = "We do some refactoring with switch",
                 Detail = detail,
                 Instance = context.Request.Path,
                 Type = $"https://http.cat/status/{statusAsInteger}"

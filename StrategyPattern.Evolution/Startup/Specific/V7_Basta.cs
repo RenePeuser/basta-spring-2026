@@ -27,7 +27,6 @@ namespace StrategyPattern.Evolution.Startup
             // Error handling - Solid Strategy with full context
             services.AddSingleton<SolidStrategyErrorMiddleware>();
 
-
             services.AddSingleton<IErrorHandlingStrategy, BastaErrorHandlingStrategy>();
             services.AddSingleton<ISpecificExceptionHandler, BadHttpRequestExceptionHandler>();
             services.AddSingleton<ISpecificExceptionHandler, JsonExceptionHandler>();

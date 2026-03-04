@@ -2,9 +2,9 @@ namespace StrategyPattern.Evolution.Api.User.V1.Create
 {
     public enum UserType
     {
+        Visitor,
         Developer,
-        Admin,
-        AiAgent
+        Speaker
     }
 
     public record User(Guid Id,

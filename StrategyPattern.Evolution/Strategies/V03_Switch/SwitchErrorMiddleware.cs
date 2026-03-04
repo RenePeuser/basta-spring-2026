@@ -13,6 +13,7 @@ namespace StrategyPattern.Evolution.V03_Switch
             }
             catch (Exception exception)
             {
+                // Cool, A roslyn analyzer told me to handle explicit exceptions :)
                 var problemDetails = exception switch
                 {
                     BadHttpRequestException badHttpRequestException => CreateProblemDetails(StatusCodes.Status400BadRequest,

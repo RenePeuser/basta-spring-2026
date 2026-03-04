@@ -1,7 +1,6 @@
 
 namespace StrategyPattern.Evolution.V05_SpecificStrategyErrorHandling
 {
-    
     internal interface IExceptionHandler
     {
         bool CanHandle(Exception exception);
@@ -19,7 +18,7 @@ namespace StrategyPattern.Evolution.V05_SpecificStrategyErrorHandling
             }
             catch (Exception exception)
             {
-                // If/Else -> Switch gone with the wind :)
+                // If/Else/Switch gone with the specific strategy -> Wow code fits to the screen :)
                 var matchingStrategy = errorStrategies.First(handler => handler.CanHandle(exception));
 
                 // Handle with the specific strategy - which is responsible for writing the response - and do not forget to await it !!

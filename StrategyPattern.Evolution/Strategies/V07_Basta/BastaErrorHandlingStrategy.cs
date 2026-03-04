@@ -9,18 +9,11 @@ namespace StrategyPattern.Evolution.V07_Basta
     /// Displays all available strategies dynamically.
     /// Perfect for conference demos!
     /// </summary>
-    internal class BastaErrorHandlingStrategy(IEnumerable<ISpecificExceptionHandler> errorHandlers) : IErrorHandlingStrategy
+    internal class BastaErrorHandlingStrategy : IErrorHandlingStrategy
     {
         public async Task HandleAsync(HttpContext httpContext, Exception exception)
         {
-            // Get all available strategy types dynamically
-            var strategyTypes = Enum.GetNames<StrategyType>();
-            var strategyList = string.Join("\n                                        ║    • ", strategyTypes);
-
             var exceptionType = exception.GetType().Name;
-            var exceptionMessage = exception.Message.Length > 50
-                ? exception.Message[..47] + "..."
-                : exception.Message;
 
             var response = $"""
                                         ██████╗  █████╗ ███████╗████████╗ █████╗

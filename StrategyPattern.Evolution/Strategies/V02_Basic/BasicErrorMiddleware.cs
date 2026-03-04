@@ -12,7 +12,7 @@ namespace StrategyPattern.Evolution.V02_Basic
             }
             catch (Exception exception)
             {
-                // We add exception message ....
+                // Now we have better error response !?
                 httpContext.Response.StatusCode = StatusCodes.Status500InternalServerError;
                 httpContext.Response.ContentType = MediaTypeNames.Application.Json;
 
