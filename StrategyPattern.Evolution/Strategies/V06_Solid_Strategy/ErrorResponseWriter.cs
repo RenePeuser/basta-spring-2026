@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Siemens.AspNet.ErrorHandling.Contracts;
 using Siemens.AspNet.MinimalApi.Sdk.Contracts;
 
-namespace StrategyPattern.Evolution.Strategies.V6_Solid_Strategy
+namespace StrategyPattern.Evolution.V06_Solid_Strategy
 {
     public interface IErrorResponseWriter
     {

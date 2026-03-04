@@ -1,7 +1,7 @@
 using System.Net.Mime;
 using Microsoft.AspNetCore.Mvc;
 
-namespace StrategyPattern.Evolution.V3_Switch
+namespace StrategyPattern.Evolution.V03_Switch
 {
     public class SwitchErrorMiddleware() : IMiddleware
     {

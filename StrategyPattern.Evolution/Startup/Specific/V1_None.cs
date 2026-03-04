@@ -1,7 +1,7 @@
 using Siemens.AspNet.ErrorHandling;
 using Siemens.AspNet.MinimalApi.Sdk;
 using StrategyPattern.Evolution.Api.User.V1.Create;
-using StrategyPattern.Evolution.V1_None;
+using StrategyPattern.Evolution.V01_None;
 
 namespace StrategyPattern.Evolution.Startup
 {
@@ -40,8 +40,6 @@ namespace StrategyPattern.Evolution.Startup
 
             // No error middleware
             app.UseMiddleware<NoErrorMiddleware>();
-
-            
 
             // Register endpoints
             var registerEndpoints = app.Services.GetRequiredService<RegisterEndpoints>();

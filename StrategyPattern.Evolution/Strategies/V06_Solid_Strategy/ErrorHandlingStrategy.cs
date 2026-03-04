@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using StrategyPattern.Evolution.Strategies.V6_Solid_Strategy;
 
-namespace StrategyPattern.Evolution.V6_Solid_Strategy
+namespace StrategyPattern.Evolution.V06_Solid_Strategy
 {
     internal interface ISpecificExceptionHandler
     {

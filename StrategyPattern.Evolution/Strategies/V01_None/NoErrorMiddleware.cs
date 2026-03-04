@@ -1,4 +1,4 @@
-namespace StrategyPattern.Evolution.V1_None
+namespace StrategyPattern.Evolution.V01_None
 {
     public class NoErrorMiddleware() : IMiddleware
     {

@@ -1,8 +1,8 @@
 using Siemens.AspNet.ErrorHandling;
 using Siemens.AspNet.MinimalApi.Sdk;
 using StrategyPattern.Evolution.Api.User.V1.Create;
-using StrategyPattern.Evolution.V5_SpecificStrategyErrorHandling;
-using StrategyPattern.Evolution.V5_SpecificStrategyErrorHandling.Exceptions;
+using StrategyPattern.Evolution.V05_SpecificStrategyErrorHandling;
+using StrategyPattern.Evolution.V05_SpecificStrategyErrorHandling.Exceptions;
 
 namespace StrategyPattern.Evolution.Startup
 {

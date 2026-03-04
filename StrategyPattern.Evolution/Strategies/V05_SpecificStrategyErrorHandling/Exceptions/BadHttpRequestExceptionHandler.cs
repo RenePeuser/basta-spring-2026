@@ -3,7 +3,7 @@ using Extensions.Pack;
 using Microsoft.AspNetCore.Mvc;
 using Siemens.AspNet.ErrorHandling.Contracts;
 
-namespace StrategyPattern.Evolution.V5_SpecificStrategyErrorHandling.Exceptions
+namespace StrategyPattern.Evolution.V05_SpecificStrategyErrorHandling.Exceptions
 {
     internal class BadHttpRequestExceptionHandler : IExceptionHandler
     {

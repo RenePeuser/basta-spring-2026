@@ -1,10 +1,11 @@
 using System.Text.Json;
 using Extensions.Pack;
 using Microsoft.AspNetCore.Http.Extensions;
+using Microsoft.AspNetCore.Http.Metadata;
 using Microsoft.AspNetCore.Mvc;
 using Siemens.AspNet.ErrorHandling.Contracts;
 
-namespace StrategyPattern.Evolution.V6_Solid_Strategy.Exceptions
+namespace StrategyPattern.Evolution.V06_Solid_Strategy.Exceptions
 {
     internal class JsonExceptionHandler : ISpecificExceptionHandler
     {
@@ -24,15 +25,23 @@ namespace StrategyPattern.Evolution.V6_Solid_Strategy.Exceptions
                                                               $"Your specific exceptions handler: {nameof(JsonExceptionHandler)} ca not handle: {exception.GetType()}");
             }
 
-            var status400BadRequest = StatusCodes.Status400BadRequest;
+            var status422UnprocessableEntity = StatusCodes.Status422UnprocessableEntity;
 
-            var problemDetails = new ProblemDetails
+            var acceptsMetadata = httpContext.GetEndpoint()?.Metadata.GetMetadata<AcceptsMetadata>();
+            var requestType = acceptsMetadata?.RequestType?.Name ?? "Unknown";
+
+            var problemDetails = new ProblemDetails()
             {
-                Status = status400BadRequest, // Json exeption > Created by client
-                Title = "Your json is not OK",
+                Status = status422UnprocessableEntity, // Json exeption > Created by client
+                Title = "Your json is not OK - Please check the error details for more infos",
                 Detail = exception.Message,
                 Instance = httpContext.Request.GetDisplayUrl(),
-                Type = $"https://http.cat/status/{status400BadRequest}"
+                Type = $"https://http.cat/status/{status422UnprocessableEntity}",
+                Extensions = new Dictionary<string, object?>()
+                {
+                    {"RequestType", requestType}
+                }
+
             };
 
             return Task.FromResult(problemDetails);

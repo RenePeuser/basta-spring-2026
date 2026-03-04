@@ -16,6 +16,9 @@ namespace StrategyPattern.Evolution.Startup
 
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
+            // ToDo: Override Handler
+            // services.AddCustomJsonException();
+
             // Domain - User endpoint registration
             services.AddSingleton<IEndpointRegistration, CreateUserEndpoint>();
 

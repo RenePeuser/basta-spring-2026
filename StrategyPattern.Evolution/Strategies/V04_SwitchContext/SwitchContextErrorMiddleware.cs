@@ -2,7 +2,7 @@ using System.Net.Mime;
 using Microsoft.AspNetCore.Mvc;
 using Siemens.AspNet.ErrorHandling.Contracts;
 
-namespace StrategyPattern.Evolution.V4_SwitchContext
+namespace StrategyPattern.Evolution.V04_SwitchContext
 {
     public class SwitchContextErrorMiddleware() : IMiddleware
     {
@@ -27,10 +27,10 @@ namespace StrategyPattern.Evolution.V4_SwitchContext
                                                                                       argEx.Message,
                                                                                       httpContext),
 
-                    BadHttpRequestException badHttpRequestException => CreateProblemDetails(StatusCodes.Status400BadRequest,
-                                                                                            nameof(BadHttpRequestException),
-                                                                                            badHttpRequestException.Message,
-                                                                                            httpContext),
+                    BadHttpRequestException badHttpRequestException => CreateValidationProblems(StatusCodes.Status422UnprocessableEntity,
+                                                                                                nameof(BadHttpRequestException),
+                                                                                                badHttpRequestException.Message,
+                                                                                                httpContext),
 
                     UnauthorizedAccessException => CreateProblemDetails(StatusCodes.Status403Forbidden,
                                                                         "Forbidden",

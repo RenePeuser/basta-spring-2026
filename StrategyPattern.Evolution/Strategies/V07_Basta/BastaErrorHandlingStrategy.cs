@@ -1,6 +1,6 @@
-using StrategyPattern.Evolution.V6_Solid_Strategy;
+using StrategyPattern.Evolution.V06_Solid_Strategy;
 
-namespace StrategyPattern.Evolution.V7_Basta
+namespace StrategyPattern.Evolution.V07_Basta
 {
     /// <summary>
     /// V7 - Basta Advanced Error Handling Strategy (ASCII Art Demo)

@@ -1,8 +1,7 @@
 using Siemens.AspNet.MinimalApi.Sdk;
 using StrategyPattern.Evolution.Api.User.V1.Create;
-using StrategyPattern.Evolution.Strategies.V6_Solid_Strategy;
-using StrategyPattern.Evolution.V6_Solid_Strategy;
-using StrategyPattern.Evolution.V6_Solid_Strategy.Exceptions;
+using StrategyPattern.Evolution.V06_Solid_Strategy;
+using StrategyPattern.Evolution.V06_Solid_Strategy.Exceptions;
 
 namespace StrategyPattern.Evolution.Startup
 {

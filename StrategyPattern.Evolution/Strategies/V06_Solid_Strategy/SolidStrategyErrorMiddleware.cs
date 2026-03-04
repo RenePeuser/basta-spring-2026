@@ -1,6 +1,4 @@
-using StrategyPattern.Evolution.V6_Solid_Strategy;
-
-namespace StrategyPattern.Evolution.Strategies.V6_Solid_Strategy
+namespace StrategyPattern.Evolution.V06_Solid_Strategy
 {
     internal class SolidStrategyErrorMiddleware(IErrorHandlingStrategy errorHandlingStrategy) : IMiddleware
     {

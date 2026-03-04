@@ -1,0 +1,2292 @@
+{
+  "content": {
+    "headers": [
+      {
+        "key": "Content-Type",
+        "value": [
+          "application/json; charset=utf-8"
+        ]
+      }
+    ],
+    "value": {
+      "canvas": {
+        "nodes": [
+          {
+            "id": "aws-agent_fargate-189c2f1c-f43a-4252-b71b-c76be059e538",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "stage": "Workbench",
+            "label": "Agent on Fargate",
+            "note": null,
+            "capabilityType": "AWS_AGENT_FARGATE",
+            "referenceId": "02ac9931-9d2f-4fb7-bf7c-4f407b81b53d",
+            "position": {
+              "x": 172,
+              "y": -78
+            },
+            "size": {
+              "width": 0,
+              "height": 0
+            },
+            "lastModifiedAt": "2026-01-19T14:09:17.5306173+01:00",
+            "createdAt": "2026-01-19T14:09:17.5306173+01:00",
+            "lastUpdatedByUser": "Z004RPNH",
+            "createdBy": "Z004RPNH",
+            "isMarkedForDeletion": true
+          },
+          {
+            "id": "gitlab-imported_repository-877cb9de-15cd-4d7f-8ba2-d3a5416952fa",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "stage": "Workbench",
+            "label": "Gitlab Repository",
+            "note": null,
+            "capabilityType": "GITLAB_IMPORTED_REPOSITORY",
+            "referenceId": "dde2ddec-b515-4b16-bbb7-b5e4b9278c09",
+            "position": {
+              "x": 1107,
+              "y": -158
+            },
+            "size": {
+              "width": 0,
+              "height": 0
+            },
+            "lastModifiedAt": "2026-01-19T14:09:24.2850661+01:00",
+            "createdAt": "2026-01-19T14:09:24.2850661+01:00",
+            "lastUpdatedByUser": "Z004RPNH",
+            "createdBy": "Z004RPNH",
+            "isMarkedForDeletion": false
+          },
+          {
+            "id": "aws-s3_bucket-e5b6c024-a1d7-4e11-9fc8-9778d609840b",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "stage": "Workbench",
+            "label": "S3 Bucket without Glue Database",
+            "note": null,
+            "capabilityType": "AWS_S3_BUCKET",
+            "referenceId": "19fe8b7d-c965-44e4-9983-3852f2578997",
+            "position": {
+              "x": 1081,
+              "y": 421
+            },
+            "size": {
+              "width": 0,
+              "height": 0
+            },
+            "lastModifiedAt": "2026-01-21T08:35:24.0956081+01:00",
+            "createdAt": "2026-01-21T08:35:24.0956081+01:00",
+            "lastUpdatedByUser": "Z004X4US",
+            "createdBy": "Z004X4US",
+            "isMarkedForDeletion": false
+          },
+          {
+            "id": "aws-aurora_serverless_v2_postgres-13f25793-1ee9-4d40-8956-586ead03d5ee",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "stage": "Workbench",
+            "label": "Aws Aurora Serverless Postgres",
+            "note": null,
+            "capabilityType": "AWS_AURORA_SERVERLESS_V2_POSTGRES",
+            "referenceId": "aacad3e9-0b51-447b-9ca6-573e6c030cdf",
+            "position": {
+              "x": 1092,
+              "y": 96
+            },
+            "size": {
+              "width": 0,
+              "height": 0
+            },
+            "lastModifiedAt": "2026-01-21T13:48:34.4200779+01:00",
+            "createdAt": "2026-01-21T13:48:34.4200779+01:00",
+            "lastUpdatedByUser": "Z004RPNH",
+            "createdBy": "Z004RPNH",
+            "isMarkedForDeletion": false
+          },
+          {
+            "id": "aws-agent_fargate-0ad4d71d-368d-408d-9b11-8431787abb28",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "stage": "Workbench",
+            "label": "Agent on Fargate",
+            "note": null,
+            "capabilityType": "AWS_AGENT_FARGATE",
+            "referenceId": "6082b2d0-5aaa-4ed5-91bf-7761433dc6c8",
+            "position": {
+              "x": 194,
+              "y": 372
+            },
+            "size": {
+              "width": 0,
+              "height": 0
+            },
+            "lastModifiedAt": "2026-01-26T12:13:23.8359922+01:00",
+            "createdAt": "2026-01-26T12:13:23.8359922+01:00",
+            "lastUpdatedByUser": "Z004RPNH",
+            "createdBy": "Z004RPNH",
+            "isMarkedForDeletion": false
+          },
+          {
+            "id": "sgpt-workspace-6886743e-e495-475d-b50e-e8ed8488d4a0",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "stage": "Workbench",
+            "label": "SGPT Workspace",
+            "note": null,
+            "capabilityType": "SGPT_WORKSPACE",
+            "referenceId": "f3e3340f-e71e-4e0d-9bb4-fb8dbaf2a88d",
+            "position": {
+              "x": -780,
+              "y": 344
+            },
+            "size": {
+              "width": 0,
+              "height": 0
+            },
+            "lastModifiedAt": "2026-01-28T10:35:16.7638418+01:00",
+            "createdAt": "2026-01-28T10:35:16.7638418+01:00",
+            "lastUpdatedByUser": "Z003M9SC",
+            "createdBy": "Z003M9SC",
+            "isMarkedForDeletion": false
+          },
+          {
+            "id": "aws-agent_fargate-6dc7eadc-e387-4f95-aa90-54efd6db9429",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "stage": "Workbench",
+            "label": "Agent on Fargate",
+            "note": null,
+            "capabilityType": "AWS_AGENT_FARGATE",
+            "referenceId": "820a55a9-c7d0-48f1-9b94-f62616ba8ea1",
+            "position": {
+              "x": 321,
+              "y": -642
+            },
+            "size": {
+              "width": 0,
+              "height": 0
+            },
+            "lastModifiedAt": "2026-01-28T10:36:01.2185097+01:00",
+            "createdAt": "2026-01-28T10:36:01.2185097+01:00",
+            "lastUpdatedByUser": "Z004RPNH",
+            "createdBy": "Z004RPNH",
+            "isMarkedForDeletion": false
+          },
+          {
+            "id": "gitlab-imported_repository-cf91eaba-3cd5-4c6a-8ef6-d3524daef67e",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "stage": "Workbench",
+            "label": "Gitlab Repository",
+            "note": null,
+            "capabilityType": "GITLAB_IMPORTED_REPOSITORY",
+            "referenceId": "f1ada2f4-9d66-4c41-a98f-c0ba14f253dc",
+            "position": {
+              "x": 1154,
+              "y": -529
+            },
+            "size": {
+              "width": 0,
+              "height": 0
+            },
+            "lastModifiedAt": "2026-01-28T10:36:21.726111+01:00",
+            "createdAt": "2026-01-28T10:36:21.726111+01:00",
+            "lastUpdatedByUser": "Z004RPNH",
+            "createdBy": "Z004RPNH",
+            "isMarkedForDeletion": false
+          },
+          {
+            "id": "gitlab-imported_repository-15d6acc3-6122-460f-8790-3eeebaa9981c",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "stage": "Workbench",
+            "label": "Gitlab Repository",
+            "note": null,
+            "capabilityType": "GITLAB_IMPORTED_REPOSITORY",
+            "referenceId": "dde2ddec-b515-4b16-bbb7-b5e4b9278c09",
+            "position": {
+              "x": -598,
+              "y": -230
+            },
+            "size": {
+              "width": 0,
+              "height": 0
+            },
+            "lastModifiedAt": "2026-02-04T11:19:23.6883782+01:00",
+            "createdAt": "2026-02-04T11:19:23.6883782+01:00",
+            "lastUpdatedByUser": "Z004RPNH",
+            "createdBy": "Z004RPNH",
+            "isMarkedForDeletion": false
+          },
+          {
+            "id": "aws-bedrock_models-24a7ef53-c080-4b84-b09b-497e43cd1253",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "stage": "Workbench",
+            "label": "AWS Bedrock Models",
+            "note": null,
+            "capabilityType": "AWS_BEDROCK_MODELS",
+            "referenceId": "4262c759-5cd7-435c-84fa-1cd0559a5f9c",
+            "position": {
+              "x": 1096,
+              "y": -933
+            },
+            "size": {
+              "width": 0,
+              "height": 0
+            },
+            "lastModifiedAt": "2026-02-04T13:42:21.8465792+01:00",
+            "createdAt": "2026-02-04T13:42:21.8465792+01:00",
+            "lastUpdatedByUser": "Z004RPNH",
+            "createdBy": "Z004RPNH",
+            "isMarkedForDeletion": false
+          },
+          {
+            "id": "aws-agent_fargate-419e3d2a-87cd-443d-820e-f502bd151ced",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "stage": "Workbench",
+            "label": "Agent on Fargate",
+            "note": null,
+            "capabilityType": "AWS_AGENT_FARGATE",
+            "referenceId": null,
+            "position": {
+              "x": -316,
+              "y": -55
+            },
+            "size": {
+              "width": 0,
+              "height": 0
+            },
+            "lastModifiedAt": "2026-02-10T11:46:07.3906655+01:00",
+            "createdAt": "2026-02-10T11:46:07.3906655+01:00",
+            "lastUpdatedByUser": "Z004UZSP",
+            "createdBy": "Z004UZSP",
+            "isMarkedForDeletion": false
+          },
+          {
+            "id": "aws-agent_fargate-d18fdd1b-d574-455b-bec7-d260b13d9603",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "stage": "Workbench",
+            "label": "AI Agent",
+            "note": null,
+            "capabilityType": "AWS_AGENT_FARGATE",
+            "referenceId": "a9a8bde0-42d9-43a0-905d-5d5831b7e2e7",
+            "position": {
+              "x": 136,
+              "y": 988
+            },
+            "size": {
+              "width": 0,
+              "height": 0
+            },
+            "lastModifiedAt": "2026-02-10T13:56:10.0928731+01:00",
+            "createdAt": "2026-02-10T13:56:10.0928731+01:00",
+            "lastUpdatedByUser": "Z004RPNH",
+            "createdBy": "Z004RPNH",
+            "isMarkedForDeletion": false
+          },
+          {
+            "id": "aws-s3_bucket-970aedfd-8ce3-41a0-8107-99c48f3b2334",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "stage": "Workbench",
+            "label": "Output Data",
+            "note": null,
+            "capabilityType": "AWS_S3_BUCKET",
+            "referenceId": "9480e94a-c6be-46bf-9cbd-8d96e316446b",
+            "position": {
+              "x": 838,
+              "y": 935
+            },
+            "size": {
+              "width": 0,
+              "height": 0
+            },
+            "lastModifiedAt": "2026-02-10T13:56:10.359103+01:00",
+            "createdAt": "2026-02-10T13:56:10.359103+01:00",
+            "lastUpdatedByUser": "Z004RPNH",
+            "createdBy": "Z004RPNH",
+            "isMarkedForDeletion": false
+          },
+          {
+            "id": "aws-bedrock_models-772abfa7-c2cc-4296-b4f4-97146118b083",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "stage": "Workbench",
+            "label": "Bedrock Models",
+            "note": null,
+            "capabilityType": "AWS_BEDROCK_MODELS",
+            "referenceId": "01e51e11-2313-4659-a2d4-8debc7af3d8a",
+            "position": {
+              "x": 833,
+              "y": 666
+            },
+            "size": {
+              "width": 0,
+              "height": 0
+            },
+            "lastModifiedAt": "2026-02-10T13:56:10.5683218+01:00",
+            "createdAt": "2026-02-10T13:56:10.5683218+01:00",
+            "lastUpdatedByUser": "Z004RPNH",
+            "createdBy": "Z004RPNH",
+            "isMarkedForDeletion": false
+          },
+          {
+            "id": "aws-agent_fargate-e6776e4f-582a-4287-819b-488aab13c181",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "stage": "Workbench",
+            "label": "AI Agent",
+            "note": null,
+            "capabilityType": "AWS_AGENT_FARGATE",
+            "referenceId": "809cb7eb-7c4d-4d6b-a510-6649aa4c3b54",
+            "position": {
+              "x": -2195,
+              "y": -668
+            },
+            "size": {
+              "width": 0,
+              "height": 0
+            },
+            "lastModifiedAt": "2026-02-10T15:47:20.166724+01:00",
+            "createdAt": "2026-02-10T15:47:20.166724+01:00",
+            "lastUpdatedByUser": "Z004UZSP",
+            "createdBy": "Z004UZSP",
+            "isMarkedForDeletion": false
+          },
+          {
+            "id": "aws-bedrock_models-c9b6ea8e-1e7e-40d0-9ef5-df771b6c86e9",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "stage": "Workbench",
+            "label": "Bedrock Models",
+            "note": null,
+            "capabilityType": "AWS_BEDROCK_MODELS",
+            "referenceId": "2658e5de-971e-4451-9414-6ecd58e52f5f",
+            "position": {
+              "x": -1440,
+              "y": -930
+            },
+            "size": {
+              "width": 0,
+              "height": 0
+            },
+            "lastModifiedAt": "2026-02-10T15:47:20.9620796+01:00",
+            "createdAt": "2026-02-10T15:47:20.9620796+01:00",
+            "lastUpdatedByUser": "Z004UZSP",
+            "createdBy": "Z004UZSP",
+            "isMarkedForDeletion": false
+          },
+          {
+            "id": "aws-agent_fargate-07595eb8-1598-4c73-a078-fa9d79b4c06e",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "stage": "Workbench",
+            "label": "AI Agent",
+            "note": null,
+            "capabilityType": "AWS_AGENT_FARGATE",
+            "referenceId": "69f273e0-d4c6-48a4-a799-eb701b019d08",
+            "position": {
+              "x": -1836,
+              "y": -2316
+            },
+            "size": {
+              "width": 0,
+              "height": 0
+            },
+            "lastModifiedAt": "2026-02-10T16:05:24.4573931+01:00",
+            "createdAt": "2026-02-10T16:05:24.4573931+01:00",
+            "lastUpdatedByUser": "Z004UZSP",
+            "createdBy": "Z004UZSP",
+            "isMarkedForDeletion": false
+          },
+          {
+            "id": "aws-s3_bucket-e0992b73-6aef-47b9-bc44-b418054121df",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "stage": "Workbench",
+            "label": "Output Data",
+            "note": null,
+            "capabilityType": "AWS_S3_BUCKET",
+            "referenceId": "86897749-294d-4727-9a3b-7fb7407f4d46",
+            "position": {
+              "x": -1125,
+              "y": -2145
+            },
+            "size": {
+              "width": 0,
+              "height": 0
+            },
+            "lastModifiedAt": "2026-02-10T16:05:27.3219859+01:00",
+            "createdAt": "2026-02-10T16:05:27.3219859+01:00",
+            "lastUpdatedByUser": "Z004UZSP",
+            "createdBy": "Z004UZSP",
+            "isMarkedForDeletion": false
+          },
+          {
+            "id": "aws-bedrock_models-67bbe8e1-ffb8-4eaf-a7b0-c75157ad2b83",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "stage": "Workbench",
+            "label": "Bedrock Models",
+            "note": null,
+            "capabilityType": "AWS_BEDROCK_MODELS",
+            "referenceId": "2ead8c9b-9dad-4413-9e1e-373a3218e972",
+            "position": {
+              "x": -1125,
+              "y": -2490
+            },
+            "size": {
+              "width": 0,
+              "height": 0
+            },
+            "lastModifiedAt": "2026-02-10T16:05:27.6886172+01:00",
+            "createdAt": "2026-02-10T16:05:27.6886172+01:00",
+            "lastUpdatedByUser": "Z004UZSP",
+            "createdBy": "Z004UZSP",
+            "isMarkedForDeletion": false
+          },
+          {
+            "id": "gcp-vertex_ai_models-26b88c2e-179a-406b-84a3-2bcc00eafe42",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "stage": "Workbench",
+            "label": "Vertex AI Models",
+            "note": null,
+            "capabilityType": "GCP_VERTEX_AI_MODELS",
+            "referenceId": "f42f1faf-9b1c-43aa-b580-47e7f8cb52c8",
+            "position": {
+              "x": 831,
+              "y": -315
+            },
+            "size": {
+              "width": 0,
+              "height": 0
+            },
+            "lastModifiedAt": "2026-02-10T17:34:18.6468939+01:00",
+            "createdAt": "2026-02-10T17:34:18.6468939+01:00",
+            "lastUpdatedByUser": "Z0056ZWA",
+            "createdBy": "Z0056ZWA",
+            "isMarkedForDeletion": false
+          },
+          {
+            "id": "aws-aurora_serverless_v2_postgres-4c8bf714-b93a-40f9-b829-2a16325c1ba6",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "stage": "Workbench",
+            "label": "Aws Aurora Serverless Postgres",
+            "note": null,
+            "capabilityType": "AWS_AURORA_SERVERLESS_V2_POSTGRES",
+            "referenceId": "2d3caf70-f236-4f0e-b47c-84ca29a95c27",
+            "position": {
+              "x": 1504,
+              "y": -27
+            },
+            "size": {
+              "width": 0,
+              "height": 0
+            },
+            "lastModifiedAt": "2026-02-11T09:53:37.7899059+01:00",
+            "createdAt": "2026-02-11T09:53:37.7899059+01:00",
+            "lastUpdatedByUser": "Z004JN3M",
+            "createdBy": "Z004JN3M",
+            "isMarkedForDeletion": false
+          }
+        ],
+        "edges": [
+          {
+            "id": "4272982d-db33-4869-9c27-61bd589cb65d",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "stage": "Workbench",
+            "sourceNodeId": "aws-agent_fargate-189c2f1c-f43a-4252-b71b-c76be059e538",
+            "targetNodeId": "gitlab-imported_repository-877cb9de-15cd-4d7f-8ba2-d3a5416952fa",
+            "sourceSocketId": "out-0",
+            "targetSocketId": "in-0",
+            "referenceId": "806ba106-c8a2-42fe-b1e9-8cdb53892002",
+            "relationType": "AWS_AGENT_FARGATE_USE_GITLAB_IMPORTED_REPOSITORY",
+            "displayName": "Agent on Fargate - Gitlab Repository",
+            "note": null,
+            "position": {
+              "x": 742,
+              "y": 12
+            },
+            "size": {
+              "width": 0,
+              "height": 0
+            },
+            "lastModifiedAt": "2026-01-19T14:10:10.7941655+01:00",
+            "createdAt": "2026-01-19T14:10:10.7941655+01:00",
+            "lastUpdatedByUser": "Z004JN3M",
+            "createdBy": "Z004RPNH",
+            "isMarkedForDeletion": false
+          },
+          {
+            "id": "8a810f42-ae50-45b2-8f57-7de9fad9eabc",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "stage": "Workbench",
+            "sourceNodeId": "sgpt-workspace-6886743e-e495-475d-b50e-e8ed8488d4a0",
+            "targetNodeId": "aws-agent_fargate-0ad4d71d-368d-408d-9b11-8431787abb28",
+            "sourceSocketId": "out-0",
+            "targetSocketId": "in-0",
+            "referenceId": "26673915-b415-4e7f-8c0f-17a5d6939325",
+            "relationType": "SGPT_TO_AWS_ADK_AGENT_FARGATE",
+            "displayName": "SGPT Workspace - Agent on Fargate",
+            "note": null,
+            "position": {
+              "x": -202,
+              "y": 432
+            },
+            "size": {
+              "width": 0,
+              "height": 0
+            },
+            "lastModifiedAt": "2026-01-28T10:35:24.4519071+01:00",
+            "createdAt": "2026-01-28T10:35:24.4519071+01:00",
+            "lastUpdatedByUser": "Z004JN3M",
+            "createdBy": "Z003M9SC",
+            "isMarkedForDeletion": false
+          },
+          {
+            "id": "eeedbcb4-843c-4e3a-8c6e-c3aca8a4d955",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "stage": "Workbench",
+            "sourceNodeId": "aws-agent_fargate-6dc7eadc-e387-4f95-aa90-54efd6db9429",
+            "targetNodeId": "gitlab-imported_repository-cf91eaba-3cd5-4c6a-8ef6-d3524daef67e",
+            "sourceSocketId": "out-0",
+            "targetSocketId": "in-0",
+            "referenceId": "4b8fe282-f3d0-423b-91ba-8a2c727189d3",
+            "relationType": "AWS_AGENT_FARGATE_USE_GITLAB_IMPORTED_REPOSITORY",
+            "displayName": "Agent on Fargate - Gitlab Repository",
+            "note": null,
+            "position": {
+              "x": 847,
+              "y": -470
+            },
+            "size": {
+              "width": 0,
+              "height": 0
+            },
+            "lastModifiedAt": "2026-01-28T10:36:59.4283875+01:00",
+            "createdAt": "2026-01-28T10:36:59.4283875+01:00",
+            "lastUpdatedByUser": "Z004JN3M",
+            "createdBy": "Z004RPNH",
+            "isMarkedForDeletion": false
+          },
+          {
+            "id": "44fe77ad-ed9e-4056-ae6b-49bf7cbb47c7",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "stage": "Workbench",
+            "sourceNodeId": "aws-agent_fargate-0ad4d71d-368d-408d-9b11-8431787abb28",
+            "targetNodeId": "aws-s3_bucket-e5b6c024-a1d7-4e11-9fc8-9778d609840b",
+            "sourceSocketId": "out-0",
+            "targetSocketId": "in-0",
+            "referenceId": "26885ac7-082a-4ef8-93a1-182db799c992",
+            "relationType": "AWS_AGENT_FARGATE_READ_FROM_S3",
+            "displayName": "Agent on Fargate - S3 Bucket without Glue Database",
+            "note": null,
+            "position": {
+              "x": 766,
+              "y": 533
+            },
+            "size": {
+              "width": 0,
+              "height": 0
+            },
+            "lastModifiedAt": "2026-01-28T16:40:40.122335+01:00",
+            "createdAt": "2026-01-28T16:40:40.122335+01:00",
+            "lastUpdatedByUser": "Z004JN3M",
+            "createdBy": "Z003M9SC",
+            "isMarkedForDeletion": false
+          },
+          {
+            "id": "d26a194d-0672-4d15-8cd1-cf29ef84d449",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "stage": "Workbench",
+            "sourceNodeId": "aws-agent_fargate-6dc7eadc-e387-4f95-aa90-54efd6db9429",
+            "targetNodeId": "aws-bedrock_models-24a7ef53-c080-4b84-b09b-497e43cd1253",
+            "sourceSocketId": "out-0",
+            "targetSocketId": "in-0",
+            "referenceId": "33bd2af9-6364-459f-b70d-70eb2e778e7d",
+            "relationType": "AWS_AGENT_FARGATE_USE_BEDROCK",
+            "displayName": "Agent on Fargate - AWS Bedrock Models",
+            "note": null,
+            "position": {
+              "x": 765,
+              "y": -670
+            },
+            "size": {
+              "width": 0,
+              "height": 0
+            },
+            "lastModifiedAt": "2026-02-04T13:43:07.655391+01:00",
+            "createdAt": "2026-02-04T13:43:07.655391+01:00",
+            "lastUpdatedByUser": "Z004JN3M",
+            "createdBy": "Z004RPNH",
+            "isMarkedForDeletion": false
+          },
+          {
+            "id": "7dbb01ae-abe7-489b-94ac-8e8f04ff9cfb",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "stage": "Workbench",
+            "sourceNodeId": "aws-agent_fargate-189c2f1c-f43a-4252-b71b-c76be059e538",
+            "targetNodeId": "aws-aurora_serverless_v2_postgres-13f25793-1ee9-4d40-8956-586ead03d5ee",
+            "sourceSocketId": "out-0",
+            "targetSocketId": "in-0",
+            "referenceId": "acab23e6-cd84-4713-915e-b18193a1510e",
+            "relationType": "AWS_AGENT_FARGATE_READ_WRITE_TO_AURORA_POSTGRES",
+            "displayName": "Agent on Fargate - Aws Aurora Serverless Postgres",
+            "note": null,
+            "position": {
+              "x": 747,
+              "y": 285
+            },
+            "size": {
+              "width": 0,
+              "height": 0
+            },
+            "lastModifiedAt": "2026-02-09T13:53:48.5760185+01:00",
+            "createdAt": "2026-02-09T13:53:48.5760185+01:00",
+            "lastUpdatedByUser": "Z004JN3M",
+            "createdBy": "Z0053CVJ",
+            "isMarkedForDeletion": false
+          },
+          {
+            "id": "71dbe4d8-099c-48a2-b1f5-5424dacb6785",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "stage": "Workbench",
+            "sourceNodeId": "sgpt-workspace-6886743e-e495-475d-b50e-e8ed8488d4a0",
+            "targetNodeId": "aws-agent_fargate-189c2f1c-f43a-4252-b71b-c76be059e538",
+            "sourceSocketId": "out-0",
+            "targetSocketId": "in-0",
+            "referenceId": "a7a42993-5f37-4cb3-ab73-5255d603bb52",
+            "relationType": "SGPT_TO_AWS_ADK_AGENT_FARGATE",
+            "displayName": "SGPT Workspace - Agent on Fargate",
+            "note": null,
+            "position": {
+              "x": -225,
+              "y": 238
+            },
+            "size": {
+              "width": 0,
+              "height": 0
+            },
+            "lastModifiedAt": "2026-02-10T11:35:20.214285+01:00",
+            "createdAt": "2026-02-10T11:35:20.214285+01:00",
+            "lastUpdatedByUser": "Z004JN3M",
+            "createdBy": "Z004UZSP",
+            "isMarkedForDeletion": false
+          },
+          {
+            "id": "dad55de5-c054-4ef2-a318-c1b35b498efe",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "stage": "Workbench",
+            "sourceNodeId": "aws-agent_fargate-d18fdd1b-d574-455b-bec7-d260b13d9603",
+            "targetNodeId": "aws-s3_bucket-970aedfd-8ce3-41a0-8107-99c48f3b2334",
+            "sourceSocketId": "out-0",
+            "targetSocketId": "in-0",
+            "referenceId": "177daa81-1101-4cd3-a7f1-47c38d321cfa",
+            "relationType": "AWS_AGENT_FARGATE_READ_FROM_S3",
+            "displayName": "AI Agent - Output Data",
+            "note": null,
+            "position": {
+              "x": 560,
+              "y": 1189
+            },
+            "size": {
+              "width": 0,
+              "height": 0
+            },
+            "lastModifiedAt": "2026-02-10T13:56:11.6163826+01:00",
+            "createdAt": "2026-02-10T13:56:11.6163826+01:00",
+            "lastUpdatedByUser": "Z004JN3M",
+            "createdBy": "Z004RPNH",
+            "isMarkedForDeletion": false
+          },
+          {
+            "id": "f4595176-c4d4-4ff4-965b-fbe596e82dce",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "stage": "Workbench",
+            "sourceNodeId": "aws-agent_fargate-d18fdd1b-d574-455b-bec7-d260b13d9603",
+            "targetNodeId": "aws-bedrock_models-772abfa7-c2cc-4296-b4f4-97146118b083",
+            "sourceSocketId": "out-0",
+            "targetSocketId": "in-0",
+            "referenceId": "db038994-0238-493d-a189-e95a24ac0703",
+            "relationType": "AWS_AGENT_FARGATE_USE_BEDROCK",
+            "displayName": "AI Agent - Bedrock Models",
+            "note": null,
+            "position": {
+              "x": 533,
+              "y": 855
+            },
+            "size": {
+              "width": 0,
+              "height": 0
+            },
+            "lastModifiedAt": "2026-02-10T13:56:12.1082416+01:00",
+            "createdAt": "2026-02-10T13:56:12.1082416+01:00",
+            "lastUpdatedByUser": "Z004JN3M",
+            "createdBy": "Z004RPNH",
+            "isMarkedForDeletion": false
+          },
+          {
+            "id": "591287d4-eafd-4fda-9b5d-aa58de88abcf",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "stage": "Workbench",
+            "sourceNodeId": "sgpt-workspace-6886743e-e495-475d-b50e-e8ed8488d4a0",
+            "targetNodeId": "aws-agent_fargate-d18fdd1b-d574-455b-bec7-d260b13d9603",
+            "sourceSocketId": "out-0",
+            "targetSocketId": "in-0",
+            "referenceId": "adcf3c2c-d353-4910-9cca-c06d75c6b26a",
+            "relationType": "SGPT_TO_AWS_ADK_AGENT_FARGATE",
+            "displayName": "SGPT Workspace - AI Agent",
+            "note": null,
+            "position": {
+              "x": -178,
+              "y": 746.75
+            },
+            "size": {
+              "width": 0,
+              "height": 0
+            },
+            "lastModifiedAt": "2026-02-10T14:03:51.9093942+01:00",
+            "createdAt": "2026-02-10T14:03:51.9093942+01:00",
+            "lastUpdatedByUser": "Z004JN3M",
+            "createdBy": "Z004UZSP",
+            "isMarkedForDeletion": false
+          },
+          {
+            "id": "d36681db-50c3-49af-bbaf-dcb89d4c4785",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "stage": "Workbench",
+            "sourceNodeId": "aws-agent_fargate-e6776e4f-582a-4287-819b-488aab13c181",
+            "targetNodeId": "aws-bedrock_models-c9b6ea8e-1e7e-40d0-9ef5-df771b6c86e9",
+            "sourceSocketId": "out-0",
+            "targetSocketId": "in-0",
+            "referenceId": "e96647e1-46e5-42db-878f-69b0d3c5df63",
+            "relationType": "AWS_AGENT_FARGATE_USE_BEDROCK",
+            "displayName": "AI Agent - Bedrock Models",
+            "note": null,
+            "position": {
+              "x": -1700,
+              "y": -710.5
+            },
+            "size": {
+              "width": 0,
+              "height": 0
+            },
+            "lastModifiedAt": "2026-02-10T15:47:24.4343835+01:00",
+            "createdAt": "2026-02-10T15:47:24.4343835+01:00",
+            "lastUpdatedByUser": "Z004JN3M",
+            "createdBy": "Z004UZSP",
+            "isMarkedForDeletion": false
+          },
+          {
+            "id": "94870fe6-9b7c-45ef-9796-f7e25a324388",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "stage": "Workbench",
+            "sourceNodeId": "aws-agent_fargate-07595eb8-1598-4c73-a078-fa9d79b4c06e",
+            "targetNodeId": "aws-s3_bucket-e0992b73-6aef-47b9-bc44-b418054121df",
+            "sourceSocketId": "out-0",
+            "targetSocketId": "in-0",
+            "referenceId": "9231fa9d-3f84-43e7-ba74-cd21ce30aab2",
+            "relationType": "AWS_AGENT_FARGATE_READ_FROM_S3",
+            "displayName": "AI Agent - Output Data",
+            "note": null,
+            "position": {
+              "x": -1385,
+              "y": -2098
+            },
+            "size": {
+              "width": 0,
+              "height": 0
+            },
+            "lastModifiedAt": "2026-02-10T16:05:29.1627927+01:00",
+            "createdAt": "2026-02-10T16:05:29.1627927+01:00",
+            "lastUpdatedByUser": "Z004JN3M",
+            "createdBy": "Z004UZSP",
+            "isMarkedForDeletion": false
+          },
+          {
+            "id": "eb5b45e3-7b11-4fec-92fb-e62a5510475a",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "stage": "Workbench",
+            "sourceNodeId": "aws-agent_fargate-07595eb8-1598-4c73-a078-fa9d79b4c06e",
+            "targetNodeId": "aws-bedrock_models-67bbe8e1-ffb8-4eaf-a7b0-c75157ad2b83",
+            "sourceSocketId": "out-0",
+            "targetSocketId": "in-0",
+            "referenceId": "99ad326f-8f5c-4ee9-9e91-2f7ed7a1977e",
+            "relationType": "AWS_AGENT_FARGATE_USE_BEDROCK",
+            "displayName": "AI Agent - Bedrock Models",
+            "note": null,
+            "position": {
+              "x": -1385,
+              "y": -2270.5
+            },
+            "size": {
+              "width": 0,
+              "height": 0
+            },
+            "lastModifiedAt": "2026-02-10T16:05:29.7406058+01:00",
+            "createdAt": "2026-02-10T16:05:29.7406058+01:00",
+            "lastUpdatedByUser": "Z004JN3M",
+            "createdBy": "Z004UZSP",
+            "isMarkedForDeletion": false
+          },
+          {
+            "id": "c68df72f-d296-44af-8105-58effd40355f",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "stage": "Workbench",
+            "sourceNodeId": "aws-agent_fargate-189c2f1c-f43a-4252-b71b-c76be059e538",
+            "targetNodeId": "gcp-vertex_ai_models-26b88c2e-179a-406b-84a3-2bcc00eafe42",
+            "sourceSocketId": "out-0",
+            "targetSocketId": "in-0",
+            "referenceId": "105e0ed0-3450-4d5c-85f7-53af55b5e0c6",
+            "relationType": "AWS_AGENT_FARGATE_USE_GCP_VERTEX_AI_MODELS",
+            "displayName": "Agent on Fargate - Vertex AI Models",
+            "note": null,
+            "position": {
+              "x": 581,
+              "y": -121
+            },
+            "size": {
+              "width": 0,
+              "height": 0
+            },
+            "lastModifiedAt": "2026-02-10T17:34:20.9844229+01:00",
+            "createdAt": "2026-02-10T17:34:20.9844229+01:00",
+            "lastUpdatedByUser": "Z004JN3M",
+            "createdBy": "Z0056ZWA",
+            "isMarkedForDeletion": false
+          },
+          {
+            "id": "1487e701-fdf3-480a-8bff-22215d318742",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "stage": "Workbench",
+            "sourceNodeId": "aws-agent_fargate-189c2f1c-f43a-4252-b71b-c76be059e538",
+            "targetNodeId": "aws-aurora_serverless_v2_postgres-4c8bf714-b93a-40f9-b829-2a16325c1ba6",
+            "sourceSocketId": "out-0",
+            "targetSocketId": "in-0",
+            "referenceId": "7ad169ee-36d8-4e9e-a1c8-6e34667f777b",
+            "relationType": "AWS_AGENT_FARGATE_READ_WRITE_TO_AURORA_POSTGRES",
+            "displayName": "Agent on Fargate - Aws Aurora Serverless Postgres",
+            "note": null,
+            "position": {
+              "x": 902,
+              "y": 92.75
+            },
+            "size": {
+              "width": 0,
+              "height": 0
+            },
+            "lastModifiedAt": "2026-02-11T09:53:58.0868137+01:00",
+            "createdAt": "2026-02-11T09:53:58.0868137+01:00",
+            "lastUpdatedByUser": "Z004JN3M",
+            "createdBy": "Z004JN3M",
+            "isMarkedForDeletion": false
+          }
+        ],
+        "capabilities": [
+          {
+            "properties": {
+              "albAccessType": "PUBLIC",
+              "environmentKeys": [],
+              "externalAllowedCidrs": [],
+              "healthCheckPath": null,
+              "imageTag": null,
+              "port": null,
+              "subdomain": null,
+              "taskSize": null
+            },
+            "id": "02ac9931-9d2f-4fb7-bf7c-4f407b81b53d",
+            "providerType": "Aws",
+            "lastUpdatedByUser": "Z0055B5J",
+            "lastModifiedAt": "2026-01-19T14:09:37.9674409+01:00",
+            "createdAt": "2026-01-19T14:09:37.9674409+01:00",
+            "createdBy": "Z004RPNH",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "AWS_AGENT_FARGATE",
+            "stage": "Workbench",
+            "name": "google-search-agent",
+            "isDeployed": true,
+            "isMarkedForDeletion": true
+          },
+          {
+            "properties": {
+              "gitlabRoleName": "",
+              "repositoryUrl": ""
+            },
+            "id": "dde2ddec-b515-4b16-bbb7-b5e4b9278c09",
+            "providerType": "GitLab",
+            "lastUpdatedByUser": "Z0056ZWA",
+            "lastModifiedAt": "2026-01-19T14:09:50.8487243+01:00",
+            "createdAt": "2026-01-19T14:09:50.8487243+01:00",
+            "createdBy": "Z004RPNH",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "GITLAB_IMPORTED_REPOSITORY",
+            "stage": "Workbench",
+            "name": "google-search-agent-repo",
+            "isDeployed": true,
+            "isMarkedForDeletion": false
+          },
+          {
+            "properties": {
+              "location": "europe-west4"
+            },
+            "id": "1a3d534f-17a0-42ea-8fe7-c267f3da57c0",
+            "providerType": "Gcp",
+            "lastUpdatedByUser": "Z004RPNH",
+            "lastModifiedAt": "2026-01-19T14:09:55.7499058+01:00",
+            "createdAt": "2026-01-19T14:09:55.7499058+01:00",
+            "createdBy": "Z004RPNH",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "GCP_VERTEX_AI_MODELS",
+            "stage": "Workbench",
+            "name": "vertex",
+            "isDeployed": true,
+            "isMarkedForDeletion": false
+          },
+          {
+            "properties": {
+              "workspaceName": ""
+            },
+            "id": "f3e3340f-e71e-4e0d-9bb4-fb8dbaf2a88d",
+            "providerType": "Sgpt",
+            "lastUpdatedByUser": "Z0056ZWA",
+            "lastModifiedAt": "2026-01-19T14:10:06.5090706+01:00",
+            "createdAt": "2026-01-19T14:10:06.5090706+01:00",
+            "createdBy": "Z004RPNH",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "SGPT_WORKSPACE",
+            "stage": "Workbench",
+            "name": "base-google-adk-agent",
+            "isDeployed": true,
+            "isMarkedForDeletion": false
+          },
+          {
+            "properties": {
+              "workspaceName": ""
+            },
+            "id": "bb783ec0-789f-4a51-9edf-4b3ee80abeaf",
+            "providerType": "Sgpt",
+            "lastUpdatedByUser": "Z003DMKU",
+            "lastModifiedAt": "2026-01-19T16:19:34.9979803+01:00",
+            "createdAt": "2026-01-19T16:19:34.9979803+01:00",
+            "createdBy": "Z003DMKU",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "SGPT_WORKSPACE",
+            "stage": "Workbench",
+            "name": "123test123",
+            "isDeployed": true,
+            "isMarkedForDeletion": false
+          },
+          {
+            "properties": {
+              "lifecycleRules": [],
+              "name": null,
+              "region": "eu-west-1",
+              "tags": [],
+              "versioningEnabled": false
+            },
+            "id": "19fe8b7d-c965-44e4-9983-3852f2578997",
+            "providerType": "Aws",
+            "lastUpdatedByUser": "Z004X4US",
+            "lastModifiedAt": "2026-01-21T08:35:33.3563651+01:00",
+            "createdAt": "2026-01-21T08:35:33.3563651+01:00",
+            "createdBy": "Z004X4US",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "AWS_S3_BUCKET",
+            "stage": "Workbench",
+            "name": "my-new-s3-bucket",
+            "isDeployed": true,
+            "isMarkedForDeletion": false
+          },
+          {
+            "properties": {
+              "dbName": "appdb",
+              "dbUserName": "appadmin",
+              "maxAcu": 1.5,
+              "minAcu": 0.5
+            },
+            "id": "aacad3e9-0b51-447b-9ca6-573e6c030cdf",
+            "providerType": "Aws",
+            "lastUpdatedByUser": "Z004RPNH",
+            "lastModifiedAt": "2026-01-21T13:48:37.9646213+01:00",
+            "createdAt": "2026-01-21T13:48:37.9646213+01:00",
+            "createdBy": "Z004RPNH",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "AWS_AURORA_SERVERLESS_V2_POSTGRES",
+            "stage": "Workbench",
+            "name": "postgres",
+            "isDeployed": true,
+            "isMarkedForDeletion": false
+          },
+          {
+            "properties": {
+              "region": "eu-west-1"
+            },
+            "id": "4262c759-5cd7-435c-84fa-1cd0559a5f9c",
+            "providerType": "Aws",
+            "lastUpdatedByUser": "Z00570NA",
+            "lastModifiedAt": "2026-01-22T14:13:02.3514799+01:00",
+            "createdAt": "2026-01-22T14:13:02.3514799+01:00",
+            "createdBy": "Z00570NA",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "AWS_BEDROCK_MODELS",
+            "stage": "Workbench",
+            "name": "my-models",
+            "isDeployed": true,
+            "isMarkedForDeletion": false
+          },
+          {
+            "properties": {
+              "albAccessType": "PUBLIC",
+              "environmentKeys": [],
+              "externalAllowedCidrs": [],
+              "healthCheckPath": null,
+              "imageTag": null,
+              "port": null,
+              "subdomain": null,
+              "taskSize": null
+            },
+            "id": "6082b2d0-5aaa-4ed5-91bf-7761433dc6c8",
+            "providerType": "Aws",
+            "lastUpdatedByUser": "Z003M9SC",
+            "lastModifiedAt": "2026-01-26T12:13:30.2974784+01:00",
+            "createdAt": "2026-01-26T12:13:30.2974784+01:00",
+            "createdBy": "Z004RPNH",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "AWS_AGENT_FARGATE",
+            "stage": "Workbench",
+            "name": "sdc-blueprint",
+            "isDeployed": true,
+            "isMarkedForDeletion": false
+          },
+          {
+            "properties": {
+              "gitlabRoleName": "",
+              "repositoryUrl": ""
+            },
+            "id": "c80e5da8-7062-400f-b6a7-4599f8923d2e",
+            "providerType": "GitLab",
+            "lastUpdatedByUser": "Z004RPNH",
+            "lastModifiedAt": "2026-01-26T12:13:40.760439+01:00",
+            "createdAt": "2026-01-26T12:13:40.760439+01:00",
+            "createdBy": "Z004RPNH",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "GITLAB_IMPORTED_REPOSITORY",
+            "stage": "Workbench",
+            "name": "sdc-bluetprint-repo",
+            "isDeployed": true,
+            "isMarkedForDeletion": false
+          },
+          {
+            "properties": {
+              "albAccessType": "PUBLIC",
+              "environmentKeys": [],
+              "externalAllowedCidrs": [],
+              "healthCheckPath": null,
+              "imageTag": null,
+              "port": null,
+              "subdomain": null,
+              "taskSize": null
+            },
+            "id": "820a55a9-c7d0-48f1-9b94-f62616ba8ea1",
+            "providerType": "Aws",
+            "lastUpdatedByUser": "Z004RPNH",
+            "lastModifiedAt": "2026-01-28T10:36:06.7632518+01:00",
+            "createdAt": "2026-01-28T10:36:06.7632518+01:00",
+            "createdBy": "Z004RPNH",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "AWS_AGENT_FARGATE",
+            "stage": "Workbench",
+            "name": "slack-agent",
+            "isDeployed": true,
+            "isMarkedForDeletion": false
+          },
+          {
+            "properties": {
+              "gitlabRoleName": "",
+              "repositoryUrl": ""
+            },
+            "id": "f1ada2f4-9d66-4c41-a98f-c0ba14f253dc",
+            "providerType": "GitLab",
+            "lastUpdatedByUser": "Z004RPNH",
+            "lastModifiedAt": "2026-01-28T10:36:42.0974476+01:00",
+            "createdAt": "2026-01-28T10:36:42.0974476+01:00",
+            "createdBy": "Z004RPNH",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "GITLAB_IMPORTED_REPOSITORY",
+            "stage": "Workbench",
+            "name": "slack-agent-repo",
+            "isDeployed": true,
+            "isMarkedForDeletion": false
+          },
+          {
+            "properties": {
+              "gitlabRoleName": "",
+              "repositoryUrl": ""
+            },
+            "id": "d90baac6-65c0-4ee4-b7a4-43b27d6839f5",
+            "providerType": "GitLab",
+            "lastUpdatedByUser": "Z004UZSP",
+            "lastModifiedAt": "2026-02-06T08:55:04.5583394+01:00",
+            "createdAt": "2026-02-06T08:55:04.5583394+01:00",
+            "createdBy": "Z004UZSP",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "GITLAB_IMPORTED_REPOSITORY",
+            "stage": "Workbench",
+            "name": "foo",
+            "isDeployed": true,
+            "isMarkedForDeletion": false
+          },
+          {
+            "properties": {
+              "lifecycleRules": [],
+              "name": null,
+              "region": "eu-west-1",
+              "tags": [],
+              "versioningEnabled": false
+            },
+            "id": "80d9e514-a7c7-421a-8699-cbe7743d11f0",
+            "providerType": "Aws",
+            "lastUpdatedByUser": "Z004UZSP",
+            "lastModifiedAt": "2026-02-06T16:00:58.4238677+01:00",
+            "createdAt": "2026-02-06T16:00:58.4238677+01:00",
+            "createdBy": "Z004UZSP",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "AWS_S3_BUCKET",
+            "stage": "Workbench",
+            "name": "Output Bucket",
+            "isDeployed": true,
+            "isMarkedForDeletion": false
+          },
+          {
+            "properties": {
+              "albAccessType": "PUBLIC",
+              "environmentKeys": [],
+              "externalAllowedCidrs": [],
+              "healthCheckPath": null,
+              "imageTag": null,
+              "port": null,
+              "subdomain": null,
+              "taskSize": null
+            },
+            "id": "a9a8bde0-42d9-43a0-905d-5d5831b7e2e7",
+            "providerType": "Aws",
+            "lastUpdatedByUser": "Z004RPNH",
+            "lastModifiedAt": "2026-02-10T13:56:09.226412+01:00",
+            "createdAt": "2026-02-10T13:56:09.226412+01:00",
+            "createdBy": "Z004RPNH",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "AWS_AGENT_FARGATE",
+            "stage": "Workbench",
+            "name": "alex-test-fargate",
+            "isDeployed": true,
+            "isMarkedForDeletion": false
+          },
+          {
+            "properties": {
+              "region": "eu-west-1"
+            },
+            "id": "01e51e11-2313-4659-a2d4-8debc7af3d8a",
+            "providerType": "Aws",
+            "lastUpdatedByUser": "Z004RPNH",
+            "lastModifiedAt": "2026-02-10T13:56:09.3265587+01:00",
+            "createdAt": "2026-02-10T13:56:09.3265587+01:00",
+            "createdBy": "Z004RPNH",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "AWS_BEDROCK_MODELS",
+            "stage": "Workbench",
+            "name": "alex-test-bedrock",
+            "isDeployed": true,
+            "isMarkedForDeletion": false
+          },
+          {
+            "properties": {
+              "lifecycleRules": [],
+              "name": null,
+              "region": "eu-west-1",
+              "tags": [],
+              "versioningEnabled": false
+            },
+            "id": "9480e94a-c6be-46bf-9cbd-8d96e316446b",
+            "providerType": "Aws",
+            "lastUpdatedByUser": "Z004RPNH",
+            "lastModifiedAt": "2026-02-10T13:56:09.4669991+01:00",
+            "createdAt": "2026-02-10T13:56:09.4669991+01:00",
+            "createdBy": "Z004RPNH",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "AWS_S3_BUCKET",
+            "stage": "Workbench",
+            "name": "alex-test-s3",
+            "isDeployed": true,
+            "isMarkedForDeletion": false
+          },
+          {
+            "properties": {
+              "lifecycleRules": [],
+              "name": null,
+              "region": "eu-west-1",
+              "tags": [],
+              "versioningEnabled": false
+            },
+            "id": "ce253d6e-4e5f-4679-bf28-077748b6a799",
+            "providerType": "Aws",
+            "lastUpdatedByUser": "Z004UZSP",
+            "lastModifiedAt": "2026-02-10T15:47:17.0227067+01:00",
+            "createdAt": "2026-02-10T15:47:17.0227067+01:00",
+            "createdBy": "Z004UZSP",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "AWS_S3_BUCKET",
+            "stage": "Workbench",
+            "name": "mz-bucket-1",
+            "isDeployed": true,
+            "isMarkedForDeletion": false
+          },
+          {
+            "properties": {
+              "region": "eu-west-1"
+            },
+            "id": "2658e5de-971e-4451-9414-6ecd58e52f5f",
+            "providerType": "Aws",
+            "lastUpdatedByUser": "Z004UZSP",
+            "lastModifiedAt": "2026-02-10T15:47:17.525024+01:00",
+            "createdAt": "2026-02-10T15:47:17.525024+01:00",
+            "createdBy": "Z004UZSP",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "AWS_BEDROCK_MODELS",
+            "stage": "Workbench",
+            "name": "mz-models",
+            "isDeployed": true,
+            "isMarkedForDeletion": false
+          },
+          {
+            "properties": {
+              "albAccessType": "PUBLIC",
+              "environmentKeys": [],
+              "externalAllowedCidrs": [],
+              "healthCheckPath": null,
+              "imageTag": null,
+              "port": null,
+              "subdomain": null,
+              "taskSize": null
+            },
+            "id": "809cb7eb-7c4d-4d6b-a510-6649aa4c3b54",
+            "providerType": "Aws",
+            "lastUpdatedByUser": "Z004UZSP",
+            "lastModifiedAt": "2026-02-10T15:47:19.7671706+01:00",
+            "createdAt": "2026-02-10T15:47:19.7671706+01:00",
+            "createdBy": "Z004UZSP",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "AWS_AGENT_FARGATE",
+            "stage": "Workbench",
+            "name": "mz-fargate",
+            "isDeployed": true,
+            "isMarkedForDeletion": false
+          },
+          {
+            "properties": {
+              "region": "eu-west-1"
+            },
+            "id": "2ead8c9b-9dad-4413-9e1e-373a3218e972",
+            "providerType": "Aws",
+            "lastUpdatedByUser": "Z004UZSP",
+            "lastModifiedAt": "2026-02-10T16:05:16.3554954+01:00",
+            "createdAt": "2026-02-10T16:05:16.3554954+01:00",
+            "createdBy": "Z004UZSP",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "AWS_BEDROCK_MODELS",
+            "stage": "Workbench",
+            "name": "mz-models-2",
+            "isDeployed": true,
+            "isMarkedForDeletion": false
+          },
+          {
+            "properties": {
+              "albAccessType": "PUBLIC",
+              "environmentKeys": [],
+              "externalAllowedCidrs": [],
+              "healthCheckPath": null,
+              "imageTag": null,
+              "port": null,
+              "subdomain": null,
+              "taskSize": null
+            },
+            "id": "69f273e0-d4c6-48a4-a799-eb701b019d08",
+            "providerType": "Aws",
+            "lastUpdatedByUser": "Z004UZSP",
+            "lastModifiedAt": "2026-02-10T16:05:16.5145798+01:00",
+            "createdAt": "2026-02-10T16:05:16.5145798+01:00",
+            "createdBy": "Z004UZSP",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "AWS_AGENT_FARGATE",
+            "stage": "Workbench",
+            "name": "mz-agent-2",
+            "isDeployed": true,
+            "isMarkedForDeletion": false
+          },
+          {
+            "properties": {
+              "lifecycleRules": [],
+              "name": null,
+              "region": "eu-west-1",
+              "tags": [],
+              "versioningEnabled": false
+            },
+            "id": "86897749-294d-4727-9a3b-7fb7407f4d46",
+            "providerType": "Aws",
+            "lastUpdatedByUser": "Z004UZSP",
+            "lastModifiedAt": "2026-02-10T16:05:23.3800355+01:00",
+            "createdAt": "2026-02-10T16:05:23.3800355+01:00",
+            "createdBy": "Z004UZSP",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "AWS_S3_BUCKET",
+            "stage": "Workbench",
+            "name": "mz-bucket-2",
+            "isDeployed": true,
+            "isMarkedForDeletion": false
+          },
+          {
+            "properties": {
+              "location": "europe-west4"
+            },
+            "id": "f42f1faf-9b1c-43aa-b580-47e7f8cb52c8",
+            "providerType": "Gcp",
+            "lastUpdatedByUser": "Z0056ZWA",
+            "lastModifiedAt": "2026-02-10T17:34:29.9573499+01:00",
+            "createdAt": "2026-02-10T17:34:29.9573499+01:00",
+            "createdBy": "Z0056ZWA",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "GCP_VERTEX_AI_MODELS",
+            "stage": "Workbench",
+            "name": "Base",
+            "isDeployed": true,
+            "isMarkedForDeletion": false
+          },
+          {
+            "properties": {
+              "dbName": "appdb",
+              "dbUserName": "appadmin",
+              "maxAcu": 1.5,
+              "minAcu": 0.5
+            },
+            "id": "2d3caf70-f236-4f0e-b47c-84ca29a95c27",
+            "providerType": "Aws",
+            "lastUpdatedByUser": "Z004JN3M",
+            "lastModifiedAt": "2026-02-11T09:53:52.4442709+01:00",
+            "createdAt": "2026-02-11T09:53:52.4442709+01:00",
+            "createdBy": "Z004JN3M",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "AWS_AURORA_SERVERLESS_V2_POSTGRES",
+            "stage": "Workbench",
+            "name": "postgresTest",
+            "isDeployed": true,
+            "isMarkedForDeletion": false
+          }
+        ],
+        "capabilityTypeInfos": [
+          {
+            "capabilityType": {
+              "type": "AWS_AGENT_FARGATE",
+              "user": "2ftebv7pq5qgh2aj5b0chilbis",
+              "information": "RPS-LENOVO-P16",
+              "status": "Active",
+              "createdAt": "2026-02-27T18:07:29.4662286+01:00",
+              "createdBy": "2ftebv7pq5qgh2aj5b0chilbis",
+              "lastModifiedAt": "2026-02-27T18:07:29.4662286+01:00",
+              "lastUpdatedByUser": "2ftebv7pq5qgh2aj5b0chilbis"
+            },
+            "capabilityInput": {
+              "relations": []
+            },
+            "capabilityOutput": {
+              "relations": []
+            },
+            "permissions": {
+              "userActions": [
+                {
+                  "keyId": "EcrPullPush",
+                  "label": "ECR Pull & Push",
+                  "description": "Grants permission to pull and push to AWS ECR repositories."
+                },
+                {
+                  "keyId": "EcsAccessLogs",
+                  "label": "ECS Access Logs",
+                  "description": "Grants permission to access logs from AWS ECS tasks."
+                }
+              ],
+              "useOnlyUserActionsFromCapabilityTypeLevel": true
+            },
+            "supportedAuthenticationMethods": [
+              "OAuthClientCredentials"
+            ],
+            "isSingleStageDeployment": false
+          },
+          {
+            "capabilityType": {
+              "type": "AWS_AURORA_SERVERLESS_V2_POSTGRES",
+              "user": "2ftebv7pq5qgh2aj5b0chilbis",
+              "information": "RPS-LENOVO-P16",
+              "status": "Active",
+              "createdAt": "2026-02-27T18:07:30.11531+01:00",
+              "createdBy": "2ftebv7pq5qgh2aj5b0chilbis",
+              "lastModifiedAt": "2026-02-27T18:07:30.11531+01:00",
+              "lastUpdatedByUser": "2ftebv7pq5qgh2aj5b0chilbis"
+            },
+            "capabilityInput": {
+              "relations": []
+            },
+            "capabilityOutput": {
+              "relations": []
+            },
+            "permissions": {
+              "userActions": [
+                {
+                  "keyId": "AuroraServerlessV2PostgresManagement",
+                  "label": "Aurora Serverless V2 Postgres Management",
+                  "description": "Provides operational access to Aurora Serverless v2 Postgres databases, including executing SQL statements via RDS Data API, reading database credentials, monitoring cluster health and performance metrics, viewing configuration and backup information, and accessing logs and recommendations. Enables day-to-day database management without infrastructure modification permissions."
+                }
+              ],
+              "useOnlyUserActionsFromCapabilityTypeLevel": false
+            },
+            "supportedAuthenticationMethods": [],
+            "isSingleStageDeployment": false
+          },
+          {
+            "capabilityType": {
+              "type": "AWS_BEDROCK_AGENT_CORE",
+              "user": "2ftebv7pq5qgh2aj5b0chilbis",
+              "information": "RPS-LENOVO-P16",
+              "status": "Active",
+              "createdAt": "2026-02-27T18:07:29.6768169+01:00",
+              "createdBy": "2ftebv7pq5qgh2aj5b0chilbis",
+              "lastModifiedAt": "2026-02-27T18:07:29.6768169+01:00",
+              "lastUpdatedByUser": "2ftebv7pq5qgh2aj5b0chilbis"
+            },
+            "capabilityInput": {
+              "relations": []
+            },
+            "capabilityOutput": {
+              "relations": []
+            },
+            "permissions": {
+              "userActions": [],
+              "useOnlyUserActionsFromCapabilityTypeLevel": true
+            },
+            "supportedAuthenticationMethods": [],
+            "isSingleStageDeployment": false
+          },
+          {
+            "capabilityType": {
+              "type": "AWS_BEDROCK_MODELS",
+              "user": "2ftebv7pq5qgh2aj5b0chilbis",
+              "information": "RPS-LENOVO-P16",
+              "status": "Active",
+              "createdAt": "2026-02-27T18:07:29.6047493+01:00",
+              "createdBy": "2ftebv7pq5qgh2aj5b0chilbis",
+              "lastModifiedAt": "2026-02-27T18:07:29.6047493+01:00",
+              "lastUpdatedByUser": "2ftebv7pq5qgh2aj5b0chilbis"
+            },
+            "capabilityInput": {
+              "relations": []
+            },
+            "capabilityOutput": {
+              "relations": []
+            },
+            "permissions": {
+              "userActions": [
+                {
+                  "keyId": "Invoke",
+                  "label": "Invoke",
+                  "description": null
+                }
+              ],
+              "useOnlyUserActionsFromCapabilityTypeLevel": true
+            },
+            "supportedAuthenticationMethods": [],
+            "isSingleStageDeployment": false
+          },
+          {
+            "capabilityType": {
+              "type": "AWS_CONTAINER_JOB",
+              "user": "2ftebv7pq5qgh2aj5b0chilbis",
+              "information": "RPS-LENOVO-P16",
+              "status": "Active",
+              "createdAt": "2026-02-27T18:07:29.7444688+01:00",
+              "createdBy": "2ftebv7pq5qgh2aj5b0chilbis",
+              "lastModifiedAt": "2026-02-27T18:07:29.7444688+01:00",
+              "lastUpdatedByUser": "2ftebv7pq5qgh2aj5b0chilbis"
+            },
+            "capabilityInput": {
+              "relations": []
+            },
+            "capabilityOutput": {
+              "relations": []
+            },
+            "permissions": {
+              "userActions": [],
+              "useOnlyUserActionsFromCapabilityTypeLevel": true
+            },
+            "supportedAuthenticationMethods": [],
+            "isSingleStageDeployment": false
+          },
+          {
+            "capabilityType": {
+              "type": "AWS_GLUE_DATABASE",
+              "user": "2ftebv7pq5qgh2aj5b0chilbis",
+              "information": "RPS-LENOVO-P16",
+              "status": "Active",
+              "createdAt": "2026-02-27T18:07:29.6461213+01:00",
+              "createdBy": "2ftebv7pq5qgh2aj5b0chilbis",
+              "lastModifiedAt": "2026-02-27T18:07:29.6461213+01:00",
+              "lastUpdatedByUser": "2ftebv7pq5qgh2aj5b0chilbis"
+            },
+            "capabilityInput": {
+              "relations": []
+            },
+            "capabilityOutput": {
+              "relations": []
+            },
+            "permissions": {
+              "userActions": [],
+              "useOnlyUserActionsFromCapabilityTypeLevel": true
+            },
+            "supportedAuthenticationMethods": [],
+            "isSingleStageDeployment": false
+          },
+          {
+            "capabilityType": {
+              "type": "AWS_LAMBDA_FUNCTION",
+              "user": "2ftebv7pq5qgh2aj5b0chilbis",
+              "information": "RPS-LENOVO-P16",
+              "status": "Active",
+              "createdAt": "2026-02-27T18:07:29.7080646+01:00",
+              "createdBy": "2ftebv7pq5qgh2aj5b0chilbis",
+              "lastModifiedAt": "2026-02-27T18:07:29.7080646+01:00",
+              "lastUpdatedByUser": "2ftebv7pq5qgh2aj5b0chilbis"
+            },
+            "capabilityInput": {
+              "relations": []
+            },
+            "capabilityOutput": {
+              "relations": []
+            },
+            "permissions": {
+              "userActions": [],
+              "useOnlyUserActionsFromCapabilityTypeLevel": true
+            },
+            "supportedAuthenticationMethods": [],
+            "isSingleStageDeployment": false
+          },
+          {
+            "capabilityType": {
+              "type": "AWS_MCP_FARGATE",
+              "user": "2ftebv7pq5qgh2aj5b0chilbis",
+              "information": "RPS-LENOVO-P16",
+              "status": "Active",
+              "createdAt": "2026-02-27T18:07:30.2159388+01:00",
+              "createdBy": "2ftebv7pq5qgh2aj5b0chilbis",
+              "lastModifiedAt": "2026-02-27T18:07:30.2159388+01:00",
+              "lastUpdatedByUser": "2ftebv7pq5qgh2aj5b0chilbis"
+            },
+            "capabilityInput": {
+              "relations": []
+            },
+            "capabilityOutput": {
+              "relations": []
+            },
+            "permissions": {
+              "userActions": [],
+              "useOnlyUserActionsFromCapabilityTypeLevel": true
+            },
+            "supportedAuthenticationMethods": [
+              "OAuthClientCredentials"
+            ],
+            "isSingleStageDeployment": false
+          },
+          {
+            "capabilityType": {
+              "type": "AWS_S3_BUCKET",
+              "user": "2ftebv7pq5qgh2aj5b0chilbis",
+              "information": "RPS-LENOVO-P16",
+              "status": "Active",
+              "createdAt": "2026-02-27T18:07:29.5348405+01:00",
+              "createdBy": "2ftebv7pq5qgh2aj5b0chilbis",
+              "lastModifiedAt": "2026-02-27T18:07:29.5348405+01:00",
+              "lastUpdatedByUser": "2ftebv7pq5qgh2aj5b0chilbis"
+            },
+            "capabilityInput": {
+              "relations": []
+            },
+            "capabilityOutput": {
+              "relations": []
+            },
+            "permissions": {
+              "userActions": [
+                {
+                  "keyId": "Read",
+                  "label": "Read",
+                  "description": null
+                },
+                {
+                  "keyId": "Write",
+                  "label": "Write",
+                  "description": null
+                },
+                {
+                  "keyId": "Delete",
+                  "label": "Delete",
+                  "description": null
+                }
+              ],
+              "useOnlyUserActionsFromCapabilityTypeLevel": true
+            },
+            "supportedAuthenticationMethods": [],
+            "isSingleStageDeployment": false
+          },
+          {
+            "capabilityType": {
+              "type": "AWS_S3_IMPORTED_BUCKET",
+              "user": "2ftebv7pq5qgh2aj5b0chilbis",
+              "information": "RPS-LENOVO-P16",
+              "status": "Active",
+              "createdAt": "2026-02-27T18:07:30.0785911+01:00",
+              "createdBy": "2ftebv7pq5qgh2aj5b0chilbis",
+              "lastModifiedAt": "2026-02-27T18:07:30.0785911+01:00",
+              "lastUpdatedByUser": "2ftebv7pq5qgh2aj5b0chilbis"
+            },
+            "capabilityInput": {
+              "relations": []
+            },
+            "capabilityOutput": {
+              "relations": []
+            },
+            "permissions": {
+              "userActions": [],
+              "useOnlyUserActionsFromCapabilityTypeLevel": true
+            },
+            "supportedAuthenticationMethods": [],
+            "isSingleStageDeployment": false
+          },
+          {
+            "capabilityType": {
+              "type": "AWS_SMUS",
+              "user": "2ftebv7pq5qgh2aj5b0chilbis",
+              "information": "RPS-LENOVO-P16",
+              "status": "Active",
+              "createdAt": "2026-02-27T18:07:29.5693574+01:00",
+              "createdBy": "2ftebv7pq5qgh2aj5b0chilbis",
+              "lastModifiedAt": "2026-02-27T18:07:29.5693574+01:00",
+              "lastUpdatedByUser": "2ftebv7pq5qgh2aj5b0chilbis"
+            },
+            "capabilityInput": {
+              "relations": []
+            },
+            "capabilityOutput": {
+              "relations": []
+            },
+            "permissions": {
+              "userActions": [
+                {
+                  "keyId": "Contributor",
+                  "label": "Contributor Role",
+                  "description": "Grants Contributor Role on SMUS Instance"
+                }
+              ],
+              "useOnlyUserActionsFromCapabilityTypeLevel": false
+            },
+            "supportedAuthenticationMethods": [],
+            "isSingleStageDeployment": true
+          },
+          {
+            "capabilityType": {
+              "type": "AWS_SQS",
+              "user": "2ftebv7pq5qgh2aj5b0chilbis",
+              "information": "RPS-LENOVO-P16",
+              "status": "Active",
+              "createdAt": "2026-02-27T18:07:30.2813657+01:00",
+              "createdBy": "2ftebv7pq5qgh2aj5b0chilbis",
+              "lastModifiedAt": "2026-02-27T18:07:30.2813657+01:00",
+              "lastUpdatedByUser": "2ftebv7pq5qgh2aj5b0chilbis"
+            },
+            "capabilityInput": {
+              "relations": []
+            },
+            "capabilityOutput": {
+              "relations": []
+            },
+            "permissions": {
+              "userActions": [],
+              "useOnlyUserActionsFromCapabilityTypeLevel": true
+            },
+            "supportedAuthenticationMethods": [],
+            "isSingleStageDeployment": false
+          },
+          {
+            "capabilityType": {
+              "type": "AZURE_AI_FOUNDRY_AGENT_SERVICE",
+              "user": "2ftebv7pq5qgh2aj5b0chilbis",
+              "information": "RPS-LENOVO-P16",
+              "status": "Active",
+              "createdAt": "2026-02-27T18:07:29.9401419+01:00",
+              "createdBy": "2ftebv7pq5qgh2aj5b0chilbis",
+              "lastModifiedAt": "2026-02-27T18:07:29.9401419+01:00",
+              "lastUpdatedByUser": "2ftebv7pq5qgh2aj5b0chilbis"
+            },
+            "capabilityInput": {
+              "relations": []
+            },
+            "capabilityOutput": {
+              "relations": []
+            },
+            "permissions": {
+              "userActions": [],
+              "useOnlyUserActionsFromCapabilityTypeLevel": true
+            },
+            "supportedAuthenticationMethods": [],
+            "isSingleStageDeployment": false
+          },
+          {
+            "capabilityType": {
+              "type": "FABRIC_WORKSPACE",
+              "user": "2ftebv7pq5qgh2aj5b0chilbis",
+              "information": "RPS-LENOVO-P16",
+              "status": "Active",
+              "createdAt": "2026-02-27T18:07:29.9710108+01:00",
+              "createdBy": "2ftebv7pq5qgh2aj5b0chilbis",
+              "lastModifiedAt": "2026-02-27T18:07:29.9710108+01:00",
+              "lastUpdatedByUser": "2ftebv7pq5qgh2aj5b0chilbis"
+            },
+            "capabilityInput": {
+              "relations": []
+            },
+            "capabilityOutput": {
+              "relations": []
+            },
+            "permissions": {
+              "userActions": [],
+              "useOnlyUserActionsFromCapabilityTypeLevel": true
+            },
+            "supportedAuthenticationMethods": [],
+            "isSingleStageDeployment": false
+          },
+          {
+            "capabilityType": {
+              "type": "GCP_CLOUD_RUN",
+              "user": "2ftebv7pq5qgh2aj5b0chilbis",
+              "information": "RPS-LENOVO-P16",
+              "status": "Active",
+              "createdAt": "2026-02-27T18:07:29.8413133+01:00",
+              "createdBy": "2ftebv7pq5qgh2aj5b0chilbis",
+              "lastModifiedAt": "2026-02-27T18:07:29.8413133+01:00",
+              "lastUpdatedByUser": "2ftebv7pq5qgh2aj5b0chilbis"
+            },
+            "capabilityInput": {
+              "relations": []
+            },
+            "capabilityOutput": {
+              "relations": []
+            },
+            "permissions": {
+              "userActions": [],
+              "useOnlyUserActionsFromCapabilityTypeLevel": true
+            },
+            "supportedAuthenticationMethods": [],
+            "isSingleStageDeployment": false
+          },
+          {
+            "capabilityType": {
+              "type": "GCP_CUSTOM_SEARCH_API",
+              "user": "2ftebv7pq5qgh2aj5b0chilbis",
+              "information": "RPS-LENOVO-P16",
+              "status": "Active",
+              "createdAt": "2026-02-27T18:07:30.1482534+01:00",
+              "createdBy": "2ftebv7pq5qgh2aj5b0chilbis",
+              "lastModifiedAt": "2026-02-27T18:07:30.1482534+01:00",
+              "lastUpdatedByUser": "2ftebv7pq5qgh2aj5b0chilbis"
+            },
+            "capabilityInput": {
+              "relations": []
+            },
+            "capabilityOutput": {
+              "relations": []
+            },
+            "permissions": {
+              "userActions": [],
+              "useOnlyUserActionsFromCapabilityTypeLevel": true
+            },
+            "supportedAuthenticationMethods": [],
+            "isSingleStageDeployment": false
+          },
+          {
+            "capabilityType": {
+              "type": "GCP_LLMGATEWAY",
+              "user": "2ftebv7pq5qgh2aj5b0chilbis",
+              "information": "RPS-LENOVO-P16",
+              "status": "Active",
+              "createdAt": "2026-02-27T18:07:30.2471363+01:00",
+              "createdBy": "2ftebv7pq5qgh2aj5b0chilbis",
+              "lastModifiedAt": "2026-02-27T18:07:30.2471363+01:00",
+              "lastUpdatedByUser": "2ftebv7pq5qgh2aj5b0chilbis"
+            },
+            "capabilityInput": {
+              "relations": []
+            },
+            "capabilityOutput": {
+              "relations": []
+            },
+            "permissions": {
+              "userActions": [],
+              "useOnlyUserActionsFromCapabilityTypeLevel": true
+            },
+            "supportedAuthenticationMethods": [],
+            "isSingleStageDeployment": false
+          },
+          {
+            "capabilityType": {
+              "type": "GCP_VERTEX_AI_AGENT",
+              "user": "2ftebv7pq5qgh2aj5b0chilbis",
+              "information": "RPS-LENOVO-P16",
+              "status": "Active",
+              "createdAt": "2026-02-27T18:07:29.8081974+01:00",
+              "createdBy": "2ftebv7pq5qgh2aj5b0chilbis",
+              "lastModifiedAt": "2026-02-27T18:07:29.8081974+01:00",
+              "lastUpdatedByUser": "2ftebv7pq5qgh2aj5b0chilbis"
+            },
+            "capabilityInput": {
+              "relations": []
+            },
+            "capabilityOutput": {
+              "relations": []
+            },
+            "permissions": {
+              "userActions": [],
+              "useOnlyUserActionsFromCapabilityTypeLevel": true
+            },
+            "supportedAuthenticationMethods": [],
+            "isSingleStageDeployment": false
+          },
+          {
+            "capabilityType": {
+              "type": "GCP_VERTEX_AI_MODELS",
+              "user": "2ftebv7pq5qgh2aj5b0chilbis",
+              "information": "RPS-LENOVO-P16",
+              "status": "Active",
+              "createdAt": "2026-02-27T18:07:29.7754342+01:00",
+              "createdBy": "2ftebv7pq5qgh2aj5b0chilbis",
+              "lastModifiedAt": "2026-02-27T18:07:29.7754342+01:00",
+              "lastUpdatedByUser": "2ftebv7pq5qgh2aj5b0chilbis"
+            },
+            "capabilityInput": {
+              "relations": []
+            },
+            "capabilityOutput": {
+              "relations": []
+            },
+            "permissions": {
+              "userActions": [
+                {
+                  "keyId": "Invoke",
+                  "label": "VertexAi User Role",
+                  "description": "Grants the user permissions associated with `roles/aiplatform.user` on the GCP project"
+                },
+                {
+                  "keyId": "Admin",
+                  "label": "VertexAi Admin Role",
+                  "description": "Grants the user permissions associated with `roles/aiplatform.admin` on the GCP project"
+                }
+              ],
+              "useOnlyUserActionsFromCapabilityTypeLevel": true
+            },
+            "supportedAuthenticationMethods": [],
+            "isSingleStageDeployment": false
+          },
+          {
+            "capabilityType": {
+              "type": "GITHUB_IMPORTED_REPOSITORY",
+              "user": "2ftebv7pq5qgh2aj5b0chilbis",
+              "information": "RPS-LENOVO-P16",
+              "status": "Active",
+              "createdAt": "2026-02-27T18:07:30.1810521+01:00",
+              "createdBy": "2ftebv7pq5qgh2aj5b0chilbis",
+              "lastModifiedAt": "2026-02-27T18:07:30.1810521+01:00",
+              "lastUpdatedByUser": "2ftebv7pq5qgh2aj5b0chilbis"
+            },
+            "capabilityInput": {
+              "relations": []
+            },
+            "capabilityOutput": {
+              "relations": []
+            },
+            "permissions": {
+              "userActions": [
+                {
+                  "keyId": "CanPublishCode",
+                  "label": "CanPublishCode",
+                  "description": null
+                }
+              ],
+              "useOnlyUserActionsFromCapabilityTypeLevel": true
+            },
+            "supportedAuthenticationMethods": [],
+            "isSingleStageDeployment": false
+          },
+          {
+            "capabilityType": {
+              "type": "GITLAB_IMPORTED_REPOSITORY",
+              "user": "2ftebv7pq5qgh2aj5b0chilbis",
+              "information": "RPS-LENOVO-P16",
+              "status": "Active",
+              "createdAt": "2026-02-27T18:07:30.0442025+01:00",
+              "createdBy": "2ftebv7pq5qgh2aj5b0chilbis",
+              "lastModifiedAt": "2026-02-27T18:07:30.0442025+01:00",
+              "lastUpdatedByUser": "2ftebv7pq5qgh2aj5b0chilbis"
+            },
+            "capabilityInput": {
+              "relations": []
+            },
+            "capabilityOutput": {
+              "relations": []
+            },
+            "permissions": {
+              "userActions": [
+                {
+                  "keyId": "CanPublishCode",
+                  "label": "CanPublishCode",
+                  "description": null
+                }
+              ],
+              "useOnlyUserActionsFromCapabilityTypeLevel": true
+            },
+            "supportedAuthenticationMethods": [],
+            "isSingleStageDeployment": false
+          },
+          {
+            "capabilityType": {
+              "type": "OPEN_AI_PROJECT",
+              "user": "2ftebv7pq5qgh2aj5b0chilbis",
+              "information": "RPS-LENOVO-P16",
+              "status": "Active",
+              "createdAt": "2026-02-27T18:07:29.8759272+01:00",
+              "createdBy": "2ftebv7pq5qgh2aj5b0chilbis",
+              "lastModifiedAt": "2026-02-27T18:07:29.8759272+01:00",
+              "lastUpdatedByUser": "2ftebv7pq5qgh2aj5b0chilbis"
+            },
+            "capabilityInput": {
+              "relations": []
+            },
+            "capabilityOutput": {
+              "relations": []
+            },
+            "permissions": {
+              "userActions": [],
+              "useOnlyUserActionsFromCapabilityTypeLevel": true
+            },
+            "supportedAuthenticationMethods": [],
+            "isSingleStageDeployment": false
+          },
+          {
+            "capabilityType": {
+              "type": "SGPT_WORKSPACE",
+              "user": "2ftebv7pq5qgh2aj5b0chilbis",
+              "information": "RPS-LENOVO-P16",
+              "status": "Active",
+              "createdAt": "2026-02-27T18:07:30.006307+01:00",
+              "createdBy": "2ftebv7pq5qgh2aj5b0chilbis",
+              "lastModifiedAt": "2026-02-27T18:07:30.006307+01:00",
+              "lastUpdatedByUser": "2ftebv7pq5qgh2aj5b0chilbis"
+            },
+            "capabilityInput": {
+              "relations": []
+            },
+            "capabilityOutput": {
+              "relations": []
+            },
+            "permissions": {
+              "userActions": [
+                {
+                  "keyId": "Admin",
+                  "label": "Admin Role",
+                  "description": "Grants Admin Role on the SGPT Workspace"
+                },
+                {
+                  "keyId": "User",
+                  "label": "User Role",
+                  "description": "Grants Admin Role on the SGPT Workspace"
+                }
+              ],
+              "useOnlyUserActionsFromCapabilityTypeLevel": false
+            },
+            "supportedAuthenticationMethods": [],
+            "isSingleStageDeployment": true
+          },
+          {
+            "capabilityType": {
+              "type": "SNOWFLAKE_PROJECT",
+              "user": "2ftebv7pq5qgh2aj5b0chilbis",
+              "information": "RPS-LENOVO-P16",
+              "status": "Active",
+              "createdAt": "2026-02-27T18:07:29.9054906+01:00",
+              "createdBy": "2ftebv7pq5qgh2aj5b0chilbis",
+              "lastModifiedAt": "2026-02-27T18:07:29.9054906+01:00",
+              "lastUpdatedByUser": "2ftebv7pq5qgh2aj5b0chilbis"
+            },
+            "capabilityInput": {
+              "relations": []
+            },
+            "capabilityOutput": {
+              "relations": []
+            },
+            "permissions": {
+              "userActions": [],
+              "useOnlyUserActionsFromCapabilityTypeLevel": true
+            },
+            "supportedAuthenticationMethods": [],
+            "isSingleStageDeployment": false
+          }
+        ],
+        "relations": [
+          {
+            "properties": {},
+            "id": "806ba106-c8a2-42fe-b1e9-8cdb53892002",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "AWS_AGENT_FARGATE_USE_GITLAB_IMPORTED_REPOSITORY",
+            "stage": "Workbench",
+            "sourceCapabilityId": "02ac9931-9d2f-4fb7-bf7c-4f407b81b53d",
+            "targetCapabilityId": "dde2ddec-b515-4b16-bbb7-b5e4b9278c09",
+            "lastUpdatedByUser": "Z004RPNH",
+            "lastModifiedAt": "2026-01-19T14:10:10.8265147+01:00",
+            "createdAt": "2026-01-19T14:10:10.8265147+01:00",
+            "createdBy": "Z004RPNH",
+            "name": "Agent on Fargate - Gitlab Repository",
+            "isDeployed": true,
+            "isMarkedForDeletion": true
+          },
+          {
+            "properties": {},
+            "id": "acab23e6-cd84-4713-915e-b18193a1510e",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "AWS_AGENT_FARGATE_READ_WRITE_TO_AURORA_POSTGRES",
+            "stage": "Workbench",
+            "sourceCapabilityId": "02ac9931-9d2f-4fb7-bf7c-4f407b81b53d",
+            "targetCapabilityId": "aacad3e9-0b51-447b-9ca6-573e6c030cdf",
+            "lastUpdatedByUser": "Z004RPNH",
+            "lastModifiedAt": "2026-01-26T12:28:25.8997511+01:00",
+            "createdAt": "2026-01-26T12:28:25.8997511+01:00",
+            "createdBy": "Z004RPNH",
+            "name": "Agent on Fargate - Aws Aurora Serverless Postgres",
+            "isDeployed": true,
+            "isMarkedForDeletion": true
+          },
+          {
+            "properties": {},
+            "id": "a7a42993-5f37-4cb3-ab73-5255d603bb52",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "SGPT_TO_AWS_ADK_AGENT_FARGATE",
+            "stage": "Workbench",
+            "sourceCapabilityId": "f3e3340f-e71e-4e0d-9bb4-fb8dbaf2a88d",
+            "targetCapabilityId": "02ac9931-9d2f-4fb7-bf7c-4f407b81b53d",
+            "lastUpdatedByUser": "Z003M9SC",
+            "lastModifiedAt": "2026-01-28T10:35:22.397771+01:00",
+            "createdAt": "2026-01-28T10:35:22.397771+01:00",
+            "createdBy": "Z003M9SC",
+            "name": "SGPT Workspace - Agent on Fargate",
+            "isDeployed": true,
+            "isMarkedForDeletion": true
+          },
+          {
+            "properties": {},
+            "id": "26673915-b415-4e7f-8c0f-17a5d6939325",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "SGPT_TO_AWS_ADK_AGENT_FARGATE",
+            "stage": "Workbench",
+            "sourceCapabilityId": "f3e3340f-e71e-4e0d-9bb4-fb8dbaf2a88d",
+            "targetCapabilityId": "6082b2d0-5aaa-4ed5-91bf-7761433dc6c8",
+            "lastUpdatedByUser": "Z003M9SC",
+            "lastModifiedAt": "2026-01-28T10:35:24.5141397+01:00",
+            "createdAt": "2026-01-28T10:35:24.5141397+01:00",
+            "createdBy": "Z003M9SC",
+            "name": "SGPT Workspace - Agent on Fargate",
+            "isDeployed": true,
+            "isMarkedForDeletion": false
+          },
+          {
+            "properties": {},
+            "id": "4b8fe282-f3d0-423b-91ba-8a2c727189d3",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "AWS_AGENT_FARGATE_USE_GITLAB_IMPORTED_REPOSITORY",
+            "stage": "Workbench",
+            "sourceCapabilityId": "820a55a9-c7d0-48f1-9b94-f62616ba8ea1",
+            "targetCapabilityId": "f1ada2f4-9d66-4c41-a98f-c0ba14f253dc",
+            "lastUpdatedByUser": "Z004RPNH",
+            "lastModifiedAt": "2026-01-28T10:36:59.4541294+01:00",
+            "createdAt": "2026-01-28T10:36:59.4541294+01:00",
+            "createdBy": "Z004RPNH",
+            "name": "Agent on Fargate - Gitlab Repository",
+            "isDeployed": true,
+            "isMarkedForDeletion": false
+          },
+          {
+            "properties": {},
+            "id": "26885ac7-082a-4ef8-93a1-182db799c992",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "AWS_AGENT_FARGATE_READ_FROM_S3",
+            "stage": "Workbench",
+            "sourceCapabilityId": "6082b2d0-5aaa-4ed5-91bf-7761433dc6c8",
+            "targetCapabilityId": "19fe8b7d-c965-44e4-9983-3852f2578997",
+            "lastUpdatedByUser": "Z003M9SC",
+            "lastModifiedAt": "2026-01-28T16:40:40.1727025+01:00",
+            "createdAt": "2026-01-28T16:40:40.1727025+01:00",
+            "createdBy": "Z003M9SC",
+            "name": "Agent on Fargate - S3 Bucket without Glue Database",
+            "isDeployed": true,
+            "isMarkedForDeletion": false
+          },
+          {
+            "properties": {},
+            "id": "33bd2af9-6364-459f-b70d-70eb2e778e7d",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "AWS_AGENT_FARGATE_USE_BEDROCK",
+            "stage": "Workbench",
+            "sourceCapabilityId": "820a55a9-c7d0-48f1-9b94-f62616ba8ea1",
+            "targetCapabilityId": "4262c759-5cd7-435c-84fa-1cd0559a5f9c",
+            "lastUpdatedByUser": "Z004RPNH",
+            "lastModifiedAt": "2026-02-04T13:43:07.7400214+01:00",
+            "createdAt": "2026-02-04T13:43:07.7400214+01:00",
+            "createdBy": "Z004RPNH",
+            "name": "Agent on Fargate - AWS Bedrock Models",
+            "isDeployed": true,
+            "isMarkedForDeletion": false
+          },
+          {
+            "properties": {},
+            "id": "177daa81-1101-4cd3-a7f1-47c38d321cfa",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "AWS_AGENT_FARGATE_READ_FROM_S3",
+            "stage": "Workbench",
+            "sourceCapabilityId": "a9a8bde0-42d9-43a0-905d-5d5831b7e2e7",
+            "targetCapabilityId": "9480e94a-c6be-46bf-9cbd-8d96e316446b",
+            "lastUpdatedByUser": "Z004RPNH",
+            "lastModifiedAt": "2026-02-10T13:56:11.669325+01:00",
+            "createdAt": "2026-02-10T13:56:11.669325+01:00",
+            "createdBy": "Z004RPNH",
+            "name": "AI Agent - Output Data",
+            "isDeployed": true,
+            "isMarkedForDeletion": false
+          },
+          {
+            "properties": {},
+            "id": "db038994-0238-493d-a189-e95a24ac0703",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "AWS_AGENT_FARGATE_USE_BEDROCK",
+            "stage": "Workbench",
+            "sourceCapabilityId": "a9a8bde0-42d9-43a0-905d-5d5831b7e2e7",
+            "targetCapabilityId": "01e51e11-2313-4659-a2d4-8debc7af3d8a",
+            "lastUpdatedByUser": "Z004RPNH",
+            "lastModifiedAt": "2026-02-10T13:56:12.179391+01:00",
+            "createdAt": "2026-02-10T13:56:12.179391+01:00",
+            "createdBy": "Z004RPNH",
+            "name": "AI Agent - Bedrock Models",
+            "isDeployed": true,
+            "isMarkedForDeletion": false
+          },
+          {
+            "properties": {},
+            "id": "adcf3c2c-d353-4910-9cca-c06d75c6b26a",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "SGPT_TO_AWS_ADK_AGENT_FARGATE",
+            "stage": "Workbench",
+            "sourceCapabilityId": "f3e3340f-e71e-4e0d-9bb4-fb8dbaf2a88d",
+            "targetCapabilityId": "a9a8bde0-42d9-43a0-905d-5d5831b7e2e7",
+            "lastUpdatedByUser": "Z004UZSP",
+            "lastModifiedAt": "2026-02-10T14:03:51.9627087+01:00",
+            "createdAt": "2026-02-10T14:03:51.9627087+01:00",
+            "createdBy": "Z004UZSP",
+            "name": "SGPT Workspace - AI Agent",
+            "isDeployed": true,
+            "isMarkedForDeletion": false
+          },
+          {
+            "properties": {},
+            "id": "e96647e1-46e5-42db-878f-69b0d3c5df63",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "AWS_AGENT_FARGATE_USE_BEDROCK",
+            "stage": "Workbench",
+            "sourceCapabilityId": "809cb7eb-7c4d-4d6b-a510-6649aa4c3b54",
+            "targetCapabilityId": "2658e5de-971e-4451-9414-6ecd58e52f5f",
+            "lastUpdatedByUser": "Z004UZSP",
+            "lastModifiedAt": "2026-02-10T15:47:24.4798353+01:00",
+            "createdAt": "2026-02-10T15:47:24.4798353+01:00",
+            "createdBy": "Z004UZSP",
+            "name": "AI Agent - Bedrock Models",
+            "isDeployed": true,
+            "isMarkedForDeletion": false
+          },
+          {
+            "properties": {},
+            "id": "9231fa9d-3f84-43e7-ba74-cd21ce30aab2",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "AWS_AGENT_FARGATE_READ_FROM_S3",
+            "stage": "Workbench",
+            "sourceCapabilityId": "69f273e0-d4c6-48a4-a799-eb701b019d08",
+            "targetCapabilityId": "86897749-294d-4727-9a3b-7fb7407f4d46",
+            "lastUpdatedByUser": "Z004UZSP",
+            "lastModifiedAt": "2026-02-10T16:05:29.2204278+01:00",
+            "createdAt": "2026-02-10T16:05:29.2204278+01:00",
+            "createdBy": "Z004UZSP",
+            "name": "AI Agent - Output Data",
+            "isDeployed": true,
+            "isMarkedForDeletion": false
+          },
+          {
+            "properties": {},
+            "id": "99ad326f-8f5c-4ee9-9e91-2f7ed7a1977e",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "AWS_AGENT_FARGATE_USE_BEDROCK",
+            "stage": "Workbench",
+            "sourceCapabilityId": "69f273e0-d4c6-48a4-a799-eb701b019d08",
+            "targetCapabilityId": "2ead8c9b-9dad-4413-9e1e-373a3218e972",
+            "lastUpdatedByUser": "Z004UZSP",
+            "lastModifiedAt": "2026-02-10T16:05:29.7698566+01:00",
+            "createdAt": "2026-02-10T16:05:29.7698566+01:00",
+            "createdBy": "Z004UZSP",
+            "name": "AI Agent - Bedrock Models",
+            "isDeployed": true,
+            "isMarkedForDeletion": false
+          },
+          {
+            "properties": {
+              "serviceAccountId": "",
+              "serviceAccountName": "",
+              "workloadIdentityPoolId": "",
+              "workloadIdentityPoolName": "",
+              "workloadIdentityProviderId": "",
+              "workloadIdentityProviderName": ""
+            },
+            "id": "105e0ed0-3450-4d5c-85f7-53af55b5e0c6",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "AWS_AGENT_FARGATE_USE_GCP_VERTEX_AI_MODELS",
+            "stage": "Workbench",
+            "sourceCapabilityId": "02ac9931-9d2f-4fb7-bf7c-4f407b81b53d",
+            "targetCapabilityId": "f42f1faf-9b1c-43aa-b580-47e7f8cb52c8",
+            "lastUpdatedByUser": "Z003M9SC",
+            "lastModifiedAt": "2026-02-10T17:34:30.6221629+01:00",
+            "createdAt": "2026-02-10T17:34:30.6221629+01:00",
+            "createdBy": "Z003M9SC",
+            "name": "Agent on Fargate - Vertex AI Models",
+            "isDeployed": true,
+            "isMarkedForDeletion": true
+          },
+          {
+            "properties": {},
+            "id": "7ad169ee-36d8-4e9e-a1c8-6e34667f777b",
+            "deploymentId": "00000000-0000-0000-0000-000000000000",
+            "type": "AWS_AGENT_FARGATE_READ_WRITE_TO_AURORA_POSTGRES",
+            "stage": "Workbench",
+            "sourceCapabilityId": "02ac9931-9d2f-4fb7-bf7c-4f407b81b53d",
+            "targetCapabilityId": "2d3caf70-f236-4f0e-b47c-84ca29a95c27",
+            "lastUpdatedByUser": "Z004JN3M",
+            "lastModifiedAt": "2026-02-11T09:53:58.1494579+01:00",
+            "createdAt": "2026-02-11T09:53:58.1494579+01:00",
+            "createdBy": "Z004JN3M",
+            "name": "Agent on Fargate - Aws Aurora Serverless Postgres",
+            "isDeployed": true,
+            "isMarkedForDeletion": true
+          }
+        ]
+      }
+    }
+  },
+  "statusCode": "OK",
+  "headers": [
+    {
+      "key": "api-supported-versions",
+      "value": [
+        "1"
+      ]
+    }
+  ],
+  "trailingHeaders": [],
+  "isSuccessStatusCode": true
+}

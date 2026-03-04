@@ -1,6 +1,6 @@
 using System.Net.Mime;
 
-namespace StrategyPattern.Evolution.V2_Basic
+namespace StrategyPattern.Evolution.V02_Basic
 {
     public class BasicErrorMiddleware() : IMiddleware
     {

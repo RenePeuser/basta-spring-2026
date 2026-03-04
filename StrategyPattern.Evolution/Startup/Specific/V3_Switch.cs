@@ -1,7 +1,7 @@
 using Siemens.AspNet.ErrorHandling;
 using Siemens.AspNet.MinimalApi.Sdk;
 using StrategyPattern.Evolution.Api.User.V1.Create;
-using StrategyPattern.Evolution.V3_Switch;
+using StrategyPattern.Evolution.V03_Switch;
 
 namespace StrategyPattern.Evolution.Startup
 {

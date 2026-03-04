@@ -1,14 +1,21 @@
-# Strategy Pattern Evolution - Error Handling Demo
+# Strategy Pattern Evolution - Multiple Real-World Demos
 
 ## 📖 Overview
-This project demonstrates the evolution of error handling strategies in ASP.NET Core, from basic to enterprise-grade implementations, combined with a **Facade Pattern** for ultra-clean startup code.
+This project demonstrates the **Strategy Pattern** in ASP.NET Core through multiple real-world scenarios:
+1. **Error Handling Strategies** - Evolution from basic to enterprise-grade implementations
+2. **Canvas Visualization Strategies** - Converting graph data to Mermaid/Graphviz diagrams
+3. **Endpoint Registration Strategies** - Flexible endpoint mapping patterns
+
+All combined with a **Facade Pattern** for ultra-clean startup code.
 
 ## 🎯 What You'll Learn
 - **Design Pattern Combinations**: Facade + Strategy + Factory Pattern
+- **Strategy Pattern in Action**: Multiple concrete implementations with runtime selection
 - **Evolution**: From 40+ lines of Program.cs to just **3 lines**
 - **Error Handling Evolution**: Basic → ProblemDetails → Enterprise-grade
 - **RFC 9457 ProblemDetails** standard (successor to RFC 7807)
 - **Field-level validation** error responses
+- **Graph Visualization**: JSON Canvas → Mermaid/Graphviz conversion strategies
 - **Production-ready patterns** inspired by real-world SDKs
 - **Security considerations** in error responses
 
@@ -48,8 +55,40 @@ webApi.Run();
 
 Behind the scenes:
 - 🎭 **Facade Pattern** - Hides complexity
-- 🔀 **Strategy Pattern** - Flexible error handling
-- 🏭 **Factory Pattern** - Strategy selection
+- 🔀 **Strategy Pattern** - Flexible behavior selection
+- 🏭 **Factory Pattern** - Strategy creation & selection
+
+## 🎯 Three Strategy Pattern Applications
+
+This project showcases the Strategy Pattern in **three different contexts**:
+
+### 1️⃣ Error Handling Strategies
+**7 different strategies** for handling HTTP errors:
+- V1: None (worst case)
+- V2: Basic (always 500)
+- V3: Switch (proper status codes)
+- V4: Switch with Context
+- V5: Specific Exception Handlers
+- V6: SOLID Strategy (production-ready)
+- V7: Basta (ASCII art demo)
+
+**Key Benefit**: Change error handling behavior without touching business logic
+
+### 2️⃣ Canvas Visualization Strategies
+Convert graph data (JSON) to different diagram formats:
+- **Mermaid Strategy** → GitHub-friendly markdown diagrams
+- **Graphviz Strategy** → Professional DOT format
+- **Extensible** → Add PlantUML, D2, or custom formats
+
+**Key Benefit**: One data model, multiple visualization outputs
+
+### 3️⃣ Endpoint Registration Strategies
+Flexible endpoint mapping with `IEndpointRegistration`:
+- Each endpoint implements its own mapping strategy
+- Automatic DI registration
+- Isolated & testable
+
+**Key Benefit**: Scalable endpoint architecture
 
 ## 🏗️ Project Structure
 
@@ -61,33 +100,50 @@ StrategyPattern.Evolution/
 │           └── Create/
 │               ├── Endpoints/
 │               │   └── CreateUserEndpoint.cs      # Simple User API
-│               ├── UserDemoData.cs                # In-memory repository
-│               └── ValidationException.cs         # Custom validation
+│               ├── Models/
+│               │   └── User.cs                    # User domain model
+│               ├── Requests/
+│               │   └── CreateUserRequest.cs       # API request model
+│               └── Responses/
+│                   └── CreateUserResponse.cs      # API response model
 │
 ├── Strategies/
+│   ├── Endpoints/
+│   │   └── RegisterEndpoints.cs                   # 🎯 Strategy: Endpoint registration
+│   │
+│   ├── Sample_Graph/
+│   │   ├── Canvas_01_*.json                       # Sample Canvas graph data
+│   │   └── Canvas_01_*.md                         # Rendered Mermaid output
+│   │
 │   ├── V1_None/
-│   │   └── NoneErrorHandlingStrategy.cs           # Worst case (educational)
+│   │   └── NoErrorMiddleware.cs                   # Worst case (educational)
 │   ├── V2_Basic/
-│   │   └── BasicErrorHandlingStrategy.cs          # Basic try-catch (always 500)
+│   │   └── BasicErrorMiddleware.cs                # Basic try-catch (always 500)
 │   ├── V3_Switch/
-│   │   └── SwitchErrorHandlingStrategy.cs         # Switch + ProblemDetails
-│   ├── V4_SpecificExceptionHandlers/
-│   │   └── SpecificExceptionHandlersStrategy.cs   # Extensible handlers
-│   ├── V5_SpecificHandlersAndFullContext/
-│   │   └── NextLevelErrorHandlingStrategy.cs      # Full context + centralized
-│   ├── V6_NextLevel/
-│   │   └── (Enterprise NuGet Package)             # Production-ready
+│   │   └── SwitchErrorMiddleware.cs               # Switch + ProblemDetails
+│   ├── V4_SwitchContext/
+│   │   └── SwitchContextErrorMiddleware.cs        # Context-aware switching
+│   ├── V5_SpecificStrategyErrorHandling/
+│   │   └── SpecificStrategyErrorHandling.cs       # 🎯 Extensible handlers
+│   ├── V6_Solid_Strategy/
+│   │   ├── ErrorHandlingStrategy.cs               # 🎯 SOLID principles
+│   │   ├── ErrorResponseWriter.cs                 # Response formatting
+│   │   └── Exceptions/                            # Specialized handlers
 │   └── V7_Basta/
 │       └── BastaErrorHandlingStrategy.cs          # ASCII Art demo
 │
-├── ErrorResponseHandling/                         # Full error handling system
-│   ├── Handlers/                                  # Specialized exception handlers
-│   ├── ResponseWriters/                           # Response formatting
-│   └── Settings/                                  # Configuration
-│
-└── Endpoints/
-    └── RegisterEndpoints.cs                       # Endpoint registration
+└── Startup/
+    ├── BastaStrategyWebApi.cs                     # 🎭 Facade Pattern
+    ├── IStartupStrategy.cs                        # Strategy interface
+    ├── StartupStrategyFactory.cs                  # 🏭 Factory Pattern
+    └── Specific/
+        └── V*_*.cs                                # Concrete startup strategies
 ```
+
+**Legend:**
+- 🎯 = Strategy Pattern implementation
+- 🎭 = Facade Pattern
+- 🏭 = Factory Pattern
 
 ## 🚀 Quick Start
 
@@ -115,15 +171,65 @@ dotnet run
    - Open `demo-requests.http` in VS Code (with REST Client extension)
    - Or use Postman/curl with the provided requests
 
-## 📊 Strategy Comparison
+## 🎨 Strategy Pattern Showcase: Canvas Visualization
 
-| Feature | V1 None | V2 Basic | V3 Switch | V4 Handlers | V5 Context | V6 NextLevel | V7 Basta |
-|---------|---------|----------|-----------|-------------|------------|--------------|----------|
+The **Canvas Visualization** demonstrates the Strategy Pattern for converting graph data structures to different output formats:
+
+### Real-World Scenario
+Transform complex **Canvas JSON** (nodes + edges) into visual diagrams using different rendering strategies:
+- **Mermaid Strategy** - GitHub-friendly markdown diagrams
+- **Graphviz Strategy** - Professional graph visualization (DOT format)
+- **Future Strategy** - PlantUML, D2, or custom formats
+
+### Sample Data Location
+```
+Strategies/Sample_Graph/
+├── Canvas_01_Delete_google-search-agent.json  # Complex AWS architecture graph
+└── Canvas_01_Delete_google-search-agent.md    # Rendered Mermaid output
+```
+
+### Strategy Benefits
+✅ **Runtime Selection** - Choose output format at runtime
+✅ **Easy Extension** - Add new formats without changing existing code
+✅ **Testability** - Each strategy can be tested independently
+✅ **Separation of Concerns** - Graph logic separated from rendering
+
+### Visual Example
+The sample shows an AWS microservices architecture with:
+- **21 nodes** (Fargate, S3, Aurora, Bedrock, etc.)
+- **15 edges** (relationships between services)
+- **Color coding** (marked for deletion, added, changed)
+- **Statistics & Impact Analysis**
+
+## 🔌 Strategy Pattern Showcase: Endpoint Registration
+
+The **Endpoint Registration** system demonstrates another Strategy Pattern application:
+
+### Interface: `IEndpointRegistration`
+```csharp
+internal interface IEndpointRegistration
+{
+    void Map(IEndpointRouteBuilder versionBasePath);
+}
+```
+
+### Benefits
+✅ **Flexible Endpoint Behavior** - Each endpoint defines its own mapping strategy
+✅ **Dependency Injection** - All endpoint strategies registered automatically
+✅ **Scalability** - Add new endpoints without modifying existing code
+✅ **Testability** - Each endpoint can be tested in isolation
+
+**Location**: `Strategies/Endpoints/RegisterEndpoints.cs`
+
+## 📊 Error Handling Strategy Comparison
+
+| Feature | V1 None | V2 Basic | V3 Switch | V4 Context | V5 Handlers | V6 SOLID | V7 Basta |
+|---------|---------|----------|-----------|------------|-------------|----------|----------|
 | HTTP Status Codes | ❌ Wrong | ❌ Always 500 | ✅ Proper | ✅ Proper | ✅ Proper | ✅ Proper | 🎨 Art |
 | RFC 9457 Format | ❌ | ❌ | ✅ | ✅ | ✅ | ✅ | ❌ Demo |
-| Inner Exceptions | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ | ❌ |
-| Extensible Handlers | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ | ❌ |
-| Centralized Writing | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ❌ |
+| Inner Exceptions | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ❌ |
+| Extensible Handlers | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ❌ |
+| Centralized Writing | ❌ | ❌ | ❌ | ❌ | ⚠️ | ✅ | ❌ |
 | Field-level Validation | ❌ | ❌ | ❌ | ❌ | ⚠️ | ✅ | ❌ |
 | Security (Hide 5xx) | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ |
 | Production-Ready | ❌ | ❌ | ⚠️ | ⚠️ | ⚠️ | ✅ | ❌ |
@@ -166,13 +272,13 @@ webApi.Run();
 ```
 
 **Available Strategies:**
-- `StrategyType.None` - V1: Worst case (empty JSON, always 400)
-- `StrategyType.Basic` - V2: Simple 500 errors
-- `StrategyType.Switch` - V3: ProblemDetails with status codes
-- `StrategyType.SpecificExceptionHandlers` - V4: Extensible handler pattern
-- `StrategyType.SpecificHandlersAndFullContext` - V5: Full context + centralized writing
-- `StrategyType.NextLevel` - V6: Enterprise NuGet package (Default)
-- `StrategyType.Basta` - V7: ASCII Art Demo (fun!) 🎉
+- `StrategyType.V1_None` - V1: Worst case (empty JSON, always 400) - Educational only
+- `StrategyType.V2_Basic` - V2: Simple 500 errors - Basic try-catch
+- `StrategyType.V3_Switch` - V3: ProblemDetails with status codes
+- `StrategyType.V4_SwitchContext` - V4: Context-aware switching
+- `StrategyType.V5_SpecificStrategyErrorHandling` - V5: Extensible handler pattern
+- `StrategyType.V6_Solid_Strategy` - V6: SOLID principles + full features (Recommended)
+- `StrategyType.V7_Basta` - V7: ASCII Art Demo (fun!) 🎉
 
 ## 📝 Configuration
 
@@ -208,14 +314,33 @@ webApi.Run();
 
 ## 🌟 Key Takeaways
 
-1. **Design Patterns in Combination**: Facade + Strategy + Factory = Clean Code
-2. **From 40+ Lines to 3 Lines**: Strategic refactoring reduces complexity
-3. **Start Simple, Evolve**: V1 → V2 → FullBlown
-4. **Strategy Pattern**: Decouple error handling from business logic
-5. **Facade Pattern**: Hide complexity behind a simple API
-6. **Production-Ready Patterns**: Inspired by real-world SDK (Siemens)
-7. **Security First**: Hide 5xx details in production (FullBlown strategy)
-8. **Developer Experience**: Clean startup code = maintainable codebase
+1. **Strategy Pattern Everywhere**:
+   - 🔧 Error Handling Strategies (7 implementations)
+   - 🎨 Canvas Visualization Strategies (Mermaid, Graphviz)
+   - 🔌 Endpoint Registration Strategies (flexible mapping)
+
+2. **Design Patterns in Combination**: Facade + Strategy + Factory = Clean Code
+
+3. **From 40+ Lines to 3 Lines**: Strategic refactoring reduces complexity
+
+4. **Evolution Philosophy**: Start Simple, Evolve Gradually
+   - V1 (None) → V2 (Basic) → V3 (Switch) → V4 (Context) → V5 (Handlers) → V6 (SOLID)
+
+5. **Strategy Pattern Benefits**:
+   - ✅ Decouple algorithms from business logic
+   - ✅ Runtime selection of behavior
+   - ✅ Easy to extend without modifying existing code (Open/Closed Principle)
+   - ✅ Each strategy is independently testable
+
+6. **Facade Pattern**: Hide complexity behind a simple API (3 lines in Program.cs)
+
+7. **Production-Ready Patterns**: Inspired by real-world SDK (Siemens)
+
+8. **Security First**: Hide 5xx details in production (V6 strategy)
+
+9. **Developer Experience**: Clean startup code = maintainable codebase
+
+10. **Real-World Applications**: All patterns demonstrated with production-ready examples
 
 ## 📚 Resources
 

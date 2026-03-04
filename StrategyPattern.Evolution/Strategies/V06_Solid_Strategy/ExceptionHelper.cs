@@ -1,4 +1,4 @@
-namespace StrategyPattern.Evolution.Strategies.V6_Solid_Strategy
+namespace StrategyPattern.Evolution.V06_Solid_Strategy
 {
     public class ExceptionHelper
     {

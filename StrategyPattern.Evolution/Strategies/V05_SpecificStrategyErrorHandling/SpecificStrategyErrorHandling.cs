@@ -1,5 +1,5 @@
 
-namespace StrategyPattern.Evolution.V5_SpecificStrategyErrorHandling
+namespace StrategyPattern.Evolution.V05_SpecificStrategyErrorHandling
 {
     
     internal interface IExceptionHandler
