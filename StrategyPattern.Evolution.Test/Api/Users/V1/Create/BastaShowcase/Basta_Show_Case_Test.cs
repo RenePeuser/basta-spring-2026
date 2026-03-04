@@ -16,19 +16,22 @@ namespace StrategyPattern.Evolution.Test.Api.Users.V1.Create.BastaShowcase
     //          }
     //
     // Response: ? Unknown ?
+    //
+    // 1. Set up a test case to reproduce the problem and verify the expected response.
+    // 2. Analyze the current response
+    // 3. Debug the code (CLR) to find the root cause of the problem.
     [TestClass]
     [TestCategory("Basta")]
     public class Basta_Show_Case_Test : ApiTestBase
     {
         [TestMethod]
-        [DynamicRequestLocator] // ITestDataSource
+        [DynamicRequestLocator]
         public Task What_Is_The_Problem(string useCase)
         {
             return Client.AssertPostAsync<CreateUserResponse>("api/v1/users",
                                                               useCase,
                                                               useCase);
         }
-
 
         [TestMethod]
         [DynamicRequestLocator]

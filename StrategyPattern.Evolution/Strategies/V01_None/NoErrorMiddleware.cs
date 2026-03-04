@@ -10,7 +10,7 @@ namespace StrategyPattern.Evolution.V01_None
             }
             catch (Exception)
             {
-                // ToDo: It is Friday 6pm we will fix it on monday morning - Weekend !
+                // ToDo: It is Friday 6pm we will fix it on monday morning !
                 context.Response.StatusCode = StatusCodes.Status500InternalServerError;
                 await context.Response.WriteAsJsonAsync(new object());
             }
