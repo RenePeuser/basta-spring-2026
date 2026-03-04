@@ -16,23 +16,19 @@ namespace StrategyPattern.Evolution.Test
 
         protected static HttpClient Client { get; private set; } = null!;
 
-        /// <summary>
-        ///     Initializes the test assembly by setting up the API test environment.
-        ///     Import this happens one time before all tests are running. This is
-        ///     like your prod case. Because your API is running continuously.
-        /// </summary>
-        /// <param name="_">The test context.</param>
         [AssemblyInitialize]
         public static void AssemblyInitialize(TestContext _)
         {
-            // 1. Super simple just use the provided API test base class and you are ready to go
+            // Super simple just use the provided API test base class, and you are ready to go
             _apiTestBase = new ApiTestBase<Program>("Development", // The environment name
                                                     (_, _) =>
                                                     {
                                                     }); // Configure environment variables
 
+            // Create the client that will be used for all API calls in the tests
             Client = _apiTestBase.CreateClient();
 
+            // Special case for snapshot testing
             AssertObjectExtensions.WriteResponse = true;
             AssertObjectExtensions.DifferenceFunc = DifferenceFunc;
         }
@@ -48,13 +44,6 @@ namespace StrategyPattern.Evolution.Test
 
                 yield return difference;
             }
-        }
-
-        protected static string GetUniqueRunnerName()
-        {
-            // Hint: In real world app use caller file path and create a unique name
-            // based on that. This way you can run tests in parallel without conflicts.
-            return Environment.MachineName;
         }
 
         [AssemblyCleanup]

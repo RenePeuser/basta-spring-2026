@@ -12,7 +12,7 @@ namespace StrategyPattern.Evolution.Test.Api.Users.V1.Create.BastaShowcase
     //             "firstName": "Basta",
     //             "lastName": "2026",
     //             "email": "basta@2026.local",
-    //             "userType": "Conference"
+    //             "userType": "Organizer"
     //          }
     //
     // Response: ? Unknown ?

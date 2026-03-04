@@ -25,4 +25,6 @@
         <EmbeddedResource Include="**\*.sql" Exclude="bin\**\*;obj\**\*" />
     </ItemGroup>
 
+    <ProjectExtensions><VisualStudio><UserProperties api_4users_4v1_4create_4bastashowcase_4responses_4basta_3user_3error_1json__JsonSchema="https://api.bluebricks.co/docs/schemas/latest/bricks.schema.json" /></VisualStudio></ProjectExtensions>
+
 </Project>
