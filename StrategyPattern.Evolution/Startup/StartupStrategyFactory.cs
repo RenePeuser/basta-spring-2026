@@ -1,10 +1,12 @@
 namespace StrategyPattern.Evolution
 {
     // This is a pure helper ! so we do not escalate strategies as well here -> but we could :)
+    // !!! Just for DEMO !!! 
     public static class StartupStrategyFactory
     {
         public static IStartupStrategy GetStartupStrategy(StrategyType strategyType)
         {
+            // !!! Just for DEMO !!! 
             return strategyType switch
             {
                 StrategyType.V1_None => new Startup.V1_None(),

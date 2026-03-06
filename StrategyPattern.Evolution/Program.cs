@@ -1,5 +1,9 @@
 using StrategyPattern.Evolution;
 
+
+// Real use case if you have different kind of web api hosts
+// - Serverless (Azure Functions, AWS Lambda, Google Cloud Functions)
+// - EC2, AppService
 var webApi = new BastaStrategyWebApi(args);
 
 webApi.StrategyType = StrategyType.V8_Enterprise;

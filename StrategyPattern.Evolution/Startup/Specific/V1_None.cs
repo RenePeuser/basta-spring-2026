@@ -16,6 +16,8 @@ namespace StrategyPattern.Evolution.Startup
 
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
+            // In real PROD environment, use service registrations extensions !
+
             // Domain - User endpoint registration
             services.AddSingleton<IEndpointRegistration, CreateUserEndpoint>();
 
