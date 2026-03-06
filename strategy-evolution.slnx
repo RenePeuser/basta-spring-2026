@@ -10,6 +10,9 @@
     <File Path="Directory.Packages.props" />
     <File Path="NuGet.Config" />
   </Folder>
+  <Folder Name="/PowerPoint/">
+    <File Path="Basta_March_2026.pptx" />
+  </Folder>
   <Folder Name="/SolutionItems/">
     <File Path=".editorconfig" />
     <File Path="Directory.Build.props" />

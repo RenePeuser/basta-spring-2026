@@ -2,39 +2,9 @@ using StrategyPattern.Evolution;
 
 var webApi = new BastaStrategyWebApi(args);
 
-webApi.StrategyType = StrategyType.V1_None;
+webApi.StrategyType = StrategyType.V8_Enterprise;
 
 webApi.Run();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // This is important that you are able to use
 // API test via WebApplicationFactory<Program>
